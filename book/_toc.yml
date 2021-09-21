@@ -1,4 +1,20 @@
 format: jb-book
 root: landing-page
-chapters:
-- file: page1
+
+parts:
+  - caption: Introduction
+    chapters:
+      - file: part1_intro/default
+      - file: part1_intro/default2
+  - caption: Basics of Music Classification
+    chapters:
+      - file: part2_basics/default
+  - caption: Supervised Learning
+    chapters:
+      - file: part3_supervised/default
+  - caption: Beyond Supervised Learning
+    chapters:
+      - file: part4_beyond/default
+  - caption: Towards Real-world Applications
+    chapters:
+      - file: part5_towards/default

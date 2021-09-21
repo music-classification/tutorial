@@ -1,4 +1,4 @@
-title: "Music Classification"
-logo: images/bd.svg
+title: "Music Classification: Beyond Supervised Learning, Towards Real-world Applications"
+#logo: images/bd.svg
 execute:
   execute_notebooks: "off"
