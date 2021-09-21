@@ -1,0 +1,4 @@
+title: "Music Classification"
+logo: images/bd.svg
+execute:
+  execute_notebooks: "off"

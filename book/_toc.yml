@@ -1,0 +1,4 @@
+format: jb-book
+root: landing-page
+chapters:
+- file: page1
