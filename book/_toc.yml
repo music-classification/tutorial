@@ -9,19 +9,19 @@ parts:
       - file: part1_intro/default2
   - caption: Basics of Music Classification
     chapters:
-      - file: part2_intro/intro
+      - file: part2_basics/intro
       - file: part2_basics/default
   - caption: Supervised Learning
     chapters:
-      - file: part3_intro/intro
+      - file: part3_supervised/intro
       - file: part3_supervised/default
   - caption: Beyond Supervised Learning
     chapters:
-      - file: part4_intro/intro
+      - file: part4_beyond/intro
       - file: part4_beyond/default
   - caption: Towards Real-world Applications
     chapters:
-      - file: part5_intro/intro
+      - file: part5_towards/intro
       - file: part5_towards/default
   - caption: Resources
     chapters:
