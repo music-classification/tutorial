@@ -4,17 +4,27 @@ root: landing-page
 parts:
   - caption: Introduction
     chapters:
+      - file: part1_intro/intro
       - file: part1_intro/default
       - file: part1_intro/default2
   - caption: Basics of Music Classification
     chapters:
+      - file: part2_intro/intro
       - file: part2_basics/default
   - caption: Supervised Learning
     chapters:
+      - file: part3_intro/intro
       - file: part3_supervised/default
   - caption: Beyond Supervised Learning
     chapters:
+      - file: part4_intro/intro
       - file: part4_beyond/default
   - caption: Towards Real-world Applications
     chapters:
+      - file: part5_intro/intro
       - file: part5_towards/default
+  - caption: Resources
+    chapters:
+      - file: part9_resources/references
+      - file: part9_resources/citation
+      - file: part9_resources/authors
