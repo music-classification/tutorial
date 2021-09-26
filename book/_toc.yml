@@ -22,7 +22,11 @@ parts:
   - caption: Towards Real-world Applications
     chapters:
       - file: part5_towards/intro
-      - file: part5_towards/default
+      - file: part5_towards/underexplored-problems
+      - file: part5_towards/dataset-creation
+      - file: part5_towards/evaluation-deployment
+      - file: part5_towards/other-issues
+
   - caption: Resources
     chapters:
       - file: part9_resources/references
