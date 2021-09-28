@@ -2,23 +2,26 @@ format: jb-book
 root: landing-page
 
 parts:
-  - caption: Introduction
+  - caption: Motivation
     chapters:
-      - file: part1_intro/intro
-      - file: part1_intro/default
-      - file: part1_intro/default2
+      - file: part1_intro/what-is-music-classification
+      - file: part1_intro/why-music-classification
   - caption: Basics of Music Classification
     chapters:
-      - file: part2_basics/intro
-      - file: part2_basics/default
+      - file: part2_basics/input-representation
+      - file: part2_basics/dataset
+      - file: part2_basics/evaluation
   - caption: Supervised Learning
     chapters:
-      - file: part3_supervised/intro
-      - file: part3_supervised/default
+      - file: part3_supervised/introduction
+      - file: part3_supervised/architectures
+      - file: part3_supervised/data-augmentation
+      - file: part3_supervised/tutorial
   - caption: Beyond Supervised Learning
     chapters:
-      - file: part4_beyond/intro
-      - file: part4_beyond/default
+      - file: part4_beyond/introduction
+      - file: part4_beyond/transfer-learning
+      - file: part4_beyond/semi-supervised-learning
       - file: part4_beyond/self-supervised-learning
   - caption: Towards Real-world Applications
     chapters:
