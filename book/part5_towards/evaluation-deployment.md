@@ -19,7 +19,6 @@
 
 
 ## Deployment
-
   - Reproducability of..
     - Software/your code!
     - Model 
@@ -29,6 +28,13 @@
   - Is your model actually useful for the whole catalog you have?
     - E.g., if album cover images are used in the model, are they going to be available for all the music tracks?
   -   
+
+
+## Serving
+- It's for ML Engineers! But at least we'd want to know things such as
+  - The platform (Mobile? Server?)
+  - Expected latency and throughput
+- (to add more) 
 
 ### After segment-level prediction: Aggregation!
 

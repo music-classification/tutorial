@@ -28,3 +28,10 @@ What reasons exactly?
 - When it's hard to create a dataset --> In this data-driven era, it's a deal breaker.
 - When the problem is too new / there's no dataset for it --> No way, of course.
 - When it's difficult to evaluate --> Don't feed Reviewer 2 a reason for rejection!  
+
+# A thing called "MLOps"
+
+![](_img_mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-1-elements-of-ml.png)
+
+This famous image from [Machine Learning: The High Interest Credit Card of Technical Debt](https://research.google/pubs/pub43146/)
+shows other modules besides ML Code in a ML system. There are so many of them that people even coined a new word, "MLOps".
