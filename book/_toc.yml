@@ -27,7 +27,7 @@ parts:
       - file: part5_towards/evaluation-deployment
       - file: part5_towards/underexplored-problems
       - file: part5_towards/other-issues
-        -
+
   - caption: Conclusion
     chapters:
       - file: part8_conclusion/_intro
