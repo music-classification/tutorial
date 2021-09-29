@@ -1,3 +1,5 @@
 # Data augmentation
 
-Lorem ipsum
+Different types of data augmentation.
+
+Available libraries.

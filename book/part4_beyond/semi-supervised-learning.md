@@ -1,3 +1,3 @@
 # Semi-supervised learning
 
-Lorem ipsum
+Semi-supervised approaches.

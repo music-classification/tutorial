@@ -1,3 +1,3 @@
 # Transfer learning
 
-Lorem ipsum
+Transfer learning. Why and how. Introduce possible pretext tasks.

@@ -1,3 +1,9 @@
 # Input representation
 
-Lorem ipsum
+Raw audio
+
+Mel spectrogram
+
+CQT
+
+HCQT
