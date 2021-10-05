@@ -17,19 +17,22 @@ parts:
       - file: part3_supervised/architectures
       - file: part3_supervised/data-augmentation
       - file: part3_supervised/tutorial
-  - caption: Beyond Supervised Learning
+  - caption: Semi-supervised Learning
     chapters:
       - file: part4_beyond/introduction
       - file: part4_beyond/transfer-learning
       - file: part4_beyond/semi-supervised-learning
-      - file: part4_beyond/self-supervised-learning
+  - caption: Self-supervised Learning
+    chapters:
+      - file: part5_beyond/introduction
+      - file: part5_beyond/self-supervised-learning
   - caption: Towards Real-world Applications
     chapters:
-      - file: part5_towards/_intro
-      - file: part5_towards/dataset-creation
-      - file: part5_towards/evaluation-deployment
-      - file: part5_towards/underexplored-problems
-      - file: part5_towards/other-issues
+      - file: part7_towards/_intro
+      - file: part7_towards/dataset-creation
+      - file: part7_towards/evaluation-deployment
+      - file: part7_towards/underexplored-problems
+      - file: part7_towards/other-issues
 
   - caption: Conclusion
     chapters:

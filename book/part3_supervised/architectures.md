@@ -1,5 +1,7 @@
 # Architectures
 
+@janne
+
 Spectrogram models
 FCN, MusiCNN, VGG-ish / short-chunk CNN, CRNN, Transformer
 

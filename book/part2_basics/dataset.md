@@ -1,5 +1,11 @@
 # Datasets
 
+"discussion" 
+@keunwoo
+
+https://ismir.net/resources/datasets/
+
+
 Introduce available datasets and their characteristics, links, etc. 
 
 Genre classification: GTZAN, FMA, Ballroom, Extended ballroom, ...
