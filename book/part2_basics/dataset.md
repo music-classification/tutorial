@@ -91,32 +91,54 @@ This dataset turned out to be big enough to train some early deep neural network
 - Know you're dealing with a weakly labeled dataset|
 ```
 
-## Million Song Dataset (2011)
+## [Million Song Dataset (2011)](http://millionsongdataset.com/)
 ```{note}
 - Audio is not directly available. 
-  - Only a crawled version that contains 99% of the preview clips are available by word of mouth.
-- 
+  - As of 2021, only a crawled version that contains ~99% of the preview clips is available by word of mouth.
+- Literally a million tracks: By far the biggest dataset
+- The provided last.fm tags are realistic
 ```
+The million song dataset (MSD, [BEW+11]) is a monumental music dataset. It was ahead of time in every aspect -- size, quality, reliability, and various complementary features.
 
-etc etc
+MSD has been *the* music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system [**[ODS13]**](https://biblio.ugent.be/publication/4324554) and the first large-scale music tagging [**[CFS16]**](https://arxiv.org/abs/1606.00298). (+.. similarity search??)   
+
+Researchers usually formulate the music tagging on MSD as a top-50 prediction task. This may be partially due to the convention of MagnaTagATune and earlier research, but it makes sense considering the sparsity of the tags. The tags in MSD are in an extremely long tail.
+
+> in the MSD, .. there are
+522,366 tags. This is outnumbering the 505,216 unique tracks..
+>  
+> .. the most popular tag is ‘rock’ which is associated with 101,071 tracks. However, ‘jazz’, the 12th most popular tag is used for only 30,152 tracks and ‘classical’, the 71st popular tag is used
+11,913 times only. ..
+
+ (from [**[CFC+]**](https://ieeexplore.ieee.org/abstract/document/8323324)
+)
 
 ```{warning}
 - Some splits have artist leakage
 - It might be difficult to get the mp3s 
 ```
 
+[The dataset split](https://github.com/keunwoochoi/MSD_split_for_tagging/) used in [**[CFS16]**](https://arxiv.org/abs/1606.00298) was based on simple random sampling. However, ... [todo; ask Minz]  
+
+One critical downside of MSD is the availability of the audio. The creators of MSD adopted a very modern approach on this - while only distributing audio features and metadata, they released a code snippet for fetching 30-second audio previews from [7digital](https://us.7digital.com/). (Recently, people have reported the audio preview API does not work anymore. This means the audio is available only by word of mouth.)
+
 
 ```{tip}
-- Ask around!
+- 🤫 Ask around for the audio!
 - Use the recent split
-- Weakly labeled 
 - No music after 2011
 ```
----
-## datasets
+- NSYNTH
+- audioset
+- openmic
+- RWC
+- some mood stuff
+
+## FMA
 ```{note}
 - basic specs
 ```
+
 
 ```{warning}
 - etc etc
@@ -126,8 +148,51 @@ etc etc
 ```{tip}
  - etc 
 ```
+## MTG-Jamendo
+```{note}
+- basic specs
+```
+
+
+```{warning}
+- etc etc
+```
+
+
+```{tip}
+ - etc 
+```
+## AudioSet
+```{note}
+- basic specs
+```
+
+
+```{warning}
+- etc etc
+```
+
+
+```{tip}
+ - etc 
+```
+## NSynth
+```{note}
+- basic specs
+```
+
+
+```{warning}
+- etc etc
+```
+
+
+```{tip}
+ - etc 
+```
+
 ---
-## datasets
+## mood?
 ```{note}
 - basic specs
 ```
