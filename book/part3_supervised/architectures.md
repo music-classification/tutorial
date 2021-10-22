@@ -2,9 +2,53 @@
 
 @minz
 
-This tutorial mainly covers deep learning approaches for music classification. Let's check different deep architectures to improve music tagging and classification performances.
+### Overview
+This tutorial mainly covers deep learning approaches for music classification. Before we jump into the details of different deep architectures, let's check some important attributes of music classification models. 
+
+<p align = "center">
+<img src = "./../images/minz/overview.png" width=650>
+</p>
+<p align = "center">
+Music classification model
+</p>
+
+As shown in figure above, a music classification model consists of preprocessing, front end, and back end modules. We have already checked preprocessing steps to extract different input representation in previous section. Front end of the music classification model captures local acoustic characteristics such as timbre, pitch, or existance of a certain instrument. Then the back end summarizes the sequence of the extracted features from front end module. Based on the architecture design, sometimes the boundary of front end and back end can be ambiguous.
+
+<p align = "center">
+<img src = "./../images/minz/mil.png" width=300>
+</p>
+<p align = "center">
+</p>
 
 
+Another important attribute of music classification is song-level training vs instance-level training. Although our goal is to make song-level predictions, we can only use short segments of audio during the training. Instance-level training is justified by our intuition – humans can predict music tags within just a few seconds. For example, people would not spend 3 minutes to determine whether a track is rock music. As shown above, when we train the model in an instance-level, we have more training examples and the task becomes more difficult as the model needs to predict only with short audio segments. In consequence, one can expect more robust music tagging models. After training, when model predicts in a song-level, the instance-level predictions are aggregated using max-pooling, average-pooling, or majority vote. 
+
+We summarize important attributes of music classification models as follow:
+
+<style>
+td {
+  font-size: 12px
+}
+</style>
+|Model|Preprocessing|Input length|Front end|Back end|Training|Aggregation|
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+|FCN|STFT|29.1s|2D CNN|.|song-level|.|
+|VGG-ish / Short-chunk CNN|STFT|3.96s|2D CNN|Global max pooling|instance-level|Average|
+|Harmonic CNN|STFT|5s|2D CNN|Global max pooling|instance-level|Average|
+|MusiCNN|STFT|3s|2D CNN|1D CNN|instance-level|Average|
+|Sample-level CNN|.|3s|1D CNN|1D CNN|instance-level|Average|
+|CRNN|STFT|29.1s|2D CNN|RNN|song-level|.|
+|Music tagging transformer|STFT|15s|2D CNN|Transformer|instance-level|Average|
+
+
+<!--|FCN|오른쪽정렬|중앙정렬|
+|VGG-ish / Short-chunk CNN|오른쪽정렬|중앙정렬|
+|Harmonic CNN|오른쪽정렬|중앙정렬|
+|MusiCNN|오른쪽정렬|중앙정렬|
+|Sample-level CNN|오른쪽정렬|중앙정렬|
+|CRNN|오른쪽정렬|중앙정렬|
+|Transformer|오른쪽정렬|중앙정렬|
+-->
 ### Fully Convolutional Network (FCN)
 Motivated from a huge success of convolutional neural networks (CNN) in the field of computer vision, MIR researchers adopted the successful architectures to solve automatic music tagging problems. Fully convolutional network (FCN) is one of the early deep learning approaches for music tagging which comprises of 4 convolutional layers. Each layer is followed by batch normalization, rectified linear unit (ReLU) non-linearity, and a max-pooling layer. 3x3 convolutional filters are used to capture spectro-temporal acoustic characteristics of an input Mel spectrogram. 
 <p align = "center">
@@ -20,16 +64,8 @@ Input length of FCN is 29.1s, yielding 96x1366 Mel spectrogram. Different sizes 
 ### VGG-ish / Short-chunk CNN
 VGG-ish model or Short-chunk CNN are very similar to FCN except their inputs. Instead of learning song-level representation, they utilize instance-level (chunk-level) training. 
 
-<p align = "center">
-<img src = "./../images/minz/mil.png" width=300>
-</p>
-<p align = "center">
-</p>
 
-As shown above, when we train the model in an instance-level, we have more training examples and the task becomes more difficult as the model needs to predict only with short audio segments. In consequence, one can expect more robust music tagging models. After training, when model predicts in a song-level, the instance-level predictions are aggregated using max-pooling, average-pooling, or majority vote. 
-
-
-Since the input length is shorter than FCN's inputs, vgg-ish model and Short-chunk CNN does not need to increase the size of receptive fields with sparse strides. Instead, Short-chunk CNN, for example, consists of 7 convolutional layers with dense max-pooling (2, 2) which fits a 3.69s audio chunk.
+Since the input length is shorter than FCN's inputs, vgg-ish model and Short-chunk CNN does not need to increase the size of receptive fields with sparse strides. Instead, Short-chunk CNN, for example, consists of 7 convolutional layers with dense max-pooling (2, 2) which fits a 3.69s audio chunk. When its input becomes longer, the model summarizes the features using global max pooling.
 
 
 
@@ -125,35 +161,5 @@ And the conclusion can be summarized as:
 PyTorch implementation of introduced models are available online [[Github](https://github.com/minzwon/sota-music-tagging-models.git)].
 
 Also, you can try online demo of pretrained models [[Replicate.ai](https://replicate.ai/minzwon/sota-music-tagging-models)]
-
-
-### Reference
-[1]
-
-[2]
-
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
-
-[14]
 
 
