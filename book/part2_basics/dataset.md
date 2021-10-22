@@ -25,7 +25,7 @@ These are some important but rarely discussed aspects.
 - Single-label genre classification
 ```
 
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333468174%3Fsecret_token%3Ds-vEmb6LcHis4&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/gtzan-music-genre/s-vEmb6LcHis4" title="Gtzan Music Genre" target="_blank" style="color: #cccccc; text-decoration: none;">Gtzan Music Genre</a></div>
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333468174&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/gtzan-music-genre" title="Gtzan Music Genre" target="_blank" style="color: #cccccc; text-decoration: none;">Gtzan Music Genre</a></div>
 
 
 The famous GTZAN dataset ([TODO: add citation]) deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
@@ -66,7 +66,7 @@ This is not a viable option these days anymore. Let's see more modern approaches
 - Audio is directly available. They're from [magnatune.com](http://magnatune.com/), a marketplace of indie music. John Buckman, the founder of magnatune contributed these files. 
 - 5,405 tracks (25,863 x 29-second clips), 230 artists, 446 albums, 188 tags.
 ```
-<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333473949%3Fsecret_token%3Ds-t6kAON9Vbi0&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/magnatagatune/s-t6kAON9Vbi0" title="MagnaTagATune" target="_blank" style="color: #cccccc; text-decoration: none;">MagnaTagATune</a></div>
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333473949&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/magnatagatune" title="MagnaTagATune" target="_blank" style="color: #cccccc; text-decoration: none;">MagnaTagATune</a></div>
 
 MagnaTagATune (**[LWM+09]**) has played a significant role since its release until even now (2021). It was used in pioneering research such as [DS14](https://ieeexplore.ieee.org/document/6854950), [CFS16](https://archives.ismir.net/ismir2016/paper/000009.pdf), [LPK+17](https://arxiv.org/abs/1703.01789), [WCS21][todo: add link], etc. [janne's. work]. etc.
 
@@ -98,6 +98,7 @@ This dataset turned out to be big enough to train some early deep neural network
 - Literally a million tracks: By far the biggest dataset
 - The provided last.fm tags are realistic
 ```
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334174407&color=%2300aabb&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/million-song-dataset" title="Million Song Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Million Song Dataset</a></div>
 The million song dataset (MSD, [BEW+11]) is a monumental music dataset. It was ahead of time in every aspect -- size, quality, reliability, and various complementary features.
 
 MSD has been *the* music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system [**[ODS13]**](https://biblio.ugent.be/publication/4324554) and the first large-scale music tagging [**[CFS16]**](https://arxiv.org/abs/1606.00298). (+.. similarity search??)   
@@ -128,25 +129,26 @@ One critical downside of MSD is the availability of the audio. The creators of M
 - Use the recent split
 - No music after 2011
 ```
-- NSYNTH
-- audioset
-- openmic
-- RWC
-- some mood stuff
 
 ## FMA
 ```{note}
 - basic specs
 ```
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334749648&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/free-music-archive-dataset" title="Free Music Archive dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Free Music Archive dataset</a></div>
+
+- rigorously processed metadata. maintained in github.
+- more than 100k tracks.
+- has split. etc. etc.
 
 
 ```{warning}
-- etc etc
+- audio quality
 ```
 
 
 ```{tip}
- - etc 
+- good for single-classification and tagging.
+- good that we have all the audio 
 ```
 ## MTG-Jamendo
 ```{note}
@@ -162,25 +164,43 @@ One critical downside of MSD is the availability of the audio. The creators of M
 ```{tip}
  - etc 
 ```
-## AudioSet
+## [AudioSet](https://research.google.com/audioset/index.html)
+
+- [Preview of AudioSet](https://research.google.com/audioset/eval/music.html).
+
 ```{note}
-- basic specs
+- Large scale (2.1 million in total), 1 million under music
+- Fairly strongly labeled in terms of temporal resolution (labeled for 10-second segment)
+- High-quality annotation
+- Official and reliable split is provided
 ```
+
+AudioSet is made for general audio understanding and not specifically for music. But, in their well-designed taxonomy, there is [a high-level category 'music'](https://research.google.com/audioset/ontology/music_1.html) that includes 'musical instrument', 'music genre', 'musical concepts', 'music role', and 'music mood'. In total, there are more than 1M items, each of which corresponds to a specific 10-second of YouTube video.
+   
+The annotation is considered to be more than quite reliable. Also, for each category, AudioSet provides the estimated accuracy of the annotation. 
 
 
 ```{warning}
-- etc etc
+- It includes music with a low audio quality 
+- Only the video URLs are provided
+- The exact version would vary by people
 ```
 
+The varying audio quality might be a downside depending on the target application. The dataset includes [an offical live session](https://youtu.be/0TiEO149Ydc), [a noisy and amateur recording](https://youtu.be/-YIT4HBM__g), [music with a low SNR](https://youtu.be/0Ycad70UNwE), etc. 
 
-```{tip}
- - etc 
-```
+To use AudioSet, one has to crawl the audio signal by themselves. Downloading YouTube video/audio is in a grey zone in terms of copyright, let alone the use of them.
+
+Another issue is that the availabilities of the items in AudioSet are time-varying and country-dependent! Once the videos are taken down, that's it. Depending on the setting, some videos are just not available in some countries. Given the large size, this issue might not be critical in practice -- so far.  
+
+
 ## NSynth
+
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334184460&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/nsynth-dataset" title="NSynth Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">NSynth Dataset</a></div>
+
 ```{note}
 - basic specs
 ```
-
+NSynth is a dataset of instrument samples. Is it a music classification dataset? Yes, but it could be i) too easy  ii) 
 
 ```{warning}
 - etc etc
