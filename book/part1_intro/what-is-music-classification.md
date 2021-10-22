@@ -1,7 +1,5 @@
 # What is music classification?
 
-@minz
-
 Music classification is a music information retrieval (MIR) task whose objective is computational understanding of music semantics. For a given song, a variety of music information can be retrieved in the task -- from genre, mood, and instrument to broader concepts including music similarity and musical preferences. Retrieved information can be further utilized for music curation, recommendation, and semantic search. 
 
 
@@ -17,7 +15,7 @@ Automatic music classification is gaing more attention than ever from both acade
 <img src = "./../images/minz/single_label.png" width=400>
 </p>
 <p align = "center">
-Fig.1 - Single-label classification
+Single-label classification
 </p>
 
 
@@ -30,7 +28,7 @@ Different from the aforementioned example, one item may belong to multiple categ
 <img src = "./../images/minz/multi_label.png" width=400>
 </p>
 <p align = "center">
-Fig.2 - Multi-label classification
+Multi-label classification
 </p>
 
 Music tagging is a multi-label binary classification task. For each tag, the system determines whether a given song is positive to the tag or not. In contrast with single-lable classification, tags are not exclusive to each other and multiple tags can exist together.
@@ -44,13 +42,22 @@ Based on desired categories, there can be almost infinite number of music classi
 - Instrument identification [reference]
 - Music tagging [reference]
 
-Note that music tagging subsumes all other classification tasks.
+Note that music tagging subsumes all other classification tasks as any classification categories can be music tags.
 
 
 ### Applications
-- Curation
+Music classification models can be utilzied to enhance many music applications including curation, semantic search, recommendation, playlist generation, and analysis of listening behaviour.
+<p align = "center">
+<img src = "./../images/minz/ex.png" width=580>
+</p>
+<p align = "center">
+Applications of music classification. Screenshots captured from Apple music, Resso, Pandora, and Spotify
+</p>
+
+<!--- Curation
 - Semantic search
 - Content-based recommendation
 - Playlist generation
 - Analysis
 
+-->

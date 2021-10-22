@@ -1,6 +1,6 @@
 # Evaluation
 
-@minz
+
 
 <!--How can we properly assess the performance of music classification models? This section instroduces broadly used evaluation metrics in music classification and discusses when to apply those metrics.
 -->
@@ -66,8 +66,27 @@ Recall measures how many relevant items are correctly retrieved. Among 10 songs 
 hence the recall of the model is 8 / (8 + 2) = 0.8. Recall is also known as sensitivity or true positive rate. And the opposite term is specificity or true negative rate: how many rejected items are truly negative, i.e., TN / (FP + TN).
 
 
+### F-measure
+F-measure or F1-score is defined as the harmonic mean of precision and recall. The maximum value is 1.0 and the lowest is 0 (either precision or recall is zero).
+<p align = "center">
+<img src="https://render.githubusercontent.com/render/math?math=F_1%20%3D%202%5Ccdot%5Cfrac%7Bprecision%20%5Ccdot%20recall%7D%7Bprecision%2Brecall%7D", width=230>
+</p>
+<p align = "center">
+</p>
+
+
+
 ### High precision vs high recall?
-The model outputs likelihood of the input to have vocal between 0 and 1. With a high threshold, the green circle becomes smaller and the precision of the model becomes higher. When user queries "vocal music", the resulted items will be reliable. However, if the threshold is too high, although the model shows high precision, the recall will become lower since the model will reject less confident items. As a result, only few vocal music will be introduced to users while other songs to be discarded. On the other hand, when threshold is too low, recall gets closer to 1 while precision goes lower. Hence, appropriate decision making of threshold is important.
+The model outputs likelihood of the input to have vocal between 0 and 1. Hence, to make a final decision, we need to set a threshold. With a high threshold, the model becomes more strict that means the green circle becomes smaller. The retrieved results by the model for a given query "vocal music" will be reliable. However, the model only retrieves only few songs among the entire vocal tracks (i.e., high precision, low recall).
+
+<p align = "center">
+<img src = "./../images/minz/pr-curve.png" width=300>
+</p>
+<p align = "center">
+Precision-recall curve
+</p>
+
+This can be observed from the precision-recall curve above. As the opposite example, if we lower the threshold, it results in high recall and low precision that means returning any items to be positive. Hence, appropriate decision making of threshold is important.
 
 
 
