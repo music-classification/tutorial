@@ -130,25 +130,28 @@ One critical downside of MSD is the availability of the audio. The creators of M
 - No music after 2011
 ```
 
-## FMA
+## [FMA (2017)](https://arxiv.org/abs/1612.01840)
 ```{note}
-- basic specs
+- Rigorously processed metadata and split. Maintained nicely on Github.
+- More than 100k full tracks of copyright-free indie music
+- Artist-chosen genres in a hierarchy defind by the website (free music archive)
 ```
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334749648&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/free-music-archive-dataset" title="Free Music Archive dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Free Music Archive dataset</a></div>
 
-- rigorously processed metadata. maintained in github.
-- more than 100k tracks.
-- has split. etc. etc.
 
 
 ```{warning}
-- audio quality
+- Audio quality varies
+- Genre labels are i) from a pre-defined 163-genre hierarchy and ii) chosen by the artist. 
 ```
 
+From a machine learning point of view, the second item in Warning is an advantage. However, it limits the development of realistic models.
+
+FMA includes full-tracks, instead of short preview clips. Along with MTG-Jamendo, it enables interesting research towards fully utilizing the information of the whole audio signal.  
 
 ```{tip}
-- good for single-classification and tagging.
-- good that we have all the audio 
+- Good for genre classification/hierarchical classification.
+- A full-track is available, which is rare in the community 
 ```
 ## MTG-Jamendo
 ```{note}
@@ -200,7 +203,7 @@ Another issue is that the availabilities of the items in AudioSet are time-varyi
 ```{note}
 - basic specs
 ```
-NSynth is a dataset of instrument samples. Is it a music classification dataset? Yes, but it could be i) too easy  ii) 
+NSynth is a dataset of instrument samples. Obviously, it is a music dataset. Is it a music *classification* dataset? Yes, except it is probably i) too easy  ii) not a very popular problem in the real world per se. 
 
 ```{warning}
 - etc etc

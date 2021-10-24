@@ -47,3 +47,8 @@ Aäron Van Den Oord, Sander Dieleman, Benjamin Schrauwen,
 Deep content-based music recommendation,
 Neural Information Processing Systems Conference, 2013
 
+
+[**[DBV+17]**](https://arxiv.org/abs/1612.01840)
+Michaël Defferrard, Kirell Benzi, Pierre Vandergheynst, Xavier Bresson.,
+FMA: A Dataset For Music Analysis,
+*ISMIR*, 2017
