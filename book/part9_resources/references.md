@@ -24,7 +24,13 @@ Semi-Supervised Music Tagging Transformer.
 In *The 22th International Society of Music Information Retrieval Conference*, 2021.
 
 
-[**[CFC+]**](https://ieeexplore.ieee.org/abstract/document/8323324)
+[**[CFC+2018a]**](https://arxiv.org/abs/1709.01922)
+Keunwoo Choi, György Fazekas, Kyunghyun Cho, Mark Sandler
+A Comparison of Audio Signal Preprocessing Methods for Deep Neural Networks on Music Tagging
+In *Proceedings of EUSIPCO 2018*, 2018
+
+
+[**[CFC+2018b]**](https://ieeexplore.ieee.org/abstract/document/8323324)
 
 Keunwoo Choi, György Fazekas, Kyunghyun Cho, Mark Sandler.
 The effects of noisy labels on deep convolutional neural networks for music tagging.
