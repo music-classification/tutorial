@@ -28,7 +28,7 @@ These are some important but rarely discussed aspects.
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333468174&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/gtzan-music-genre" title="Gtzan Music Genre" target="_blank" style="color: #cccccc; text-decoration: none;">Gtzan Music Genre</a></div>
 
 
-The famous GTZAN dataset ([TODO: add citation]) deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
+The famous GTZAN dataset ({cite}`tzanetakis2001gtzan`) deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
 [The first paper using this dataset](https://scholar.google.co.kr/citations?view_op=view_citation&hl=en&user=yPgxxpwAAAAJ&citation_for_view=yPgxxpwAAAAJ:u5HHmVD_uO8C) 
 remains a foundational work in the modern music classification. The dataset was used in [more than 100 papers already in 2013](https://arxiv.org/abs/1306.1461).
 It is popular since the concept of music genres and single-label classification is easy, simple, and straightforward.

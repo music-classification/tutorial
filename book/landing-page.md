@@ -1,17 +1,8 @@
-# Music Classification
+# Music Classification: Beyond Supervised Learning, Towards Real-world Applications
 
 by Minz Won, Janne Spijkervet, and Keunwoo Choi
 
-:::{note}
-Here is a note!
-:::
-
-And here is a code block:
-
-```
-e = mc^2
-```
-
+This is a book written for the [ISMIR 2021 tutorial session](https://ismir2021.ismir.net/tutorials/).
 
 ## Citation
 ```
