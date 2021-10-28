@@ -28,8 +28,8 @@ These are some important but rarely discussed aspects.
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333468174&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/gtzan-music-genre" title="Gtzan Music Genre" target="_blank" style="color: #cccccc; text-decoration: none;">Gtzan Music Genre</a></div>
 
 
-The famous GTZAN dataset ([TODO: add citation]) deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
-[The first paper using this dataset](https://scholar.google.co.kr/citations?view_op=view_citation&hl=en&user=yPgxxpwAAAAJ&citation_for_view=yPgxxpwAAAAJ:u5HHmVD_uO8C) 
+The famous GTZAN dataset ({cite}`tzanetakis2001gtzan`) deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
+[The first paper using this dataset ({cite}`tzanetakis2002musical`)](https://scholar.google.co.kr/citations?view_op=view_citation&hl=en&user=yPgxxpwAAAAJ&citation_for_view=yPgxxpwAAAAJ:u5HHmVD_uO8C) 
 remains a foundational work in the modern music classification. The dataset was used in [more than 100 papers already in 2013](https://arxiv.org/abs/1306.1461).
 It is popular since the concept of music genres and single-label classification is easy, simple, and straightforward.
 30-second mp3 is small and short. With a lot of features and a power classifier, researchers these days can quickly achieve 
@@ -60,7 +60,7 @@ Here's a quote from the website, where you can simply [one-click-download the da
 
 This is not a viable option these days anymore. Let's see more modern approaches.   
 
-## [MagnaTagATune, 2009](https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset)
+## [MagnaTagATune (2009)](https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset)
 ```{note}
 - Designed for tagging problem 
 - Audio is directly available. They're from [magnatune.com](http://magnatune.com/), a marketplace of indie music. John Buckman, the founder of magnatune contributed these files. 
@@ -153,7 +153,7 @@ FMA includes full-tracks, instead of short preview clips. Along with MTG-Jamendo
 - Good for genre classification/hierarchical classification.
 - A full-track is available, which is rare in the community 
 ```
-## MTG-Jamendo
+## [MTG-Jamendo (2019)](https://github.com/MTG/mtg-jamendo-dataset)
 ```{note}
 - basic specs
 ```
@@ -167,7 +167,7 @@ FMA includes full-tracks, instead of short preview clips. Along with MTG-Jamendo
 ```{tip}
  - etc 
 ```
-## [AudioSet](https://research.google.com/audioset/index.html)
+## [AudioSet (2017)](https://research.google.com/audioset/index.html)
 
 - [Preview of AudioSet](https://research.google.com/audioset/eval/music.html).
 
@@ -196,7 +196,7 @@ To use AudioSet, one has to crawl the audio signal by themselves. Downloading Yo
 Another issue is that the availabilities of the items in AudioSet are time-varying and country-dependent! Once the videos are taken down, that's it. Depending on the setting, some videos are just not available in some countries. Given the large size, this issue might not be critical in practice -- so far.  
 
 
-## NSynth
+## [NSynth (2017)](https://magenta.tensorflow.org/nsynth)
 
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334184460&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/nsynth-dataset" title="NSynth Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">NSynth Dataset</a></div>
 
@@ -229,34 +229,7 @@ NSynth is a dataset of instrument samples. Obviously, it is a music dataset. Is 
  - etc 
 ```
 ---
-## datasets
-```{note}
-- basic specs
-```
 
-```{warning}
-- etc etc
-```
-
-
-```{tip}
- - etc 
-```
----
-## datasets
-```{note}
-- basic specs
-```
-
-```{warning}
-- etc etc
-```
-
-
-```{tip}
- - etc 
-```
----
 
 ## Availabilities of audio signal
 

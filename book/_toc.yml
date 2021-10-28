@@ -40,6 +40,5 @@ parts:
 
   - caption: Resources
     chapters:
-      - file: part9_resources/references
       - file: part9_resources/citation
       - file: part9_resources/authors

@@ -8,3 +8,19 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - html_admonition
+
+html:
+  home_page_in_navbar  : false
+  use_repository_button: true
+
+repository:
+  url           : "https://github.com/music-classification/tutorial"
+  branch        : main
+  path_to_book  : book
+
+bibtex_bibfiles:
+  - references.bib
+
+sphinx:
+  config:
+    bibtex_reference_style: author_year
