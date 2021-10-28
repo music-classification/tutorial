@@ -40,5 +40,6 @@ parts:
 
   - caption: Resources
     chapters:
+      - file: references.md
       - file: part9_resources/citation
       - file: part9_resources/authors

@@ -33,5 +33,5 @@ What reasons exactly?
 
 ![](_img_mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-1-elements-of-ml.png)
 
-This famous image from [Machine Learning: The High Interest Credit Card of Technical Debt](https://research.google/pubs/pub43146/)
+This famous image from [Machine Learning: The High Interest Credit Card of Technical Debt, {cite}`43146`](https://research.google/pubs/pub43146/)
 shows other modules besides ML Code in a ML system. There are so many of them that people even coined a new word, "MLOps".

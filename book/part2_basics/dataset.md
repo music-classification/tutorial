@@ -28,14 +28,14 @@ These are some important but rarely discussed aspects.
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333468174&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/gtzan-music-genre" title="Gtzan Music Genre" target="_blank" style="color: #cccccc; text-decoration: none;">Gtzan Music Genre</a></div>
 
 
-The famous GTZAN dataset ({cite}`tzanetakis2001gtzan`) deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
-[The first paper using this dataset ({cite}`tzanetakis2002musical`)](https://scholar.google.co.kr/citations?view_op=view_citation&hl=en&user=yPgxxpwAAAAJ&citation_for_view=yPgxxpwAAAAJ:u5HHmVD_uO8C) 
-remains a foundational work in the modern music classification. The dataset was used in [more than 100 papers already in 2013](https://arxiv.org/abs/1306.1461).
+The famous GTZAN dataset {cite}`tzanetakis2001gtzan` deserves to be the [MNIST](https://en.wikipedia.org/wiki/MNIST_database) for music. 
+[The first paper using this dataset {cite}`tzanetakis2002musical`](https://scholar.google.co.kr/citations?view_op=view_citation&hl=en&user=yPgxxpwAAAAJ&citation_for_view=yPgxxpwAAAAJ:u5HHmVD_uO8C) 
+remains a foundational work in the modern music classification. The dataset was used in [more than 100 papers already in 2013 according to a survey ({cite}`sturm2013gtzan`)](https://arxiv.org/abs/1306.1461).
 It is popular since the concept of music genres and single-label classification is easy, simple, and straightforward.
 30-second mp3 is small and short. With a lot of features and a power classifier, researchers these days can quickly achieve 
 90+% (or even 95+% (or even 100%!)) accuracy. 
 
-However, now we know that there are way too many issues with the dataset. This is summarized very well in [Bob L. Sturm's comprehensive survey](https://arxiv.org/abs/1306.1461). 
+However, now we know that there are way too many issues with the dataset. This is summarized very well in [the aforementioned survey by Bob L. Sturm's survey {cite}`sturm2013gtzan`](https://arxiv.org/abs/1306.1461). 
 We'll list a few.
 
 ```{warning}
@@ -68,7 +68,7 @@ This is not a viable option these days anymore. Let's see more modern approaches
 ```
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333473949&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/magnatagatune" title="MagnaTagATune" target="_blank" style="color: #cccccc; text-decoration: none;">MagnaTagATune</a></div>
 
-MagnaTagATune (**[LWM+09]**) has played a significant role since its release until even now (2021). It was used in pioneering research such as [DS14](https://ieeexplore.ieee.org/document/6854950), [CFS16](https://archives.ismir.net/ismir2016/paper/000009.pdf), [LPK+17](https://arxiv.org/abs/1703.01789), [WCS21][todo: add link], etc. [janne's. work]. etc.
+MagnaTagATune {cite}`law2009evaluation` has played a significant role since its release until even now (2021). It was used in pioneering research such as [{cite}`dieleman2014end`](https://ieeexplore.ieee.org/document/6854950), [{cite}`choi2016automatic`](https://archives.ismir.net/ismir2016/paper/000009.pdf), [{cite}`lee2017sample`](https://arxiv.org/abs/1703.01789), [{cite}`won2021semi`][todo: add link], etc. [janne's. work]. etc.
 
 "Tagging" is a specific kind of classification, and MagnaTagATune is one of the earliest tagging datasets that is in this scale and that comes with audio. The songs are all indie music, so use this dataset at your own risk - the property of the music/audio might not be as realistic as you want.
 
@@ -99,9 +99,9 @@ This dataset turned out to be big enough to train some early deep neural network
 - The provided last.fm tags are realistic
 ```
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334174407&color=%2300aabb&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/million-song-dataset" title="Million Song Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Million Song Dataset</a></div>
-The million song dataset (MSD, [BEW+11]) is a monumental music dataset. It was ahead of time in every aspect -- size, quality, reliability, and various complementary features.
+The million song dataset (MSD, {cite}`bertin2011million`) is a monumental music dataset. It was ahead of time in every aspect -- size, quality, reliability, and various complementary features.
 
-MSD has been *the* music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system [**[ODS13]**](https://biblio.ugent.be/publication/4324554) and the first large-scale music tagging [**[CFS16]**](https://arxiv.org/abs/1606.00298). (+.. similarity search??)   
+MSD has been *the* music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system [{cite}`van2013deep`](https://biblio.ugent.be/publication/4324554) and the first large-scale music tagging [{cite}`choi2016automatic`](https://arxiv.org/abs/1606.00298). (+.. similarity search??)   
 
 Researchers usually formulate the music tagging on MSD as a top-50 prediction task. This may be partially due to the convention of MagnaTagATune and earlier research, but it makes sense considering the sparsity of the tags. The tags in MSD are in an extremely long tail.
 
@@ -111,7 +111,7 @@ Researchers usually formulate the music tagging on MSD as a top-50 prediction ta
 > .. the most popular tag is ‘rock’ which is associated with 101,071 tracks. However, ‘jazz’, the 12th most popular tag is used for only 30,152 tracks and ‘classical’, the 71st popular tag is used
 11,913 times only. ..
 
- (from [**[CFC+]**](https://ieeexplore.ieee.org/abstract/document/8323324)
+ (from [{cite}`choi2018effects`](https://ieeexplore.ieee.org/abstract/document/8323324)
 )
 
 ```{warning}
@@ -119,7 +119,7 @@ Researchers usually formulate the music tagging on MSD as a top-50 prediction ta
 - It might be difficult to get the mp3s 
 ```
 
-[The dataset split](https://github.com/keunwoochoi/MSD_split_for_tagging/) used in [**[CFS16]**](https://arxiv.org/abs/1606.00298) was based on simple random sampling. However, ... [todo; ask Minz]  
+[The dataset split](https://github.com/keunwoochoi/MSD_split_for_tagging/) used in [{cite}`choi2016automatic`](https://arxiv.org/abs/1606.00298) was based on simple random sampling. However, ... [todo; ask Minz]  
 
 One critical downside of MSD is the availability of the audio. The creators of MSD adopted a very modern approach on this - while only distributing audio features and metadata, they released a code snippet for fetching 30-second audio previews from [7digital](https://us.7digital.com/). (Recently, people have reported the audio preview API does not work anymore. This means the audio is available only by word of mouth.)
 
@@ -138,7 +138,7 @@ One critical downside of MSD is the availability of the audio. The creators of M
 ```
 <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334749648&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/free-music-archive-dataset" title="Free Music Archive dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Free Music Archive dataset</a></div>
 
-
+Free Music Archive dataset (FMA, {cite}`defferrard2016fma`) is a modern, large-scale dataset that contains full-tracks, instead of short preview clips. Along with MTG-Jamendo, it enables interesting research towards fully utilizing the information of the whole audio signal.
 
 ```{warning}
 - Audio quality varies
@@ -146,8 +146,7 @@ One critical downside of MSD is the availability of the audio. The creators of M
 ```
 
 From a machine learning point of view, the second item in Warning is an advantage. However, it limits the development of realistic models.
-
-FMA includes full-tracks, instead of short preview clips. Along with MTG-Jamendo, it enables interesting research towards fully utilizing the information of the whole audio signal.  
+  
 
 ```{tip}
 - Good for genre classification/hierarchical classification.
@@ -157,6 +156,7 @@ FMA includes full-tracks, instead of short preview clips. Along with MTG-Jamendo
 ```{note}
 - basic specs
 ```
+{cite}`bogdanov2019mtg`
 
 
 ```{warning}
@@ -178,7 +178,7 @@ FMA includes full-tracks, instead of short preview clips. Along with MTG-Jamendo
 - Official and reliable split is provided
 ```
 
-AudioSet is made for general audio understanding and not specifically for music. But, in their well-designed taxonomy, there is [a high-level category 'music'](https://research.google.com/audioset/ontology/music_1.html) that includes 'musical instrument', 'music genre', 'musical concepts', 'music role', and 'music mood'. In total, there are more than 1M items, each of which corresponds to a specific 10-second of YouTube video.
+AudioSet {cite}`45857` is made for general audio understanding and not specifically for music. But, in their well-designed taxonomy, there is [a high-level category 'music'](https://research.google.com/audioset/ontology/music_1.html) that includes 'musical instrument', 'music genre', 'musical concepts', 'music role', and 'music mood'. In total, there are more than 1M items, each of which corresponds to a specific 10-second of YouTube video.
    
 The annotation is considered to be more than quite reliable. Also, for each category, AudioSet provides the estimated accuracy of the annotation. 
 
@@ -203,7 +203,7 @@ Another issue is that the availabilities of the items in AudioSet are time-varyi
 ```{note}
 - basic specs
 ```
-NSynth is a dataset of instrument samples. Obviously, it is a music dataset. Is it a music *classification* dataset? Yes, except it is probably i) too easy  ii) not a very popular problem in the real world per se. 
+NSynth {cite}`engel2017neural` is a dataset of instrument samples. Obviously, it is a music dataset. Is it a music *classification* dataset? Yes, except it is probably i) too easy  ii) not a very popular problem in the real world per se. 
 
 ```{warning}
 - etc etc
