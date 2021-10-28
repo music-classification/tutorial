@@ -18,7 +18,6 @@ repository:
   branch        : main
   path_to_book  : book
 
-
 bibtex_bibfiles:
   - references.bib
 
