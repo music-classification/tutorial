@@ -1,7 +1,25 @@
-## What's under-explored in Academia
+# What's under-explored in Academia
 
-A fundamental reason: We don't trust the metadata.
+Let's imagine we initialize a world with these conditions and train it for a long while.  
+ 
+|     \     | [A] Has more freedom in | [B] Has Bias towards   |
+| --------- | ------------------- | ------------------ |
+| Academia  | Choosing the topics | Publishable topics |
+| Industry  |  Using resources (time, budget, work force) | Profitable topics  |
 
+As a result, we'll see each entity uses [A] to specialize in [B]. 
+And that's great! But, for the same reason, some topics are getting little attention in academia.
+
+
+
+## What makes a topic difficult to work on in academia?
+
+- When it feels like it's solved --> You can't write a paper about it anymore!
+- When it's hard to create a dataset --> In this data-driven era, it's a deal breaker.
+- When the problem is too new / there's no dataset for it --> No way for sure.
+- When it's difficult to evaluate --> Don't feed Reviewer 2 a reason for rejection!  
+
+## Let's talk about research topics
 ### Speech/music classification
   **Although**
   - It seems easy
@@ -56,4 +74,5 @@ A fundamental reason: We don't trust the metadata.
   - https://research.deezer.com/publication/2017/04/05/icassp-hennequin.html
   - Recording/prouction quality/low-quality
 
-## Hierarchical Classification
+### Hierarchical Classification
+  - 

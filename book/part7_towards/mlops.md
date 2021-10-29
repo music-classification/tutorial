@@ -1,4 +1,40 @@
-# Evaluation and Deployment
+# MLOps
+
+Academia and industry have different goals and focuses for good reasons. But it's useful to learn what are happening on the other side.   
+
+---
+
+![](_img_mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-1-elements-of-ml.png)
+
+This famous image from [Machine Learning: The High Interest Credit Card of Technical Debt, {cite}`43146`](https://research.google/pubs/pub43146/)
+shows other modules besides ML Code in a ML system. There are so many of them that people even coined a new word, "MLOps". And a lot of topics in MLOps are completely out of the scope of academia. Again, there are good reasons for people in industry and academia have different scopes. But, it would be useful to know what are happening on the other side.   
+
+## Dataset Creation
+  - How to collect; what to consider when collecting dataset
+    - Diversity (style, language, era, ..)
+    - Out-of-distribution cases
+      - Data augmentation
+  - Updating dataset from time to time
+  - Split
+    - Put enough effort into validation/testing sets
+      - With enough size of validation and testing sets; to reduce variance
+      - Manually verified test set if possible
+
+
+## Dataset Management    
+  - Incremental datasets
+    - How to label them?
+    - How to preprocess them?
+    - How to version them?
+  - Expiration of music samples
+    - In general, we'll want to add recent music samples from time to time.
+  - Expiration of the music labels
+    - Languages - well, probably not
+    - Genre - we'll want a more up-to-date samples!
+      - Emerging genres - we need to add more genres!
+    - NLP models
+      - Should be updated somehow frequently
+    -       
 
 ## Evaluation is more than a single number
 ### Choice of metric(**s**)
@@ -49,3 +85,4 @@
   - We can train an end-to-end model
     - Put (almost) a whole track into a batch and do the work! 
     - `MIR Transformer` is a shorter version of this.
+    
