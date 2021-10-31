@@ -2,20 +2,20 @@
 
 Your choices as a researcher are affected by the circumstance such as     
  
-|     \     | [A] Has more freedom in | [B] Has Bias towards   |
+|     \     | Has more freedom in | Has Bias towards   |
 | --------- | ------------------- | ------------------ |
 | Academia  | Choosing the topics | Publishable topics |
-| Industry  |  Using resources (time, budget, work force) | Profitable topics  |
+| Industry  | Using resources (time, budget, work force) | Profitable topics  |
 
 As a result, we'll see each entity uses [A] to specialize in [B]. 
 And that's great! But, for the same reason, some topics are getting little attention in academia.
 
 ## What makes a topic difficult to work on in academia?
 
-- When it feels like it's solved --> You can't write a paper about it anymore!
-- When it's hard to create a dataset --> In this data-driven era, it's a deal-breaker.
-- When the problem is too new / there's no dataset for it --> No way for sure.
-- When it's difficult to evaluate --> Don't feed Reviewer 2 a reason for rejection!  
+- When it feels like it's solved → You can't write a paper about it anymore!
+- When it's hard to create a dataset → In this data-driven era, it's a deal-breaker.
+- When the problem is too new / there's no dataset for it → No way for sure.
+- When it's difficult to evaluate → Don't feed Reviewer 2 a reason for rejection!  
 
 ## Let's talk about research topics
 
@@ -29,7 +29,7 @@ Disclaimer - This section is meant to be subjective.
   **It is an interesting problem because**
   - The model is needed anyway and there's no reliable public model since Gtzan speech/music dataset {cite}`tzanetakis1999gtzan` is pretty small
   - The problem can be defined further such as:  
-    - Clip-level decision --> short segment-level decision (say, 1 second)
+    - Clip-level decision → short segment-level decision (say, 1 second)
     - More than binary decision - {100% Music -- many levels in between -- 100% speech} + {something neither music or speech} (e.g., {cite}`melendez2019open`)
 
 ### Language classification
