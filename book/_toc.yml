@@ -28,11 +28,8 @@ parts:
       - file: part5_beyond/self-supervised-learning
   - caption: Towards Real-world Applications
     chapters:
-      - file: part7_towards/_intro
-      - file: part7_towards/dataset-creation
-      - file: part7_towards/evaluation-deployment
+      - file: part7_towards/mlops
       - file: part7_towards/underexplored-problems
-      - file: part7_towards/other-issues
 
   - caption: Conclusion
     chapters:
