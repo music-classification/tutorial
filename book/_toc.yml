@@ -25,6 +25,7 @@ parts:
   - caption: Self-supervised Learning
     chapters:
       - file: part5_beyond/introduction
+      - file: part5_beyond/methods
       - file: part5_beyond/self-supervised-learning
   - caption: Towards Real-world Applications
     chapters:
