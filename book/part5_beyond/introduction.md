@@ -25,33 +25,10 @@ Within the last two years, many different self-supervised methods have been prop
 It is worth visiting the general learning scheme of this line of work. First, we pre-train a neural network using a self-supervised objective (the pretext task). In order to test the effectiveness of the learned representations, the pre-trained networks' weights are "frozen" and a linear evaluation on (part of) the supervised dataset is performed to compare against existing benchmarks. The linear evaluation scheme involves training a supervised linear classifier (a fully-connected layer followed by softmax) using the representations extracted from the self-supervised network, and (a subset of) the labels associated with the data.
 ```
 
-The following is a short list of important papers in this field, of which a few are discussed more in-depth in this tutorial.
-| Paper  | Year  | Tasks |
-|---|---|---|
-| Representation Learning with Contrastive Predictive Coding  | 2018  | Speech, images, text, reinforcement learning | 
-| Noise-contrastive estimation: A new estimation principle for unnormalized statistical models | 2014 | Theoretical |
-| Unsupervised Visual Representation Learning by Context Prediction  | 2015  | Images |
-| Momentum Contrast for Unsupervised Visual Representation Learning  |  2019 |  Images |
-| Look, listen, and learn more: Design choices for deep audio embeddings | 2019 | 
-| wav2vec: Unsupervised Pre-training for Speech Recognition | 2019 | Speech recognition |
-| Bootstrap your own latent: A new approach to self-supervised Learning  | 2020  | Images |
-| A Simple Framework for Contrastive Learning of Visual Representations  | 2020 | Images  |
-| Contrastive learning of general-purpose audio representations | 2020 | Sound classification |
-| Contrastive Learning of Musical Representations | 2021 | Music classification |
-| Vector Quantized Contrastive Predictive Coding for Template-based Music Generation | 2021 | Music generation |
-| Codified Audio Language Modeling Learns Useful Representations for Music Information Retrieval | 2021| Music classification, Genre classification, Key detection, Emotion recognition |
+## Should I use self-supervised learning?
+Self-supervised learning can be beneficial in the following situations:
+- The amount of labeled data available is scarce, but you do not want to sacrifice the size of your model.
+- Create more general-purpose representations that are not tightly coupled with your downstream task.
 
-
-## Contrastive Predictive Coding
-
-## Momentum Contrast (MoCO)
-## SimCLR
-<div style="width: 500px">
-    <img src="./images/simclr_contrastive_learning.png"/>
-</div>
-
-## Look, listen, and learn more (L3-Net)
-
-## CLMR
-
-## Codified Audio Language Modeling
+You should take these considerations into account:
+- A pre-trained model will have weights that reflect (and augment!) the biases embedded in a dataset.
