@@ -1,4 +1,4 @@
-# Semi-supervised learning
+# Semi-Supervised Learning
 In a realistic scenario, we have few labeled data and abundant unlabeled data. The Million Song Dataset (MSD), for example, although it includes 1 million tracks, only 24% of them are labeled with at least one of the top-50 music tags. As a result, most previous works in MSD tagging only used the 24% of data in a supervised fashion while 76% are being discarded. 
 <p align = "center">
 <img src = "https://i.imgur.com/l4gUJcC.png" width=300>

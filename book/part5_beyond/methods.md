@@ -1,4 +1,4 @@
-## Methods for self-supervised learning
+## Methods for Self-Supervised Learning
 
 The following is a short list of important papers in this field, of which a few are discussed more in-depth in this tutorial.
 | Paper  | Year  | Tasks |

@@ -1,7 +1,7 @@
 # Music Classification: Beyond Supervised Learning, Towards Real-world Applications
 ## About the book
 
-This is a book written for a [tutorial session](https://ismir2021.ismir.net/tutorials/) of [the 22nd International Society for Music Information Retrieval Conference](https://ismir2021.ismir.net/). The [ISMIR conference](https://ismir.net/) is the world’s leading research forum on processing, searching, organising and accessing music-related data. The 22nd International Society for Music Information Retrieval Conference took place from Nov 8-12, 2021 in an online format.
+This is a book written for a [tutorial session](https://ismir2021.ismir.net/tutorials/) of [the 22nd International Society for Music Information Retrieval Conference](https://ismir2021.ismir.net/), Nov 8-12, 2021 in an online format. The [ISMIR conference](https://ismir.net/) is the world’s leading research forum on processing, searching, organising and accessing music-related data.
 
 ## About the authors
 

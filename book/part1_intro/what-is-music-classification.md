@@ -1,4 +1,4 @@
-# What is music classification?
+# What is Music Classification?
 
 Music classification is a music information retrieval (MIR) task whose objective is computational understanding of music semantics. For a given song, a variety of music information can be retrieved in the task -- from genre, mood, and instrument to broader concepts including music similarity and musical preferences. Retrieved information can be further utilized for music curation, recommendation, and semantic search. 
 

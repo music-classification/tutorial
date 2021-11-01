@@ -1,4 +1,4 @@
-# What's under-explored in Academia
+# Under-Explored Problems in Academia
 
 Your choices as a researcher are affected by the circumstance such as     
  
