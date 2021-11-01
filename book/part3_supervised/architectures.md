@@ -1,12 +1,9 @@
 # Architectures
-
-@minz
-
 ### Overview
 This tutorial mainly covers deep learning approaches for music classification. Before we jump into the details of different deep architectures, let's check some important attributes of music classification models. 
 
 <p align = "center">
-<img src = "./../images/minz/overview.png" width=650>
+<img src = "https://i.imgur.com/he0L4nX.png" width=650>
 </p>
 <p align = "center">
 Music classification model
@@ -15,7 +12,7 @@ Music classification model
 As shown in figure above, a music classification model consists of preprocessing, front end, and back end modules. We have already checked preprocessing steps to extract different input representation in previous section. Front end of the music classification model captures local acoustic characteristics such as timbre, pitch, or existance of a certain instrument. Then the back end summarizes the sequence of the extracted features from front end module. Based on the architecture design, sometimes the boundary of front end and back end can be ambiguous.
 
 <p align = "center">
-<img src = "./../images/minz/mil.png" width=300>
+<img src = "https://i.imgur.com/LYeb263.png" width=300>
 </p>
 <p align = "center">
 </p>
@@ -52,7 +49,7 @@ td {
 ### Fully Convolutional Network (FCN)
 Motivated from a huge success of convolutional neural networks (CNN) in the field of computer vision, MIR researchers adopted the successful architectures to solve automatic music tagging problems. Fully convolutional network (FCN) is one of the early deep learning approaches for music tagging which comprises of 4 convolutional layers. Each layer is followed by batch normalization, rectified linear unit (ReLU) non-linearity, and a max-pooling layer. 3x3 convolutional filters are used to capture spectro-temporal acoustic characteristics of an input Mel spectrogram. 
 <p align = "center">
-<img src = "./../images/minz/fcn.png" width=500>
+<img src = "https://i.imgur.com/P0E0zU8.png" width=500>
 </p>
 <p align = "center">
 Fully convolutional network
@@ -73,7 +70,7 @@ Since the input length is shorter than FCN's inputs, vgg-ish model and Short-chu
 ### Harmonic CNN
 Convolutional modules of Harmonic CNN are identical to Short-chunk CNN but it uses slightly different inputs. Harmonic CNN takes adventage of trainable band-pass filters and harmonically stacked time-frequency representation inputs. In contrast with fixed Mel filterbanks, trainable filters bring more flexibility to the model. And harmonically stacked representation preserves spectro-temporal locality while keeping the harmonic structures through the channel of the input tensor in the first convolutional layer.
 <p align = "center">
-<img src = "./../images/minz/hcnn.png" width=500>
+<img src = "https://i.imgur.com/WRBoq51.png" width=500>
 </p>
 <p align = "center">
 Harmonic CNN
@@ -84,7 +81,7 @@ If the convolution filter (red square) in the most front representation captures
 ### MusiCNN
 Instead of using 3x3 filters, the authors of MusiCNN proposed to use manually designed filter designs for music tagging. Vertically long filters are designed to capture timbral characteristics that are relevant to instruments, while horizontally long filters are designed to capture temporal energy flux which is related to rhythmic patterns and tempo. 
 <p align = "center">
-<img src = "./../images/minz/musicnn.png" width=500>
+<img src = "https://i.imgur.com/opVUKoE.png" width=500>
 </p>
 <p align = "center">
 MusiCNN
@@ -95,14 +92,14 @@ To enforce the pitch-invariancy, the following max-pooling layer pools the maxim
 ### Sample-level CNN
 Sample-level CNN and its variant tackle automatic music tagging in an end-to-end manner by directly using raw audio waveform as their inputs. 1x2 or 1x3 1D convolution filters are used to represent music. Each layer consists of 1D convolution, batch normalization, and ReLU non-linearity. Strided convolution is used to increase the size of of receptive field. 
 <p align = "center">
-<img src = "./../images/minz/sample.png" width=500>
+<img src = "https://i.imgur.com/Q7z4vmv.png" width=500>
 </p>
 <p align = "center">
 Sample-level CNN
 </p>
 In this approach, preprocessing steps (e.g., short-time Fourier transform) are not required. Instead, the model is deeper than spectrogram-based models to model the counterpart of Mel filterbanks. A figure below shows spectrum of learned convolution filters which are sorted by the frequency of the peak magnitude. The center frequency linearly increases in low frequency but it goes non-linearly steeper in high frequency. This trend is more evident in deeper layers and this characteristic can be found in Mel filterbanks. 
 <p align = "center">
-<img src = "./../images/minz/sample_vis.png" width=500>
+<img src = "https://i.imgur.com/YUIl1PH.png" width=500>
 </p>
 <p align = "center">
 Spectrum of the filters in the sample-level convolution layers (x-axis: index of the filter, y-axis: frequency).
@@ -113,7 +110,7 @@ Sample-level CNN and its variant are trained with 3.69s audio segments and the i
 ### Convolutional Recurrent Neural Network (CRNN)
 Different from previously introduced instance-level models, convolutional recurrent neural network (CRNN) is designed to handle the long sequence of multiple instances. A CRNN can be described as a combinatino of CNN and RNN. The CNN front end captures local acoustic characteristics (instance-level) and the RNN back end summarizes the sequence of instance-level features. 
 <p align = "center">
-<img src = "./../images/minz/crnn.png" width=200>
+<img src = "https://i.imgur.com/Am4drg2.png" width=200>
 </p>
 <p align = "center">
 Convolutional recurrent neural network
@@ -124,14 +121,14 @@ Four convolutional layers with 3x3 filters are used in CNN front end and two-lay
 ### Music tagging transformer
 The motivation of convolutional neural network with self-attention (CNNSA) and Music tagging transformer are identical to CRNN's motivation. Front end captures local acoustic characteristics and back end summarizes the sequence. In a field of natural language processing, Transformer has shown its suitability in long sequence modeling by stacking self-attention layers. Both CNNSA and Music tagging transformer use Transformer back end to summarize instance-level features. 
 <p align = "center">
-<img src = "./../images/minz/transformer.png" width=250>
+<img src = "https://i.imgur.com/DsGDE5U.png" width=250>
 </p>
 <p align = "center">
 Music tagging transformer
 </p>
 CNNSA uses CNN front end of MusiCNN and Music tagging transformer uses CNN front end of Short-chunk ResNet. The input length can be varied from 5s to 30s.
 <p align = "center">
-<img src = "./../images/minz/inter.png" width=500>
+<img src = "https://i.imgur.com/kTJ0kpd.png" width=500>
 </p>
 <p align = "center">
 Tag-wise contribution heatmap of transformer
@@ -143,23 +140,24 @@ Another advantage of using Transformer back end is interpretability. Since atten
 ### Which model should we use?
 After the exploration of different architectures, the first natural question will be: So, what is the best model to choose? In a previous work, experimental results in three datasets (MagnaTagATune, Million Song Data, MTG-Jamendo) are reported as follow.
 <p align = "center">
-<img src = "./../images/minz/perf.png" width=500>
+<img src = "https://i.imgur.com/5rdBGjX.png" width=500>
 </p>
 <p align = "center">
 Comparison of music tagging models
 </p>
 
-And the conclusion can be summarized as:
 
+```{note}
+Summary:
 - For the best performance, use Music tagging transformer.
-- VGG-ish and Short-chunk CNN are simple but a powerful choice.
+- VGG-ish and Short-chunk CNN are simple but powerful choices.
 - When your training dataset is small, it is beneficial to reduce the search space by using MusiCNN or Harmonic CNN.
 - Sample-level CNN becomes more powerful as the size of dataset grows. But spectrogram-based models are more powerful yet.
+```
 
-
-### Implementation and demo
-PyTorch implementation of introduced models are available online [[Github](https://github.com/minzwon/sota-music-tagging-models.git)].
-
-Also, you can try online demo of pretrained models [[Replicate.ai](https://replicate.ai/minzwon/sota-music-tagging-models)]
+```{tip}
+- PyTorch implementation of introduced models are available online [[Github](https://github.com/minzwon/sota-music-tagging-models.git)]
+- You can try online demo of pretrained models [[Replicate.ai](https://replicate.ai/minzwon/sota-music-tagging-models)]
+```
 
 

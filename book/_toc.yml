@@ -5,7 +5,6 @@ parts:
   - caption: Motivation
     chapters:
       - file: part1_intro/what-is-music-classification
-      - file: part1_intro/why-music-classification
   - caption: Basics of Music Classification
     chapters:
       - file: part2_basics/input-representations
