@@ -1,6 +1,6 @@
 # Datasets
 
-We already have a great comprehensive [list of MIR datasets](https://github.com/ismir/mir-datasets/blob/master/outputs/mir-datasets.md).
+There already exists a great comprehensive [list of MIR datasets](https://github.com/ismir/mir-datasets/blob/master/outputs/mir-datasets.md).
 In this book, we focus on *discussion* of datasets. 
 We will review several important music tagging datasets. Over time, researchers have adopted different strategies to create and release datasets. 
 This also resulted in various pros and cons, and traps.   
@@ -53,7 +53,7 @@ made by Corey Kereliuk and Bob Sturm and use a fault-filtered split.
  - Use a [cleaned version and split](https://github.com/coreyker/dnn-mgr/tree/master/gtzan)
 ```
 
-A tremendous number of following researchers owe its creator, George Tzanetakis, for the ~~copyright breach~~ dataset release.
+A tremendous number of following researchers owe its creator, George Tzanetakis, for the dataset release.
 Here's a quote from the website, where you can simply [one-click-download the dataset](http://opihi.cs.uvic.ca/sound/genres.tar.gz). 
 
 > ..Unfortunately the database was collected gradually and very early on in my research so I have no titles (and obviously no copyright permission etc)..
@@ -273,3 +273,6 @@ Mood classification: MIREX, AudioSet subset, MSD subset, ...
 Instrument identification: IRMAS, OpenMIC, NSYNTH, RWC, ...
 Tagging: MTAT, MSD, MTG-Jamendo, Music4All, ...
 
+
+## Resources
+- [This repo](https://github.com/juansgomez87/datasets_emotion){cite}`GomezCanon2021SPM` provides great information about music/mood datasets.
