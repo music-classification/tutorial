@@ -40,7 +40,7 @@ He also writes [some music](https://www.youtube.com/channel/UC6WGQvwwM3M7sX98zJ1
 
 ## Software
 
-We use Jupyter Book{cite}`executable_books_community_2020_4539666`, Librosa 8.1{cite}`mcfee2015librosa` {cite}`brian_mcfee_2021_4792298`, Pytorch{cite}`paszke2019pytorch`, Torchaudio{cite}`yang2021torchaudio`, Matplotlib{cite}`hunter2007matplotlib`, and Numpy{cite}`harris2020array`.
+We use Jupyter Book{cite}`executable_books_community_2020_4539666`, Librosa 0.8.1{cite}`mcfee2015librosa` {cite}`brian_mcfee_2021_4792298`, Pytorch{cite}`paszke2019pytorch`, Torchaudio{cite}`yang2021torchaudio`, Matplotlib{cite}`hunter2007matplotlib`, and Numpy{cite}`harris2020array`.
 
 
 ## Citing this book
