@@ -2,12 +2,9 @@ format: jb-book
 root: landing-page
 
 parts:
-  - caption: Motivation
+  - caption: The Basics
     chapters:
       - file: part1_intro/what-is-music-classification
-      - file: part1_intro/why-music-classification
-  - caption: Basics of Music Classification
-    chapters:
       - file: part2_basics/input-representations
       - file: part2_basics/dataset
       - file: part2_basics/evaluation
@@ -39,5 +36,3 @@ parts:
   - caption: Resources
     chapters:
       - file: references.md
-      - file: part9_resources/citation
-      - file: part9_resources/authors

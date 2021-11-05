@@ -1,15 +1,15 @@
-# Introduction
-
-@minz
-
-We designed music classification models to save the effort of manually annotating musical attributes. However, modern deep learning models are data-hungry. As a result, ironically, human annotators need to label more data to train a better model. In this section, we are going to explore training methods that we can choose instead of manually labeling more data, when we do not have enough annotations. 
+# Beyond Supervision
 
 <p align = "center">
-<img src = "./../images/minz/labels.png" width=300>
+<img src = "https://i.imgur.com/ojSewi1.png" width=600>
 </p>
 <p align = "center">
 
 </p>
 
 
-In a real-world scenario, we have a large-scale music library and only few of them are labeled. In supervised learning scenario, we train our model with the labeled data and we expect the trained model can generalize to the entire data that we have. To tackle the issue of limited amount of annotations, transfer learning takes advantage of other labeled data and semi-/self-supervised approaches utilize abundant unlabeled data. Let's check the motivation, concepts, and implementation of each approach.
+In previous sections, we learned how to facilitate music classification in a data-driven fashion when we have labeled music audio. The main motivation of building music classification models was to save human efforts of manually labeling musical attributes. However, modern deep learning models are data-hungry. As a result, ironically, human agents need to label more data to train a better-performing model. In this section and the next section, we explore training methods that we can choose beyond supervised learning instead of manually labeling more data. 
+
+
+
+In a real-world scenario, we have a large-scale music library, but only a few of them are manually labeled. Also, sometimes existing labels have different taxonomies from the target task that we would like to solve. To tackle the issue of a limited amount of labeled data, transfer learning takes advantage of pretrained models that are trained with external data, and semi-/self-supervised approaches utilize abundant unlabeled data. Let's check the motivation, concepts, and implementation of each training scheme.
