@@ -19,7 +19,7 @@ And that's great! But, for the same reason, some topics are getting little atten
 
 ## Let's talk about research topics
 
-Disclaimer - This section is meant to be subjective. 
+Disclaimer - This section is meant to be subjective. Also, as the content is based on the diagnosis of the current research field, it will expire as time goes by.
 
 ### Speech/music classification
   **Although**
@@ -30,7 +30,7 @@ Disclaimer - This section is meant to be subjective.
   - The model is needed anyway and there's no reliable public model since Gtzan speech/music dataset {cite}`tzanetakis1999gtzan` is pretty small
   - The problem can be defined further such as:  
     - Clip-level decision → short segment-level decision (say, 1 second)
-    - More than binary decision - {100% Music -- many levels in between -- 100% speech} + {something neither music or speech} (e.g., {cite}`melendez2019open`)
+    - More than binary decision - {100% Music -- many levels in between -- 100% speech} + {something neither music or speech} (e.g., {cite}`melendez2019open`, {cite}`hung2021avaspeechsmad`)
 
 ### Language classification
   **Although**
@@ -52,6 +52,7 @@ Disclaimer - This section is meant to be subjective.
   **It is an interesting problem because**
   - Users still want to find some songs by mood.
     - Mood-based playlists/radio stations are popular!
+    - Check out [this repo](https://github.com/juansgomez87/datasets_emotion){cite}`GomezCanon2021SPM` for a comprehensive list of mood-related datasets
 
 ### Year/decade/era 
   **Although**
