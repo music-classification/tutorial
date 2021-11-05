@@ -1,21 +1,17 @@
 # What is Music Classification?
 
-Music classification is a music information retrieval (MIR) task whose objective is computational understanding of music semantics. For a given song, a variety of music information can be retrieved in the task -- from genre, mood, and instrument to broader concepts including music similarity and musical preferences. Retrieved information can be further utilized for music curation, recommendation, and semantic search. 
+Music classification is a music information retrieval (MIR) task whose objective is the computational understanding of music semantics. For a given song, the classifier predicts relevant musical attributes. Based on the task definition, there are a nearly infinite number of classification tasks – from genres, moods, and instruments to broader concepts including music similarity and musical preferences. The retrieved information can be further utilized in many applications including music recommendation, curation, playlist generation, and semantic search.
 
 
 ### Single-label classification
-Let's say there are two record stores in your town. Record store A curates all the records in an alphabetic order while record store B categorizes their stocks based on musical genres. When you already know what you want to buy, record store A is a good place to go. However, when you want to browse and discover new music, record store B will be more preferable. Like this, well-designed categorization (i.e., music classification) helps customers to browse music in a more efficient manner. This record store scenario can be interpreted as a single-label classification task. One item can be in a single section, hence categories (genres in this example) are exclusive to each other.
-
-<!--For curation, categorization, recommendation.
-Automatic music classification is gaing more attention than ever from both academia and industries due to its suitability for scalable research and its practical applications in music recommendation services from large-scale libraries.
--->
+Let's say there are two record stores in your town. Record store A curates all the records in alphabetic order, while record store B categorizes their stocks based on musical genres. When you already know what you want to buy, record store A is a good place to go as you can search by the alphabetic index. However, when you want to browse and discover new music, record store B will be preferable as you can visit the section with your favorite genre. Like this, well-designed categorization (i.e., music classification) helps customers browse music more efficiently. This record store scenario can be interpreted as a single-label classification task. One item can be in a single section; hence categories (genres in this example) are exclusive.
 
 
 <p align = "center">
 <img src = "https://i.imgur.com/jkgJD4Z.png" width=400>
 </p>
 <p align = "center">
-Single-label classification
+An example of single-label classification
 </p>
 
 ```{warning}
@@ -25,21 +21,20 @@ Genres are not always exclusive to each other. One song can belong to multiple g
 
 
 ### Multi-label classification
-Different from the aforementioned example, one item may belong to multiple categories. For example, one song can be Disco and K-Pop at the same time and these categories are not exclusive to each other. Also, not only music genres, listeners would like to browse music by instruments, moods, or context. We can handle these multiple musical attributes with multi-label classification. The multi-label classification sometimes refers to as "music tagging" since it puts multiple appropriate tags for a given song. 
-
+Different from the example above, one item may belong to multiple categories. For example, one song can be Disco and K-Pop simultaneously, and these categories are not exclusive to each other. Also, listeners would like to browse music by instruments, languages, moods, or context, not only musical genres. We can handle these multiple musical attributes with multi-label classification. The multi-label classification is often referred to as "music tagging" since it puts various music tags for a given song. 
 
 <p align = "center">
 <img src = "https://i.imgur.com/Csgtubf.png" width=400>
 </p>
 <p align = "center">
-Multi-label classification
+An example of multi-label classification
 </p>
 
-Music tagging is a multi-label binary classification task. For each tag, the system determines whether a given song is positive to the tag or not. In contrast with single-lable classification, tags are not exclusive to each other and multiple tags can exist together.
+Multi-label classification is handled as a binary classification for each musical attribute. For each label, the system determines whether a given song is positive to the label or not. In contrast with single-label classification, labels are not exclusive, and multiple tags can exist together.
 
 
 ### Music classification tasks
-Based on desired categories, there can be almost infinite number of music classification tasks. Among them, the most explored music classification tasks in MIR research are listed as follow:
+There can be an almost infinite number of music classification tasks based on product requirements. Among them, the most explored music classification tasks in MIR research are listed as follow:
 
 - Genre classification [reference]
 - Mood classification [reference]
@@ -47,12 +42,12 @@ Based on desired categories, there can be almost infinite number of music classi
 - Music tagging [reference]
 
 ```{note}
-Music tagging subsumes all other classification tasks as any class (category) can be musical tags.
+Music tagging subsumes all other classification tasks as any class (label) can be musical tags.
 ```
 
 
 ### Applications
-Music classification models can be utilzied to enhance many music applications including curation, semantic search, recommendation, playlist generation, and analysis of listening behavior. 
+The explosion of digital music has dramatically changed our music consumption behavior. Massive music libraries are available through streaming platforms, and it is impossible to browse the entire collections item-by-item. As a result, we need robust knowledge management systems more than ever. Music classification is a technique that supports knowledge management. Music classification models enhance users' music experience through many applications, including recommendation, curation, playlist generation, semantic search, and analysis of listening behavior. 
 <p align = "center">
 <img src = "https://i.imgur.com/TyvMfNX.png" width=580>
 </p>
@@ -60,9 +55,9 @@ Music classification models can be utilzied to enhance many music applications i
 Applications of music classification. Screenshots captured from Resso, Apple music, Pandora, and Spotify
 </p>
 
-- Recommendation: Once we have labeled or predicted musical attributes, a system can recommend music to users based on most frequently consumed musical attributes of the users. Different from collaborative filtering, which is a prevalent recommender system using user-item interactions, this content-based recommendation do not suffer from cold-start problem and popularity bias.
-- Curation: As we checked from the record store example, well-designed curation of music helps users to browse enormous music library, efficiently. Hence, music streaming services curate music by genres, subgenres, or moods. These categories can be predicted by music classification models.
-- Playlist generation: The usage of music classification models in playlist generation is similar to the usage in recommendation. But the order of songs needs to be considered in playlist generation.
+- Recommendation: Once we have labeled or predicted musical attributes, a system can recommend music to users based on frequently consumed musical attributes of the users. Unlike [collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering), a prevalent recommender system using user-item interactions, this content-based recommendation does not suffer from [cold-start problems](https://en.wikipedia.org/wiki/Cold_start_(recommender_systems)) and popularity bias.
+- Curation: As we checked from the previous record store example, well-designed music curation helps users browse enormous music libraries efficiently. Hence, music streaming services curate music by genres, subgenres, or moods. Human agents can manually do this process, but music classification models can replace human efforts.
+- Playlist generation: The usage of music classification models in playlist generation is similar to the use in music recommendation. But playlist generation needs to consider the order of the songs and more user context.
 - Listening behavior analysis: Most modern streaming services provide annual reports of personal listening trends. This report helps users to understand their taste better and is basically fun!
 
 <!--- Curation
