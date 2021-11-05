@@ -1,4 +1,5 @@
 # Datasets
+## Discussion
 
 There already exists a great comprehensive [list of MIR datasets](https://github.com/ismir/mir-datasets/blob/master/outputs/mir-datasets.md).
 In this book, we focus on *discussion* of datasets. 
@@ -10,15 +11,62 @@ These are some important but rarely discussed aspects.
  - Availabilities of audio signal
    - This basic and fundamental requirement is already difficult. This is because, well, music is usually copyright-protected. 
    The solutions are i) just-do-it,  ii) distribute the features, and iii) use copyright-free music.
- - Hidden traps!
+ - Hidden traps! Because some of the dataset creation procedure was not perfect.
    - How shall we split them
      - Many datasets don't have a official dataset split, and this caused many problems. Usually, wrong split gets us an incorrectly optimistic result, which incentives us to overlook the problem.   
    - How noisy the labels are?
      - No annotation is perfect, but on a varying level. Why? How? 
+     - Regarding the inherent noisiness of the label (subjectivity, fuzzy definition, etc), what is the practical/meaningful best performance?
    - How realistic the audio signals are?
-     - We want our research (and the resulting models) to be practical. A lot of this depends on how similar the dataset is to the real, target data. 
+     - We want our research (and the resulting models) to be practical. A lot of this depends on how similar the dataset is to the real, target data.    
 
-## [Gtzan Music Genre (2002)](http://marsyas.info/downloads/datasets.html)
+
+
+
+### Availabilities of audio signal
+
+Due to the copyright, sharing the original audio signal is not always allowed.
+This makes people to come up with different solutions when releasing dataset.
+Let's see what are the solutions and the consequence of the choices.  
+
+#### 1. Just distribute the audio signals.
+
+..
+
+
+The MagnaTagATune is one of the early examples where researchers found a copyright-free solution. 
+
+-   
+
+How is the 
+
+- magnatagatune
+- FMA (Copyright-free)
+- MTG-Jamendo (Copyright-free)
+
+#### 2. Distribute the features
+- MSD
+- Kakao
+- .. 
+
+#### 3. Distribute the IDs
+- MSD
+- AudioSet 
+
+
+A traditional solution was to share a set of pre-computed features, instead of audio signals, as done with Million Song Dataset (+tbd). 
+
+
+
+Introduce available datasets and their characteristics, links, etc. 
+
+Genre classification: GTZAN, FMA, Ballroom, Extended ballroom, ...
+Mood classification: MIREX, AudioSet subset, MSD subset, ...
+Instrument identification: IRMAS, OpenMIC, NSYNTH, RWC, ...
+Tagging: MTAT, MSD, MTG-Jamendo, Music4All, ...
+
+## Datasets
+### [Gtzan Music Genre (2002)](http://marsyas.info/downloads/datasets.html)
 ```{note}
 - Audio is directly available
 - 100 items x 10 genres x 30-second mp3 files.
@@ -60,7 +108,7 @@ Here's a quote from the website, where you can simply [one-click-download the da
 
 This is not a viable option these days anymore. Let's see more modern approaches.   
 
-## [MagnaTagATune (2009)](https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset)
+### [MagnaTagATune (2009)](https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset)
 ```{note}
 - Designed for tagging problem 
 - Audio is directly available. They're from [magnatune.com](http://magnatune.com/), a marketplace of indie music. John Buckman, the founder of magnatune contributed these files. 
@@ -91,7 +139,7 @@ This dataset turned out to be big enough to train some early deep neural network
 - Know you're dealing with a weakly labeled dataset|
 ```
 
-## [Million Song Dataset (2011)](http://millionsongdataset.com/)
+### [Million Song Dataset (2011)](http://millionsongdataset.com/)
 ```{note}
 - Audio is not directly available. 
   - As of 2021, only a crawled version that contains ~99% of the preview clips is available by word of mouth.
@@ -130,7 +178,7 @@ One critical downside of MSD is the availability of the audio. The creators of M
 - No music after 2011
 ```
 
-## [FMA (2017)](https://arxiv.org/abs/1612.01840)
+### [FMA (2017)](https://arxiv.org/abs/1612.01840)
 ```{note}
 - Rigorously processed metadata and split. Maintained nicely on Github.
 - More than 100k full tracks of copyright-free indie music
@@ -152,7 +200,7 @@ From a machine learning point of view, the second item in Warning is an advantag
 - Good for genre classification/hierarchical classification.
 - A full-track is available, which is rare in the community 
 ```
-## [MTG-Jamendo (2019)](https://github.com/MTG/mtg-jamendo-dataset)
+### [MTG-Jamendo (2019)](https://github.com/MTG/mtg-jamendo-dataset)
 ```{note}
 - basic specs
 ```
@@ -167,7 +215,7 @@ From a machine learning point of view, the second item in Warning is an advantag
 ```{tip}
  - etc 
 ```
-## [AudioSet (2017)](https://research.google.com/audioset/index.html)
+### [AudioSet (2017)](https://research.google.com/audioset/index.html)
 
 - [Preview of AudioSet](https://research.google.com/audioset/eval/music.html).
 
@@ -196,7 +244,7 @@ To use AudioSet, one has to crawl the audio signal by themselves. Downloading Yo
 Another issue is that the availabilities of the items in AudioSet are time-varying and country-dependent! Once the videos are taken down, that's it. Depending on the setting, some videos are just not available in some countries. Given the large size, this issue might not be critical in practice -- so far.  
 
 
-## [NSynth (2017)](https://magenta.tensorflow.org/nsynth)
+### [NSynth (2017)](https://magenta.tensorflow.org/nsynth)
 
 <iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334184460&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/nsynth-dataset" title="NSynth Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">NSynth Dataset</a></div>
 
@@ -215,10 +263,12 @@ NSynth {cite}`engel2017neural` is a dataset of instrument samples. Obviously, it
 ```
 
 ---
-## mood?
+### mood?
 ```{note}
 - basic specs
 ```
+
+- [This repo](https://github.com/juansgomez87/datasets_emotion){cite}`GomezCanon2021SPM` provides great information about music/mood datasets.
 
 ```{warning}
 - etc etc
@@ -231,48 +281,4 @@ NSynth {cite}`engel2017neural` is a dataset of instrument samples. Obviously, it
 ---
 
 
-## Availabilities of audio signal
-
-Due to the copyright, sharing the original audio signal is not always allowed.
-This makes people to come up with different solutions when releasing dataset.
-Let's see what are the solutions and the consequence of the choices.  
-
-### 1. Just distribute the audio signals.
-
-..
-
-
-The MagnaTagATune is one of the early examples where researchers found a copyright-free solution. 
-
--   
-
-How is the 
-
-- magnatagatune
-- FMA (Copyright-free)
-- MTG-Jamendo (Copyright-free)
-
-### 2. Distribute the features
-- MSD
-- Kakao
-- .. 
-
-### 3. Distribute the IDs
-- MSD
-- AudioSet 
-
-
-A traditional solution was to share a set of pre-computed features, instead of audio signals, as done with Million Song Dataset (+tbd). 
-
-
-
-Introduce available datasets and their characteristics, links, etc. 
-
-Genre classification: GTZAN, FMA, Ballroom, Extended ballroom, ...
-Mood classification: MIREX, AudioSet subset, MSD subset, ...
-Instrument identification: IRMAS, OpenMIC, NSYNTH, RWC, ...
-Tagging: MTAT, MSD, MTG-Jamendo, Music4All, ...
-
-
 ## Resources
-- [This repo](https://github.com/juansgomez87/datasets_emotion){cite}`GomezCanon2021SPM` provides great information about music/mood datasets.
