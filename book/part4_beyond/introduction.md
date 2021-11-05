@@ -1,4 +1,4 @@
-# Beyond supervision
+# Beyond Supervision
 
 <p align = "center">
 <img src = "https://i.imgur.com/ojSewi1.png" width=600>
