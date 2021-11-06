@@ -3,7 +3,7 @@ In this section, we will discuss several methods of self-supervised learning. Wh
 
 In the next paragraphs, we will shortly describe different approaches to self-supervised learning.
 ### Contrastive Learning
-Contrastive learning is a method that describes learning representations by way of modeling similarity from natural variations of data, which is often organised into similar and dissimilar pairs, or by way of organising (insert BYOL here).
+Contrastive learning is a method that describes learning representations by way of modeling similarity from natural variations of data, which is often organised into similar and dissimilar pairs, or by way of organising an encoder in such a way that it keeps a dictionary of positive and negative examples.
 
 It is often presented in the following stages:
 1. Encode different "views" from natural variations of a single example.
