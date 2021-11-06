@@ -8,10 +8,15 @@ This resulted in various pros and cons, and traps.
 
 These are some important but rarely discussed aspects.
 
- - Availabilities of audio signal
+### Availabilities of audio signal
    - This basic and fundamental requirement is already difficult. This is because, well, music is usually copyright-protected. 
-   The solutions are i) just-do-it,  ii) distribute the features, and iii) use copyright-free music.
- - Hidden traps! Because some of the dataset creation procedure was not perfect.
+   The solutions are i) just-do-it,  ii) distribute the features, iii) use copyright-free music, iv) distribute the IDs.
+   
+
+### Hidden traps! 
+
+..Because some of the dataset creation procedure was not perfect.
+
    - How shall we split them
      - Many datasets don't have a official dataset split, and this caused many problems. Usually, wrong split gets us an incorrectly optimistic result, which incentives us to overlook the problem.   
    - How noisy the labels are?
@@ -233,4 +238,4 @@ There's good news as well. The research community is learning lessons from the m
 ## Resources
 
 - We barely cover mood-related datasets in this section. We would like to refer to [this repo](https://github.com/juansgomez87/datasets_emotion){cite}`GomezCanon2021SPM` which provides great information about music/mood datasets.
-- [`mirdata`](https://mirdata.readthedocs.io/en/stable/index.html) {cite}`bittner2019mirdata` is hand software that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., [the AcousticBrainz genre dataset](https://github.com/MTG/acousticbrainz-genre-dataset) {cite}`bogdanov2019acousticbrainz`
+- [`mirdata`](https://mirdata.readthedocs.io/en/stable/index.html) {cite}`bittner2019mirdata` is handy Python package that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., [the AcousticBrainz genre dataset](https://github.com/MTG/acousticbrainz-genre-dataset) {cite}`bogdanov2019acousticbrainz`
