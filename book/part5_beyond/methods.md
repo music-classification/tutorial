@@ -1,5 +1,5 @@
 ## Methods for Self-Supervised Learning
-In this section, we will discuss several methods of self-supervised learning. While the current literature in self-supervised learning for vision and speech tasks is growing, this learning paradigm has not been extensively applied in music information retrieval yet. Extracting useful, robust and perhaps even meaningful representations from music in an unsupervised manner remains an open challenge.
+In this section, we will discuss several methods of self-supervised learning. While the current literature in self-supervised learning for vision and speech tasks is growing steadily, extracting useful, robust and perhaps even meaningful representations from music in an unsupervised manner remains an open challenge.
 
 In the next paragraphs, we will shortly describe different approaches to self-supervised learning.
 ### Contrastive Learning
