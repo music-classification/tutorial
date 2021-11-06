@@ -36,10 +36,10 @@ Multi-label classification is handled as a binary classification for each musica
 ### Music classification tasks
 There can be an almost infinite number of music classification tasks based on product requirements. Among them, the most explored music classification tasks in MIR research are listed as follow:
 
-- Genre classification [reference]
-- Mood classification [reference]
-- Instrument identification [reference]
-- Music tagging [reference]
+- Genre classification {cite}`tzanetakis2002musical`
+- Mood classification {cite}`kim2010music`
+- Instrument identification {cite}`herrera2003automatic`
+- Music tagging {cite}`lamere2008social`
 
 ```{note}
 Music tagging subsumes all other classification tasks as any class (label) can be musical tags.
@@ -55,7 +55,7 @@ The explosion of digital music has dramatically changed our music consumption be
 Applications of music classification. Screenshots captured from Resso, Apple music, Pandora, and Spotify
 </p>
 
-- Recommendation: Once we have labeled or predicted musical attributes, a system can recommend music to users based on frequently consumed musical attributes of the users. Unlike [collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering), a prevalent recommender system using user-item interactions, this content-based recommendation does not suffer from [cold-start problems](https://en.wikipedia.org/wiki/Cold_start_(recommender_systems)) and popularity bias.
+- Recommendation: Once we have labeled or predicted musical attributes, a system can recommend music to users based on frequently consumed musical attributes of the users. Unlike [collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering), a prevalent recommender system using user-item interactions, this content-based recommendation does not suffer from [cold-start problems](https://en.wikipedia.org/wiki/Cold_start_(recommender_systems)) and popularity bias {cite}`celma2010music`.
 - Curation: As we checked from the previous record store example, well-designed music curation helps users browse enormous music libraries efficiently. Hence, music streaming services curate music by genres, subgenres, or moods. Human agents can manually do this process, but music classification models can replace human efforts.
 - Playlist generation: The usage of music classification models in playlist generation is similar to the use in music recommendation. But playlist generation needs to consider the order of the songs and more user context.
 - Listening behavior analysis: Most modern streaming services provide annual reports of personal listening trends. This report helps users to understand their taste better and is basically fun!
