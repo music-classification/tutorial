@@ -23,7 +23,7 @@ parts:
     chapters:
       - file: part5_beyond/introduction
       - file: part5_beyond/methods
-      - file: part5_beyond/self-supervised-learning
+      # - file: part5_beyond/self-supervised-learning
   - caption: Towards Real-world Applications
     chapters:
       - file: part7_towards/mlops
