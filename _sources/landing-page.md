@@ -9,7 +9,7 @@ This is a book written for a [tutorial session](https://ismir2021.ismir.net/tuto
 
 **Cope with data issue**: Another issue that we are facing under the deep learning era is the exhaustion of labeled data. Labeling musical attributes requires strong domain knowledge and a significant amount of time for listening; hence expensive. Because of this, deep learning researchers started actively utilizing large-scale unlabeled data. This book introduces the recent advances in semi- and self-supervised learning that enables music classification models to step further beyond supervised learning.
 
-**Narrow the gap**: Music classification has been applied to solve real-world problems successfully. However, some important procedures and considerations for real-world applications are rarely discussed as research topics. In this book, based on the various industry experiences of the authors, we try our best to raise the awareness of these questions and provide answers and perspectives. We hope this helps academia and industries harmonize better together.
+**Narrow the gap**: Music classification has been applied to solve real-world problems successfully. However, some important procedures and considerations for real-world applications are rarely discussed as research topics. In this book, based on the various industry experiences of the authors, we try our best to raise awareness of these questions and provide answers and perspectives. We hope this helps academia and industries harmonize better together.
 
 ## About the authors
 
