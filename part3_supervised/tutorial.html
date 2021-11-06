@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PyTorch tutorial &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Beyond Supervision" href="../part4_beyond/introduction.html" />
+    <link rel="prev" title="Audio Data Augmentations" href="data-augmentation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/dataset.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/transfer-learning.html">
+   Transfer learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/self-supervised-learning.html">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/mlops.html">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/underexplored-problems.html">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part3_supervised/tutorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/music-classification/tutorial/main?urlpath=tree/book/part3_supervised/tutorial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-collection">
+   Data collection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-loader">
+   Data loader
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#training">
+   Training
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pytorch-tutorial">
+<h1>PyTorch tutorial<a class="headerlink" href="#pytorch-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-collection">
+<h2>Data collection<a class="headerlink" href="#data-collection" title="Permalink to this headline">¶</a></h2>
+<p>In this PyTorch tutorial, we use GTZAN dataset which consists of 10 exclusive genre classes. Please run the following script in your local path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget http://opihi.cs.uvic.ca/sound/genres.tar.gz
+<span class="o">!</span>tar -zxvf genres.tar.gz
+<span class="o">!</span>wget https://raw.githubusercontent.com/coreyker/dnn-mgr/master/gtzan/train_filtered.txt
+<span class="o">!</span>wget https://raw.githubusercontent.com/coreyker/dnn-mgr/master/gtzan/valid_filtered.txt
+<span class="o">!</span>wget https://raw.githubusercontent.com/coreyker/dnn-mgr/master/gtzan/test_filtered.txt
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-loader">
+<h2>Data loader<a class="headerlink" href="#data-loader" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">soundfile</span> <span class="k">as</span> <span class="nn">sf</span>
+<span class="kn">from</span> <span class="nn">torch.utils</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">torchaudio_augmentations</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RandomResizedCrop</span><span class="p">,</span>
+    <span class="n">RandomApply</span><span class="p">,</span>
+    <span class="n">PolarityInversion</span><span class="p">,</span>
+    <span class="n">Noise</span><span class="p">,</span>
+    <span class="n">Gain</span><span class="p">,</span>
+    <span class="n">HighLowPass</span><span class="p">,</span>
+    <span class="n">Delay</span><span class="p">,</span>
+    <span class="n">PitchShift</span><span class="p">,</span>
+    <span class="n">Reverb</span><span class="p">,</span>
+    <span class="n">Compose</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">GTZAN_GENRES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blues&#39;</span><span class="p">,</span> <span class="s1">&#39;classical&#39;</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">,</span> <span class="s1">&#39;disco&#39;</span><span class="p">,</span> <span class="s1">&#39;hiphop&#39;</span><span class="p">,</span> <span class="s1">&#39;jazz&#39;</span><span class="p">,</span> <span class="s1">&#39;metal&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">,</span> <span class="s1">&#39;reggae&#39;</span><span class="p">,</span> <span class="s1">&#39;rock&#39;</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">GTZANDataset</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_path</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">num_chunks</span><span class="p">,</span> <span class="n">is_augmentation</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_path</span> <span class="o">=</span>  <span class="n">data_path</span> <span class="k">if</span> <span class="n">data_path</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split</span> <span class="o">=</span> <span class="n">split</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span> <span class="o">=</span> <span class="n">num_samples</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_chunks</span> <span class="o">=</span> <span class="n">num_chunks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_augmentation</span> <span class="o">=</span> <span class="n">is_augmentation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genres</span> <span class="o">=</span> <span class="n">GTZAN_GENRES</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_song_list</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">is_augmentation</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_augmentations</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_get_song_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">list_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_path</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">_filtered.txt&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">list_filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">song_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_get_augmentations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">transforms</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">RandomResizedCrop</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">PolarityInversion</span><span class="p">()],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">Noise</span><span class="p">(</span><span class="n">min_snr</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">max_snr</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">Gain</span><span class="p">()],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">HighLowPass</span><span class="p">(</span><span class="n">sample_rate</span><span class="o">=</span><span class="mi">22050</span><span class="p">)],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.8</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">Delay</span><span class="p">(</span><span class="n">sample_rate</span><span class="o">=</span><span class="mi">22050</span><span class="p">)],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">PitchShift</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">22050</span><span class="p">)],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.4</span><span class="p">),</span>
+            <span class="n">RandomApply</span><span class="p">([</span><span class="n">Reverb</span><span class="p">(</span><span class="n">sample_rate</span><span class="o">=</span><span class="mi">22050</span><span class="p">)],</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.3</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">augmentation</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">(</span><span class="n">transforms</span><span class="o">=</span><span class="n">transforms</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_adjust_audio_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wav</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">:</span>
+            <span class="n">random_index</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="p">[</span><span class="n">random_index</span> <span class="p">:</span> <span class="n">random_index</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">hop</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span><span class="p">)</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_chunks</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">wav</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">hop</span> <span class="p">:</span> <span class="n">i</span> <span class="o">*</span> <span class="n">hop</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_samples</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_chunks</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="n">wav</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">song_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="c1"># get genre</span>
+        <span class="n">genre_name</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">genre_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genres</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">genre_name</span><span class="p">)</span>
+
+        <span class="c1"># get audio</span>
+        <span class="n">audio_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_path</span><span class="p">,</span> <span class="s1">&#39;genres&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+        <span class="n">wav</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">audio_filename</span><span class="p">)</span>
+
+        <span class="c1"># adjust audio length</span>
+        <span class="n">wav</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adjust_audio_length</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+
+        <span class="c1"># data augmentation</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_augmentation</span><span class="p">:</span>
+            <span class="n">wav</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">augmentation</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">wav</span><span class="p">,</span> <span class="n">genre_index</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">song_list</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_dataloader</span><span class="p">(</span><span class="n">data_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                   <span class="n">split</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> 
+                   <span class="n">num_samples</span><span class="o">=</span><span class="mi">22050</span> <span class="o">*</span> <span class="mi">29</span><span class="p">,</span> 
+                   <span class="n">num_chunks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                   <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> 
+                   <span class="n">num_workers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                   <span class="n">is_augmentation</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">is_shuffle</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="p">(</span><span class="n">split</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+    <span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span> <span class="k">if</span> <span class="p">(</span><span class="n">split</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span><span class="n">batch_size</span> <span class="o">//</span> <span class="n">num_chunks</span><span class="p">)</span>
+    <span class="n">data_loader</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">GTZANDataset</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> 
+                                                       <span class="n">split</span><span class="p">,</span> 
+                                                       <span class="n">num_samples</span><span class="p">,</span> 
+                                                       <span class="n">num_chunks</span><span class="p">,</span> 
+                                                       <span class="n">is_augmentation</span><span class="p">),</span>
+                                  <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span>
+                                  <span class="n">shuffle</span><span class="o">=</span><span class="n">is_shuffle</span><span class="p">,</span>
+                                  <span class="n">drop_last</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                  <span class="n">num_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data_loader</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check returned data shapes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_loader</span> <span class="o">=</span> <span class="n">get_dataloader</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">is_augmentation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">iter_train_loader</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span>
+<span class="n">train_wav</span><span class="p">,</span> <span class="n">train_genre</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_train_loader</span><span class="p">)</span>
+
+<span class="n">valid_loader</span> <span class="o">=</span> <span class="n">get_dataloader</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">get_dataloader</span><span class="p">(</span><span class="n">split</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="n">iter_test_loader</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">test_loader</span><span class="p">)</span>
+<span class="n">test_wav</span><span class="p">,</span> <span class="n">test_genre</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">iter_test_loader</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;training data shape: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">train_wav</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;validation/test data shape: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_wav</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_genre</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>training data shape: torch.Size([16, 639450])
+validation/test data shape: torch.Size([16, 1, 639450])
+tensor([9, 3, 4, 2, 2, 5, 2, 5, 7, 1, 1, 7, 8, 7, 4, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>A data loader returns a tensor of audio and their genre indice at each iteration.</p></li>
+<li><p>Random chunks of audio are cropped from the entire sequence during the training. But in validation / test phase, an entire sequence is split into multiple chunks and the chunks are stacked. The stacked chunks are later input to a trained model and the output predictions are aggregated to make song-level predictions.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<p>We are going to build a simple 2D CNN model with Mel spectrogram inputs. First, we design a convolution module that consists of 3x3 convolution, batch normalization, ReLU non-linearity, and 2x2 max pooling. This module is going to be used for each layer of the 2D CNN.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+
+
+<span class="k">class</span> <span class="nc">Conv_2d</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_channels</span><span class="p">,</span> <span class="n">output_channels</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Conv_2d</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">input_channels</span><span class="p">,</span> <span class="n">output_channels</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="n">shape</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">output_channels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxpool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">pooling</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">dropout</span><span class="p">)</span>
+        
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wav</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bn</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxpool</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Stack the convolution layers. In a PyTorch module, layers are declared in <code class="docutils literal notranslate"><span class="pre">__init__</span></code> and they are built up in <code class="docutils literal notranslate"><span class="pre">forward</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchaudio</span>
+
+
+<span class="k">class</span> <span class="nc">CNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_channels</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> 
+                       <span class="n">sample_rate</span><span class="o">=</span><span class="mi">22050</span><span class="p">,</span> 
+                       <span class="n">n_fft</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> 
+                       <span class="n">f_min</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> 
+                       <span class="n">f_max</span><span class="o">=</span><span class="mf">11025.0</span><span class="p">,</span> 
+                       <span class="n">num_mels</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> 
+                       <span class="n">num_classes</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1"># mel spectrogram</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">melspec</span> <span class="o">=</span> <span class="n">torchaudio</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">MelSpectrogram</span><span class="p">(</span><span class="n">sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span> 
+                                                            <span class="n">n_fft</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span> 
+                                                            <span class="n">f_min</span><span class="o">=</span><span class="n">f_min</span><span class="p">,</span> 
+                                                            <span class="n">f_max</span><span class="o">=</span><span class="n">f_max</span><span class="p">,</span> 
+                                                            <span class="n">n_mels</span><span class="o">=</span><span class="n">num_mels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amplitude_to_db</span> <span class="o">=</span> <span class="n">torchaudio</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">AmplitudeToDB</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_bn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># convolutional layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span> <span class="o">=</span> <span class="n">Conv_2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span> <span class="o">=</span> <span class="n">Conv_2d</span><span class="p">(</span><span class="n">num_channels</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer3</span> <span class="o">=</span> <span class="n">Conv_2d</span><span class="p">(</span><span class="n">num_channels</span><span class="p">,</span> <span class="n">num_channels</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer4</span> <span class="o">=</span> <span class="n">Conv_2d</span><span class="p">(</span><span class="n">num_channels</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">num_channels</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer5</span> <span class="o">=</span> <span class="n">Conv_2d</span><span class="p">(</span><span class="n">num_channels</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">num_channels</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">pooling</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+        <span class="c1"># dense layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">num_channels</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num_channels</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_bn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm1d</span><span class="p">(</span><span class="n">num_channels</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">num_channels</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wav</span><span class="p">):</span>
+        <span class="c1"># input Preprocessing</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">melspec</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="c1"># input batch normalization</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_bn</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="c1"># convolutional layers</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer1</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer3</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer4</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">layer5</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        
+        <span class="c1"># reshape. (batch_size, num_channels, 1, 1) -&gt; (batch_size, num_channels)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># dense layers</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense1</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_bn</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this example, we performed preprocessing on-the-fly using torchaudio. This process can be done offline outside of the network using other libraries such as <a class="reference external" href="https://librosa.org/doc/latest/index.html">librosa</a> and <a class="reference external" href="https://essentia.upf.edu/">essentia</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>There is no activation function at the last layer since <code class="docutils literal notranslate"><span class="pre">nn.CrossEntropyLoss</span></code> already includes softmax in it.</p></li>
+<li><p>If you want to perform multi-label binary classification, include <code class="docutils literal notranslate"><span class="pre">out</span> <span class="pre">=</span> <span class="pre">nn.Sigmoid()(out)</span></code> at the last layer and use <code class="docutils literal notranslate"><span class="pre">nn.BCELoss()</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="training">
+<h2>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>Iterate training. One epoch is defined as visiting all training items once. This definition can be modified in <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">__len__</span></code> in data loader.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda:0&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">cnn</span> <span class="o">=</span> <span class="n">CNN</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">loss_function</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">cnn</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span class="n">valid_losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Train</span>
+    <span class="n">cnn</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">genre_index</span><span class="p">)</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+        <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">genre_index</span> <span class="o">=</span> <span class="n">genre_index</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Forward</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">cnn</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">genre_index</span><span class="p">)</span>
+
+        <span class="c1"># Backward</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch: [</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">], Train loss: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">losses</span><span class="p">)))</span>
+
+    <span class="c1"># Validation</span>
+    <span class="n">cnn</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+    <span class="n">y_true</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">wav</span><span class="p">,</span> <span class="n">genre_index</span> <span class="ow">in</span> <span class="n">valid_loader</span><span class="p">:</span>
+        <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">genre_index</span> <span class="o">=</span> <span class="n">genre_index</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># reshape and aggregate chunk-level predictions</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">cnn</span><span class="p">(</span><span class="n">wav</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">genre_index</span><span class="p">)</span>
+        <span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># append labels and predictions</span>
+        <span class="n">y_true</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">genre_index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">y_pred</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">valid_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Epoch: [</span><span class="si">%d</span><span class="s1">/</span><span class="si">%d</span><span class="s1">], Valid loss: </span><span class="si">%.4f</span><span class="s1">, Valid accuracy: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">valid_loss</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">))</span>
+
+    <span class="c1"># Save model</span>
+    <span class="n">valid_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">valid_loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">valid_losses</span><span class="p">)</span> <span class="o">==</span> <span class="n">epoch</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Saving the best model at </span><span class="si">%d</span><span class="s1"> epochs!&#39;</span> <span class="o">%</span> <span class="n">epoch</span><span class="p">)</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">cnn</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s1">&#39;best_model.ckpt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch: [1/30], Train loss: 2.4078
+Epoch: [1/30], Valid loss: 2.3558, Valid accuracy: 0.1117
+Saving the best model at 0 epochs!
+Epoch: [2/30], Train loss: 2.3422
+Epoch: [2/30], Valid loss: 2.2748, Valid accuracy: 0.1218
+Saving the best model at 1 epochs!
+Epoch: [3/30], Train loss: 2.2830
+Epoch: [3/30], Valid loss: 2.2013, Valid accuracy: 0.1929
+Saving the best model at 2 epochs!
+Epoch: [4/30], Train loss: 2.2026
+Epoch: [4/30], Valid loss: 2.0716, Valid accuracy: 0.2487
+Saving the best model at 3 epochs!
+Epoch: [5/30], Train loss: 2.1279
+Epoch: [5/30], Valid loss: 1.9948, Valid accuracy: 0.2640
+Saving the best model at 4 epochs!
+Epoch: [6/30], Train loss: 2.1007
+Epoch: [6/30], Valid loss: 1.9407, Valid accuracy: 0.3249
+Saving the best model at 5 epochs!
+Epoch: [7/30], Train loss: 2.0670
+Epoch: [7/30], Valid loss: 1.9217, Valid accuracy: 0.3096
+Saving the best model at 6 epochs!
+Epoch: [8/30], Train loss: 2.0387
+Epoch: [8/30], Valid loss: 1.9618, Valid accuracy: 0.2893
+Epoch: [9/30], Train loss: 2.0034
+Epoch: [9/30], Valid loss: 1.7882, Valid accuracy: 0.3604
+Saving the best model at 8 epochs!
+Epoch: [10/30], Train loss: 1.9669
+Epoch: [10/30], Valid loss: 1.7608, Valid accuracy: 0.3807
+Saving the best model at 9 epochs!
+Epoch: [11/30], Train loss: 1.9212
+Epoch: [11/30], Valid loss: 1.7428, Valid accuracy: 0.3604
+Saving the best model at 10 epochs!
+Epoch: [12/30], Train loss: 1.9497
+Epoch: [12/30], Valid loss: 1.7381, Valid accuracy: 0.3401
+Saving the best model at 11 epochs!
+Epoch: [13/30], Train loss: 1.8578
+Epoch: [13/30], Valid loss: 1.7946, Valid accuracy: 0.3350
+Epoch: [14/30], Train loss: 1.8934
+Epoch: [14/30], Valid loss: 1.6822, Valid accuracy: 0.3959
+Saving the best model at 13 epochs!
+Epoch: [15/30], Train loss: 1.8459
+Epoch: [15/30], Valid loss: 1.6475, Valid accuracy: 0.4416
+Saving the best model at 14 epochs!
+Epoch: [16/30], Train loss: 1.8433
+Epoch: [16/30], Valid loss: 1.6429, Valid accuracy: 0.3503
+Saving the best model at 15 epochs!
+Epoch: [17/30], Train loss: 1.8358
+Epoch: [17/30], Valid loss: 2.0232, Valid accuracy: 0.3046
+Epoch: [18/30], Train loss: 1.8106
+Epoch: [18/30], Valid loss: 1.6712, Valid accuracy: 0.3655
+Epoch: [19/30], Train loss: 1.7393
+Epoch: [19/30], Valid loss: 2.2497, Valid accuracy: 0.2741
+Epoch: [20/30], Train loss: 1.7158
+Epoch: [20/30], Valid loss: 1.5637, Valid accuracy: 0.4162
+Saving the best model at 19 epochs!
+Epoch: [21/30], Train loss: 1.7603
+Epoch: [21/30], Valid loss: 1.4845, Valid accuracy: 0.5178
+Saving the best model at 20 epochs!
+Epoch: [22/30], Train loss: 1.7305
+Epoch: [22/30], Valid loss: 1.6282, Valid accuracy: 0.3503
+Epoch: [23/30], Train loss: 1.7213
+Epoch: [23/30], Valid loss: 1.4270, Valid accuracy: 0.5381
+Saving the best model at 22 epochs!
+Epoch: [24/30], Train loss: 1.7064
+Epoch: [24/30], Valid loss: 1.6344, Valid accuracy: 0.3655
+Epoch: [25/30], Train loss: 1.6306
+Epoch: [25/30], Valid loss: 1.3873, Valid accuracy: 0.5330
+Saving the best model at 24 epochs!
+Epoch: [26/30], Train loss: 1.7458
+Epoch: [26/30], Valid loss: 1.4194, Valid accuracy: 0.5076
+Epoch: [27/30], Train loss: 1.6578
+Epoch: [27/30], Valid loss: 1.7264, Valid accuracy: 0.3604
+Epoch: [28/30], Train loss: 1.6247
+Epoch: [28/30], Valid loss: 1.4872, Valid accuracy: 0.5076
+Epoch: [29/30], Train loss: 1.6642
+Epoch: [29/30], Valid loss: 1.3975, Valid accuracy: 0.4772
+Epoch: [30/30], Train loss: 1.6681
+Epoch: [30/30], Valid loss: 1.6023, Valid accuracy: 0.4213
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Collect the trained model’s predictions for the test set. Chunk-level predictions are aggregated to make song-level predictions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the best model</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;best_model.ckpt&#39;</span><span class="p">)</span>
+<span class="n">cnn</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;loaded!&#39;</span><span class="p">)</span>
+
+<span class="c1"># Run evaluation</span>
+<span class="n">cnn</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">wav</span><span class="p">,</span> <span class="n">genre_index</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+        <span class="n">wav</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">genre_index</span> <span class="o">=</span> <span class="n">genre_index</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># reshape and aggregate chunk-level predictions</span>
+        <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="n">wav</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">cnn</span><span class="p">(</span><span class="n">wav</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span>
+        <span class="n">logits</span> <span class="o">=</span> <span class="n">logits</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">pred</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">logits</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># append labels and predictions</span>
+        <span class="n">y_true</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">genre_index</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">y_pred</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loaded!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we can assess the performance and visualize a confusion matrix for better understanding.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">GTZAN_GENRES</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">GTZAN_GENRES</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.5414
+</pre></div>
+</div>
+<img alt="../_images/tutorial_17_1.png" src="../_images/tutorial_17_1.png" />
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In this tutorial, we did not use any high-level library for more understandable implementation. We highly recommend checking the following libraries for simplified implementation:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.pytorchlightning.ai/">PyTorch Lightning</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/ignite/">Ignite</a></p></li>
+<li><p><a class="reference external" href="https://hydra.cc/docs/intro/">Hydra</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part3_supervised"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="data-augmentation.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Audio Data Augmentations</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../part4_beyond/introduction.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Beyond Supervision</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

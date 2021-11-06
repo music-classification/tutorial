@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLOps &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Under-Explored Problems in Academia" href="underexplored-problems.html" />
+    <link rel="prev" title="Self-Supervised Learning" href="../part5_beyond/self-supervised-learning.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/dataset.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/tutorial.html">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/transfer-learning.html">
+   Transfer learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/self-supervised-learning.html">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="underexplored-problems.html">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part7_towards/mlops.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-creation">
+   Dataset Creation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#item-sampling">
+     1. Item Sampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#annotation">
+     2. Annotation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#postprocessing">
+     3. Postprocessing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-management">
+   Dataset Management
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-it-is-more-than-a-single-number">
+   Evaluation: It is more than a single number
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choice-of-metric-s">
+     Choice of metric(
+     <strong>
+      s
+     </strong>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#optimize-for-your-target-metric">
+     Optimize for your target metric
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deployment">
+   Deployment
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#notes">
+     Notes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#food-for-thought-aggregating-segment-level-predictions">
+     Food for thought: Aggregating segment level predictions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mlops">
+<h1>MLOps<a class="headerlink" href="#mlops" title="Permalink to this headline">¶</a></h1>
+<p>Academia and industry have different goals and focuses for good reasons. But it’s useful to learn what is happening on the other side.</p>
+<hr class="docutils" />
+<p><img alt="" src="../_images/_img_mlops-continuous-delivery-and-automation-pipelines-in-machine-learning-1-elements-of-ml.png" /></p>
+<p>This famous image from <a class="reference external" href="https://research.google/pubs/pub43146/">Machine Learning: The High Interest Credit Card of Technical Debt, <span id="id1">[<a class="reference internal" href="../references.html#id23">Sculley <em>et al.</em>, 2014</a>]</span></a>
+shows various kinds of modules that are needed, on top of ML code, to build an ML system. There are so many of them that people even coined a new word, “MLOps”. Among these, we will discuss the creation and management of datasets, evaluation of an ML model, and deployment in this chapter.</p>
+<div class="section" id="dataset-creation">
+<h2>Dataset Creation<a class="headerlink" href="#dataset-creation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="item-sampling">
+<h3>1. Item Sampling<a class="headerlink" href="#item-sampling" title="Permalink to this headline">¶</a></h3>
+<p>To create a dataset, one first needs to collect the items. If the source of an item is limited in some sense, we might want to simply maximize the number of items. Otherwise, we need to sample the items from a bigger set, which might be the whole population (e.g., the whole catalog of streaming service).</p>
+<p>In general, the goal of this sampling is to statistically represent the target set. But how? Here are some tips.</p>
+<ul class="simple">
+<li><p>Use metadata (year, artist, language, genre) to ensure diversity</p></li>
+<li><p>Make sure the items at extreme ends are included (e.g., the oldest and the newest songs)</p></li>
+</ul>
+<p>OpenMIC-2018 <span id="id2">[<a class="reference internal" href="../references.html#id44">Humphrey <em>et al.</em>, 2018</a>]</span> set a high bar on this. The source of the dataset is FMA <span id="id3">[<a class="reference internal" href="../references.html#id19">Defferrard <em>et al.</em>, 2016</a>]</span> which has full tracks, and the goal was to sample 10-second segments so that each instrument class is represented well enough. The authors first trained an instrument recognition model using an existing dataset. The model was used to approximate class occurrence. Based on this, the authors sampled the (assumed to be) positive 10-second segments of an instrument – from least to most likely instrument class. Finally, then applied a rule so that no two clips share a source track.</p>
+</div>
+<div class="section" id="annotation">
+<h3>2. Annotation<a class="headerlink" href="#annotation" title="Permalink to this headline">¶</a></h3>
+<p>Once collecting the items, you’ll go through an annotation process.</p>
+<ul class="simple">
+<li><p>Defining a taxonomy can be an overwhelmingly difficult task! Ask experts, see if there’s existing taxonomy you can use (e.g., <a class="reference external" href="https://wordnet.princeton.edu">WordNet</a>).</p></li>
+<li><p>Educate the annotators so that everyone has the same understanding of the task and the labels.</p></li>
+<li><p>Be skeptical about the quality - Have multiple annotators and use the agreement to validate the labels.</p></li>
+<li><p>After labeling, if you’re lack items with some labels, manually add the items. I.e., do some preemptive active learning</p></li>
+</ul>
+</div>
+<div class="section" id="postprocessing">
+<h3>3. Postprocessing<a class="headerlink" href="#postprocessing" title="Permalink to this headline">¶</a></h3>
+<p>All done? Yes – almost. But there are a few more things to do.</p>
+<ul class="simple">
+<li><p>Mistakes in the split leads to mistakes in training and evaluation!</p>
+<ul>
+<li><p>Make sure the (label and/or any other) distributions of training/validation/testing sets are similar.</p></li>
+<li><p>Allocate enough items to validation and testing sets.</p>
+<ul>
+<li><p>For example, when the dataset is not that large – Which is better? 90:5:5 vs 70:20:10. Of course, it all depends. But I’d prefer the latter since i) a 22% decrease of the training set is probably not critical while a 400% increase in validation set means our model selection will be significantly more reliable.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="dataset-management">
+<h2>Dataset Management<a class="headerlink" href="#dataset-management" title="Permalink to this headline">¶</a></h2>
+<p>In the ideal world, you have nothing to do once a dataset is created. In the world we’re living in, it might be just the beginning!</p>
+<ul class="simple">
+<li><p>Version your dataset. It can be like versioning software (1.0, 1.0.1, 1.1.0, ..) which has nice rules about, for example, <a class="reference external" href="https://semver.org/">semantic versioning</a>. Or maybe simply the dates and some explanation.</p>
+<ul>
+<li><p>Save the version of the dataset with your models.</p></li>
+</ul>
+</li>
+<li><p>You may add new data samples. Why? 🤷‍♀️ Anyway, it happens.</p>
+<ul>
+<li><p>Be aware of the distribution of the new subset and the result</p></li>
+<li><p>Be consistent on the data pipeline (software and parameters used during audio processing)</p></li>
+</ul>
+</li>
+<li><p>Keep your data samples up-to-date. Add recent samples!</p></li>
+<li><p>Keep your labels up-to-date.</p>
+<ul>
+<li><p>E.g., genre labels (new genres may emerge), labels from language models</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="evaluation-it-is-more-than-a-single-number">
+<h2>Evaluation: It is more than a single number<a class="headerlink" href="#evaluation-it-is-more-than-a-single-number" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="choice-of-metric-s">
+<h3>Choice of metric(<strong>s</strong>)<a class="headerlink" href="#choice-of-metric-s" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In papers, conciseness is a virtue!</p>
+<ul>
+<li><p>We have to compare models (to show my model beats yours!). We prefer a single number such as AUC-ROC, PR-AUC, or average F-1 score, one that summarizes the performance of tags / with various metrics (e.g., precision and recall).</p></li>
+</ul>
+</li>
+<li><p>In industry, it might be a bit different.</p>
+<ul>
+<li><p>You would want to evaluate the model in more detail. For example, the performance of each tag would matter.</p></li>
+<li><p>Depending on use cases, people may focus on either precision or recall.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="optimize-for-your-target-metric">
+<h3>Optimize for your target metric<a class="headerlink" href="#optimize-for-your-target-metric" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>High precision? or High recall?</p>
+<ul>
+<li><p>Know your application!</p></li>
+</ul>
+</li>
+<li><p>Thresholding or not?</p>
+<ul>
+<li><p>Even with softmax, if the target is high precision, simply thresholding with value works.</p></li>
+<li><p>Confidence estimation can be done in various way.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ensure the reproducibility of:</p>
+<ul>
+<li><p>Software/your code!</p></li>
+<li><p>Model</p></li>
+<li><p>Data processing pipeline</p>
+<ul>
+<li><p>Decoding mp3, or if it’s mp3 vs wav input, resampling algorithm, how to downmix, ..</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Is your model actually useful for the whole catalog you have? E.g.,:</p>
+<ul>
+<li><p>If album cover images are used in the model, are they going to be available for all the music tracks?</p></li>
+<li><p>If you used lyrics, would it work for all the languages you need to support?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="food-for-thought-aggregating-segment-level-predictions">
+<h3>Food for thought: Aggregating segment level predictions<a class="headerlink" href="#food-for-thought-aggregating-segment-level-predictions" title="Permalink to this headline">¶</a></h3>
+<p>We often avoid this issue when using public datasets (e.g., MSD) as they come with 30-second preview only. If you have access to full tracks, congratulations! It’s an opportunity to improve the performance! This is where some ideas of multiple instance learning can help you.</p>
+<p>Assuming the model is working properly, simply averaging the predictions/probabilities/logits would result in a better performance. This is because when misclassifications are rare, they are ignored as we choose the majority.</p>
+<p>One would want to go further and let a model handle the aggregation. For example, a Transformer can be used on top of segment level predictions. This could solve some corner cases where averaging fails. Imagine an instrumental detector that is deployed for track-level classification but trained at a segment-level. Averaging (or majority voting) would result in incorrect classification if more than 50% of segments have no vocal; even if the track is not instrumental.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part7_towards"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../part5_beyond/self-supervised-learning.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Self-Supervised Learning</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="underexplored-problems.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Under-Explored Problems in Academia</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

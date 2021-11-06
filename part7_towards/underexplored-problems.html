@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Under-Explored Problems in Academia &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conclusion" href="../part8_conclusion/_intro.html" />
+    <link rel="prev" title="MLOps" href="mlops.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/dataset.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/tutorial.html">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/transfer-learning.html">
+   Transfer learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/self-supervised-learning.html">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mlops.html">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part7_towards/underexplored-problems.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-makes-a-topic-difficult-to-work-on-in-academia">
+   What makes a topic difficult to work on in academia?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#let-s-talk-about-research-topics">
+   Let’s talk about research topics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speech-music-classification">
+     Speech/music classification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#language-classification">
+     Language classification
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mood-recognition">
+     Mood recognition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#year-decade-era">
+     Year/decade/era
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#audio-codec-quality-mp3-wav">
+     Audio codec quality (mp3, wav, ..)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hierarchical-classification">
+     Hierarchical Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="under-explored-problems-in-academia">
+<h1>Under-Explored Problems in Academia<a class="headerlink" href="#under-explored-problems-in-academia" title="Permalink to this headline">¶</a></h1>
+<p>Your choices as a researcher are affected by the circumstance such as</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>\</p></th>
+<th class="head"><p>Has more freedom in</p></th>
+<th class="head"><p>Has Bias towards</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Academia</p></td>
+<td><p>Choosing the topics</p></td>
+<td><p>Publishable topics</p></td>
+</tr>
+<tr class="row-odd"><td><p>Industry</p></td>
+<td><p>Using resources (time, budget, work force)</p></td>
+<td><p>Profitable topics</p></td>
+</tr>
+</tbody>
+</table>
+<p>As a result, we’ll see each entity uses [A] to specialize in [B].
+And that’s great! But, for the same reason, some topics are getting little attention in academia.</p>
+<div class="section" id="what-makes-a-topic-difficult-to-work-on-in-academia">
+<h2>What makes a topic difficult to work on in academia?<a class="headerlink" href="#what-makes-a-topic-difficult-to-work-on-in-academia" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>When it feels like it’s solved → You can’t write a paper about it anymore!</p></li>
+<li><p>When it’s hard to create a dataset → In this data-driven era, it’s a deal-breaker.</p></li>
+<li><p>When the problem is too new / there’s no dataset for it → No way for sure.</p></li>
+<li><p>When it’s difficult to evaluate → Don’t feed Reviewer 2 a reason for rejection!</p></li>
+</ul>
+</div>
+<div class="section" id="let-s-talk-about-research-topics">
+<h2>Let’s talk about research topics<a class="headerlink" href="#let-s-talk-about-research-topics" title="Permalink to this headline">¶</a></h2>
+<p>Disclaimer - This section is meant to be subjective. Also, as the content is based on the diagnosis of the current research field, it will expire as time goes by.</p>
+<div class="section" id="speech-music-classification">
+<h3>Speech/music classification<a class="headerlink" href="#speech-music-classification" title="Permalink to this headline">¶</a></h3>
+<p><strong>Although</strong></p>
+<ul class="simple">
+<li><p>It seems easy</p></li>
+<li><p>Many methods have achieved 100% accuracy in Gtzan speech/music dataset <span id="id1">[<a class="reference internal" href="../references.html#id24">Tzanetakis, 1999</a>]</span>,</p></li>
+</ul>
+<p><strong>It is an interesting problem because</strong></p>
+<ul class="simple">
+<li><p>The model is needed anyway and there’s no reliable public model since Gtzan speech/music dataset <span id="id2">[<a class="reference internal" href="../references.html#id24">Tzanetakis, 1999</a>]</span> is pretty small</p></li>
+<li><p>The problem can be defined further such as:</p>
+<ul>
+<li><p>Clip-level decision → short segment-level decision (say, 1 second)</p></li>
+<li><p>More than binary decision - {100% Music – many levels in between – 100% speech} + {something neither music or speech} (e.g., <span id="id3">[<a class="reference internal" href="../references.html#id25">Meléndez-Catalán <em>et al.</em>, 2019</a>]</span>, <span id="id4">[<a class="reference internal" href="../references.html#id39">Hung <em>et al.</em>, 2021</a>]</span>)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="language-classification">
+<h3>Language classification<a class="headerlink" href="#language-classification" title="Permalink to this headline">¶</a></h3>
+<p><strong>Although</strong></p>
+<ul class="simple">
+<li><p>We were not doing it (nearly at all) because there was no public dataset</p></li>
+</ul>
+<p><strong>It is an interesting problem because</strong></p>
+<ul class="simple">
+<li><p>It’s one of the main components in music recommendation systems.</p></li>
+<li><p>It is popular in Industry - According to publication records, ByteDance <span id="id5">[<a class="reference internal" href="../references.html#id2">Choi and Wang, 2021</a>]</span> / Spotify <span id="id6">[<a class="reference internal" href="../references.html#id5">Roxbergh, 2019</a>]</span> / YouTube <span id="id7">[<a class="reference internal" href="../references.html#id3">Chandrasekhar <em>et al.</em>, 2011</a>]</span> have done it.</p></li>
+<li><p>There is a public dataset now <span id="id8">[<a class="reference internal" href="../references.html#id4">Santana <em>et al.</em>, 2020</a>]</span></p></li>
+</ul>
+</div>
+<div class="section" id="mood-recognition">
+<h3>Mood recognition<a class="headerlink" href="#mood-recognition" title="Permalink to this headline">¶</a></h3>
+<p><strong>Although</strong></p>
+<ul class="simple">
+<li><p>It has lost popularity for these reasons:</p>
+<ul>
+<li><p>Tagging tasks sort of overshadowed it</p></li>
+<li><p>Hard to get large-scale data // while we have to write deep learning papers!</p></li>
+<li><p>Hard to evaluate (fundamentally, completely subjective)</p></li>
+<li><p>Maybe a lot about lyrics, which are also hard to get.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>It is an interesting problem because</strong></p>
+<ul class="simple">
+<li><p>Users still want to find some songs by mood.</p>
+<ul>
+<li><p>Mood-based playlists/radio stations are popular!</p></li>
+<li><p>Check out <a class="reference external" href="https://github.com/juansgomez87/datasets_emotion">this repo</a><span id="id9">[<a class="reference internal" href="../references.html#id36">Gómez-Cañón <em>et al.</em>, 2021</a>]</span> for a comprehensive list of mood-related datasets</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="year-decade-era">
+<h3>Year/decade/era<a class="headerlink" href="#year-decade-era" title="Permalink to this headline">¶</a></h3>
+<p><strong>Although</strong></p>
+<ul class="simple">
+<li><p>No one does it explicitly</p></li>
+<li><p>Metadata is supposed to cover this pretty well</p></li>
+<li><p>MSD includes it and it works pretty okay <span id="id10">[<a class="reference internal" href="../references.html#id15">Bertin-Mahieux <em>et al.</em>, 2011</a>]</span></p></li>
+</ul>
+<p><strong>It is an interesting problem because</strong></p>
+<ul class="simple">
+<li><p>And yes, there is demand! Metadata is NOT always there or correct</p></li>
+<li><p>Relevant to user’s musical preference</p></li>
+</ul>
+</div>
+<div class="section" id="audio-codec-quality-mp3-wav">
+<h3>Audio codec quality (mp3, wav, ..)<a class="headerlink" href="#audio-codec-quality-mp3-wav" title="Permalink to this headline">¶</a></h3>
+<p><strong>Although</strong></p>
+<ul class="simple">
+<li><p>Music services are supposed to always have high-quality audio</p></li>
+</ul>
+<p><strong>It is an interesting problem because</strong></p>
+<ul class="simple">
+<li><p>There are many fake CD-quality/fake HD audio files</p></li>
+<li><p>Indie music/Directly publishing + sample-based music producing = Increase of audio quality issue</p></li>
+</ul>
+</div>
+<div class="section" id="hierarchical-classification">
+<h3>Hierarchical Classification<a class="headerlink" href="#hierarchical-classification" title="Permalink to this headline">¶</a></h3>
+<p><strong>Although</strong></p>
+<ul class="simple">
+<li><p>There are little datasets that have hierarchical taxonomies</p></li>
+</ul>
+<p><strong>It is an interesting problem because</strong></p>
+<ul class="simple">
+<li><p>We can do a better job by learning the knowledge in the hierarchy</p></li>
+<li><p>The users of your model may want it! Even if they did not explicitly want a label hierarchy, it might make more sense to have one based on the labels in demand.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part7_towards"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="mlops.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">MLOps</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../part8_conclusion/_intro.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Conclusion</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

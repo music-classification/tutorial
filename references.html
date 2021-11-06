@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>References &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Conclusion" href="part8_conclusion/_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part2_basics/input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part2_basics/dataset.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part2_basics/evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3_supervised/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3_supervised/architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3_supervised/data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part3_supervised/tutorial.html">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part4_beyond/transfer-learning.html">
+   Transfer learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part5_beyond/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part5_beyond/methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part5_beyond/self-supervised-learning.html">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part7_towards/mlops.html">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="part7_towards/underexplored-problems.html">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/references.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<p id="id1"><dl class="citation">
+<dt class="label" id="id42"><span class="brackets">ABC+16</span></dt>
+<dd><p>Martín Abadi, Paul Barham, Jianmin Chen, Zhifeng Chen, Andy Davis, Jeffrey Dean, Matthieu Devin, Sanjay Ghemawat, Geoffrey Irving, Michael Isard, and others. Tensorflow: a system for large-scale machine learning. In <em>12th USENIX symposium on operating systems design and implementation (OSDI 16)</em>, 265–283. 2016.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">BMEWL11</span></dt>
+<dd><p>Thierry Bertin-Mahieux, Daniel PW Ellis, Brian Whitman, and Paul Lamere. The million song dataset. In <em>ISMIR 2011: Proceedings of the 12th International Society for Music Information Retrieval Conference, October 24-28, 2011, Miami, Florida</em>, 591–596. University of Miami, 2011.</p>
+</dd>
+<dt class="label" id="id37"><span class="brackets">BFR+19</span></dt>
+<dd><p>Rachel M Bittner, Magdalena Fuentes, David Rubinstein, Andreas Jansson, Keunwoo Choi, and Thor Kell. Mirdata: software for reproducible usage of datasets. In <em>ISMIR</em>. 2019.</p>
+</dd>
+<dt class="label" id="id38"><span class="brackets">BPS+19</span></dt>
+<dd><p>Dmitry Bogdanov, Alastair Porter, Hendrik Schreiber, Julián Urbano, and Sergio Oramas. The acousticbrainz genre dataset: multi-source, multi-level, multi-label, and large-scale. In <em>Proceedings of the 20th Conference of the International Society for Music Information Retrieval (ISMIR 2019): 2019 Nov 4-8; Delft, The Netherlands.[Canada]: ISMIR; 2019.</em> International Society for Music Information Retrieval (ISMIR), 2019.</p>
+</dd>
+<dt class="label" id="id29"><span class="brackets">BWGomezGutierrez+13</span></dt>
+<dd><p>Dmitry Bogdanov, Nicolas Wack, Emilia Gómez Gutiérrez, Sankalp Gulati, Herrera Boyer, Oscar Mayor, Gerard Roma Trepat, Justin Salamon, José Ricardo Zapata González, Xavier Serra, and others. Essentia: an audio analysis library for music information retrieval. In <em>Britto A, Gouyon F, Dixon S, editors. 14th Conference of the International Society for Music Information Retrieval (ISMIR); 2013 Nov 4-8; Curitiba, Brazil.[place unknown]: ISMIR; 2013. p. 493-8.</em> International Society for Music Information Retrieval (ISMIR), 2013.</p>
+</dd>
+<dt class="label" id="id20"><span class="brackets">BWT+19</span></dt>
+<dd><p>Dmitry Bogdanov, Minz Won, Philip Tovstogan, Alastair Porter, and Xavier Serra. The mtg-jamendo dataset for automatic music tagging. In <em>Machine Learning for Music Discovery Workshop, International Conference on Machine Learning (ICML 2019)</em>. Long Beach, CA, United States, 2019. URL: <a class="reference external" href="http://hdl.handle.net/10230/42015">http://hdl.handle.net/10230/42015</a>.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">CSR11</span></dt>
+<dd><p>Vijay Chandrasekhar, Mehmet Emre Sargin, and David A Ross. Automatic language identification in music videos with low level audio and visual features. In <em>2011 IEEE international conference on acoustics, speech and signal processing (ICASSP)</em>, 5724–5727. IEEE, 2011.</p>
+</dd>
+<dt class="label" id="id34"><span class="brackets">CAAH20</span></dt>
+<dd><p>Kin Wai Cheuk, Hans Anderson, Kat Agres, and Dorien Herremans. Nnaudio: an on-the-fly gpu audio to spectrogram conversion toolbox using 1d convolutional neural networks. <em>IEEE Access</em>, 8:161981–162003, 2020.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">CFS16</span></dt>
+<dd><p>Keunwoo Choi, György Fazekas, and Mark Sandler. Automatic tagging using deep convolutional neural networks. In <em>The 17th International Society of Music Information Retrieval Conference, New York, USA</em>. International Society of Music Information Retrieval, 2016.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">CFCS18</span></dt>
+<dd><p>Keunwoo Choi, György Fazekas, Kyunghyun Cho, and Mark Sandler. The effects of noisy labels on deep convolutional neural networks for music tagging. <em>IEEE Transactions on Emerging Topics in Computational Intelligence</em>, 2(2):139–149, 2018. <a class="reference external" href="https://doi.org/10.1109/TETCI.2017.2771298">doi:10.1109/TETCI.2017.2771298</a>.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets">CJK17</span></dt>
+<dd><p>Keunwoo Choi, Deokjin Joo, and Juho Kim. Kapre: on-gpu audio preprocessing layers for a quick implementation of deep neural network models with keras. <em>Machine Learning for Music Discovery Workshop at 34th International Conference on Machine Learning</em>, 2017.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">CW21</span></dt>
+<dd><p>Keunwoo Choi and Yuxuan Wang. Listen, read, and identify: multimodal singing language identification of music. In <em>ISMIR</em>. 2021.</p>
+</dd>
+<dt class="label" id="id26"><span class="brackets">Com20</span></dt>
+<dd><p>Executable Books Community. Jupyter book. February 2020. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.4539666">https://doi.org/10.5281/zenodo.4539666</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.4539666">doi:10.5281/zenodo.4539666</a>.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets">DBVB16</span></dt>
+<dd><p>Michaël Defferrard, Kirell Benzi, Pierre Vandergheynst, and Xavier Bresson. Fma: a dataset for music analysis. <em>arXiv preprint arXiv:1612.01840</em>, 2016.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">DS14</span></dt>
+<dd><p>Sander Dieleman and Benjamin Schrauwen. End-to-end learning for music audio. In <em>Acoustics, Speech and Signal Processing (ICASSP), 2014 IEEE International Conference on</em>, 6964–6968. IEEE, 2014.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets">ERR+17</span></dt>
+<dd><p>Jesse Engel, Cinjon Resnick, Adam Roberts, Sander Dieleman, Mohammad Norouzi, Douglas Eck, and Karen Simonyan. Neural audio synthesis of musical notes with wavenet autoencoders. In <em>International Conference on Machine Learning</em>, 1068–1077. PMLR, 2017.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets">GEF+17</span></dt>
+<dd><p>Jort F. Gemmeke, Daniel P. W. Ellis, Dylan Freedman, Aren Jansen, Wade Lawrence, R. Channing Moore, Manoj Plakal, and Marvin Ritter. Audio set: an ontology and human-labeled dataset for audio events. In <em>Proc. IEEE ICASSP 2017</em>. New Orleans, LA, 2017.</p>
+</dd>
+<dt class="label" id="id36"><span class="brackets">GCCE+21</span></dt>
+<dd><p>Juan Sebastián Gómez-Cañón, Estefanía Cano, Tuomas Eerola, Perfecto Herrera, Xiao Hu, Yi-Hsuan Yang, and Gómez Emilia. Music Emotion Recognition: towards new robust standards in personalized and context-sensitive applications. <em>IEEE Signal Processing Magazine</em>, 2021. <a class="reference external" href="https://doi.org/10.1109/MSP.2021.3106232">doi:10.1109/MSP.2021.3106232</a>.</p>
+</dd>
+<dt class="label" id="id35"><span class="brackets">HMvdW+20</span></dt>
+<dd><p>Charles R Harris, K Jarrod Millman, Stéfan J van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, and others. Array programming with numpy. <em>Nature</em>, 585(7825):357–362, 2020.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets">HDM18</span></dt>
+<dd><p>Eric Humphrey, Simon Durand, and Brian McFee. Openmic-2018: an open data-set for multiple instrument recognition. In <em>ISMIR</em>, 438–444. 2018.</p>
+</dd>
+<dt class="label" id="id39"><span class="brackets">HWW+21</span></dt>
+<dd><p>Yun-Ning Hung, Karn N. Watcharasupat, Chih-Wei Wu, Iroro Orife, Kelian Li, Pavan Seshadri, and Junyoung Lee. Avaspeech-smad: a strongly labelled speech and music activity detection dataset with label co-occurrence. 2021. <a class="reference external" href="https://arxiv.org/abs/2111.01320">arXiv:2111.01320</a>.</p>
+</dd>
+<dt class="label" id="id33"><span class="brackets">Hun07</span></dt>
+<dd><p>John D Hunter. Matplotlib: a 2d graphics environment. <em>Computing in science &amp; engineering</em>, 9(03):90–95, 2007.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">LWM+09</span></dt>
+<dd><p>Edith Law, Kris West, Michael I Mandel, Mert Bay, and J Stephen Downie. Evaluation of algorithms using games: the case of music tagging. In <em>ISMIR</em>, 387–392. 2009.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">LPKN17</span></dt>
+<dd><p>Jongpil Lee, Jiyoung Park, Keunhyoung Luke Kim, and Juhan Nam. Sample-level deep convolutional neural networks for music auto-tagging using raw waveforms. <em>arXiv preprint arXiv:1703.01789</em>, 2017.</p>
+</dd>
+<dt class="label" id="id28"><span class="brackets">MMM+21</span></dt>
+<dd><p>Brian McFee, Alexandros Metsai, Matt McVicar, Stefan Balke, Carl Thomé, Colin Raffel, Frank Zalkow, Ayoub Malek, Dana, Kyungyun Lee, Oriol Nieto, Dan Ellis, Jack Mason, Eric Battenberg, Scott Seyfarth, Ryuichi Yamamoto, viktorandreevichmorozov, Keunwoo Choi, Josh Moore, Rachel Bittner, Shunsuke Hidaka, Ziyao Wei, nullmightybofo, Darío Hereñú, Fabian-Robert Stöter, Pius Friesch, Adam Weiss, Matt Vollrath, Taewoon Kim, and Thassilo. Librosa/librosa: 0.8.1rc2. May 2021. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.4792298">https://doi.org/10.5281/zenodo.4792298</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.4792298">doi:10.5281/zenodo.4792298</a>.</p>
+</dd>
+<dt class="label" id="id27"><span class="brackets">MRL+15</span></dt>
+<dd><p>Brian McFee, Colin Raffel, Dawen Liang, Daniel PW Ellis, Matt McVicar, Eric Battenberg, and Oriol Nieto. Librosa: audio and music signal analysis in python. In <em>Proceedings of the 14th python in science conference</em>, volume 8, 18–25. Citeseer, 2015.</p>
+</dd>
+<dt class="label" id="id25"><span class="brackets">MelendezCatalanMGomez19</span></dt>
+<dd><p>Blai Meléndez-Catalán, Emilio Molina, and Emilia Gómez. Open broadcast media audio from tv: a dataset of tv broadcast audio with relative music loudness annotations. <em>Transactions of the International Society for Music Information Retrieval</em>, 2019.</p>
+</dd>
+<dt class="label" id="id31"><span class="brackets">PGM+19</span></dt>
+<dd><p>Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, and others. Pytorch: an imperative style, high-performance deep learning library. <em>Advances in neural information processing systems</em>, 32:8026–8037, 2019.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">Rox19</span></dt>
+<dd><p>Linus Roxbergh. Language classification of music using metadata. 2019.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">SPD+20</span></dt>
+<dd><p>Igor André Pegoraro Santana, Fabio Pinhelli, Juliano Donini, Leonardo Catharin, Rafael Biazus Mangolin, Valéria Delisandra Feltrim, Marcos Aurélio Domingues, and others. Music4all: a new music database and its applications. In <em>2020 International Conference on Systems, Signals and Image Processing (IWSSIP)</em>, 399–404. IEEE, 2020.</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets">SHG+14</span></dt>
+<dd><p>D. Sculley, Gary Holt, Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar Ebner, Vinay Chaudhary, and Michael Young. Machine learning: the high interest credit card of technical debt. In <em>SE4ML: Software Engineering for Machine Learning (NIPS 2014 Workshop)</em>. 2014.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">Stu13</span></dt>
+<dd><p>Bob L Sturm. The gtzan dataset: its contents, its faults, their effects on evaluation, and its future use. <em>arXiv preprint arXiv:1306.1461</em>, 2013.</p>
+</dd>
+<dt class="label" id="id24"><span class="brackets">Tza99</span></dt>
+<dd><p>George Tzanetakis. Gtzan musicspeech. <em>availabe online at http://marsyas. info/download/data sets</em>, 1999.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">TC01</span></dt>
+<dd><p>George Tzanetakis and P Cook. Gtzan genre collection. <em>web resource</em>, 2001. URL: <a class="reference external" href="http://marsyas.info/downloads/datasets.html">http://marsyas.info/downloads/datasets.html</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets">TC02</span></dt>
+<dd><p>George Tzanetakis and Perry Cook. Musical genre classification of audio signals. <em>Speech and Audio Processing, IEEE transactions on</em>, 10(5):293–302, 2002.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">VdODS13</span></dt>
+<dd><p>Aaron Van den Oord, Sander Dieleman, and Benjamin Schrauwen. Deep content-based music recommendation. In <em>Advances in Neural Information Processing Systems</em>, 2643–2651. 2013.</p>
+</dd>
+<dt class="label" id="id30"><span class="brackets">VGO+20</span></dt>
+<dd><p>Pauli Virtanen, Ralf Gommers, Travis E. Oliphant, Matt Haberland, Tyler Reddy, David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan Bright, Stéfan J. van der Walt, Matthew Brett, Joshua Wilson, K. Jarrod Millman, Nikolay Mayorov, Andrew R. J. Nelson, Eric Jones, Robert Kern, Eric Larson, C J Carey, İlhan Polat, Yu Feng, Eric W. Moore, Jake VanderPlas, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen, E. A. Quintero, Charles R. Harris, Anne M. Archibald, Antônio H. Ribeiro, Fabian Pedregosa, Paul van Mulbregt, and SciPy 1.0 Contributors. SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. <em>Nature Methods</em>, 17:261–272, 2020. <a class="reference external" href="https://doi.org/10.1038/s41592-019-0686-2">doi:10.1038/s41592-019-0686-2</a>.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets">WCS21</span></dt>
+<dd><p>Minz Won, Keunwoo Choi, and Xavier Serra. Semi-supervised music tagging transformer. In <em>ISMIR</em>. 2021.</p>
+</dd>
+<dt class="label" id="id40"><span class="brackets">WCNCS19</span></dt>
+<dd><p>Minz Won, Sanghyuk Chun, Oriol Nieto Caballero, and Xavier Serra. Automatic music tagging with harmonic cnn. <em>20th International Society for Music Information Retrieval, Late-Breaking/Demo Session</em>, 2019.</p>
+</dd>
+<dt class="label" id="id41"><span class="brackets">WFBS20</span></dt>
+<dd><p>Minz Won, Andres Ferraro, Dmitry Bogdanov, and Xavier Serra. Evaluation of cnn-based automatic music tagging models. <em>arXiv preprint arXiv:2006.00751</em>, 2020.</p>
+</dd>
+<dt class="label" id="id32"><span class="brackets">YHN+21</span></dt>
+<dd><p>Yao-Yuan Yang, Moto Hira, Zhaoheng Ni, Anjali Chourdia, Artyom Astafurov, Caroline Chen, Ching-Feng Yeh, Christian Puhrsch, David Pollack, Dmitriy Genzel, Donny Greenberg, Edward Z. Yang, Jason Lian, Jay Mahadeokar, Jeff Hwang, Ji Chen, Peter Goldsborough, Prabhat Roy, Sean Narenthiran, Shinji Watanabe, Soumith Chintala, Vincent Quenneville-Bélair, and Yangyang Shi. Torchaudio: building blocks for audio and speech processing. 2021. <a class="reference external" href="https://arxiv.org/abs/2110.15018">arXiv:2110.15018</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="part8_conclusion/_intro.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Conclusion</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

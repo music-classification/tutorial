@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Supervised Learning &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MLOps" href="../part7_towards/mlops.html" />
+    <link rel="prev" title="Methods for Self-Supervised Learning" href="methods.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/dataset.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/tutorial.html">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/transfer-learning.html">
+   Transfer learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/mlops.html">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/underexplored-problems.html">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part5_beyond/self-supervised-learning.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/music-classification/tutorial/main?urlpath=tree/book/part5_beyond/self-supervised-learning.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contrastive-learning">
+   Contrastive Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contrastive-losses">
+     Contrastive Losses
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clmr">
+   CLMR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#audio-data-augmentations">
+     Audio Data Augmentations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loss">
+   Loss
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="self-supervised-learning">
+<h1>Self-Supervised Learning<a class="headerlink" href="#self-supervised-learning" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="contrastive-learning">
+<h2>Contrastive Learning<a class="headerlink" href="#contrastive-learning" title="Permalink to this headline">¶</a></h2>
+<p>Contrastive learning is a method that describes learning representations by way of modeling similarity from natural variations of data, which is often organised into similar and dissimilar pairs, or by way of organising (insert BYOL here).</p>
+<p>It is often presented in the following stages:</p>
+<ol class="simple">
+<li><p>Encode different “views” from natural variations of a single example.</p></li>
+<li><p>Compute a similarity metric on the representations from the encoder(s).</p></li>
+<li><p>Evaluate the pre-trained representations with linear regression on the downstream task(s).</p></li>
+</ol>
+<div class="section" id="contrastive-losses">
+<h3>Contrastive Losses<a class="headerlink" href="#contrastive-losses" title="Permalink to this headline">¶</a></h3>
+<div align="center">
+    <img width="500" src="https://i.imgur.com/2uZeF4U.png"/>
+    <div>Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)</div>
+</div>
+<p>Many contrastive learning methods use a variant of a contrastive loss function, which was first introduced in Noise Contrastive Estimation (Gutmann et al., 2010) and subsequently the InfoNCE loss from Contrastive Predictive Coding (Van den Oord et al., 2019).</p>
+<p>This loss can be minimized using a variety of methods, which mostly differ in how they keep track of the keys of data examples. In the case of SimCLR (Chen et al., 2020), a single batch consists both of “positive” and “negative” pairs, which act as “keys” to the original examples. These are updated end-to-end by back-propagation. To increase the complexity of the contrastive learning task, it requires a large batch size to contain more negative examples. Conversely, for Momentum Contrast the negative examples’ keys are maintained in a queue. It only encodes the queries and the positive keys in a single batch.</p>
+<p>$$\mathcal{L}<em>{q, k^{+},\left{k^{-}\right}}=-\log \frac{\exp \left(q \cdot k^{+} / \tau\right)}{\exp \left(q \cdot k^{+} / \tau\right)+\sum</em>{k^{-}} \exp \left(q \cdot k^{-} / \tau\right)}$$</p>
+</div>
+</div>
+<div class="section" id="clmr">
+<h2>CLMR<a class="headerlink" href="#clmr" title="Permalink to this headline">¶</a></h2>
+<p>In the following examples, we will be taking a look at how Contrastive Learning of Musical Representations (Spijkervet &amp; Burgoyne, 2021) uses self-supervised learning to learn powerful representations for the downstream task of music tagging.</p>
+<div align="center">
+<img width="700" src="../images/janne/clmr_model.png"/>
+</div>
+<p>In the above figure, we transform a single audio example into two, distinct augmented views.</p>
+<p>by processing it through a set of stochastic audio augmentations.</p>
+<ul class="simple">
+<li><p>Explain the intuition</p></li>
+<li><p>Explain SimCLR</p></li>
+<li><p>Explain SampleCNN</p></li>
+</ul>
+</div>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We can initialise MTAT, MSD, or your own set of .mp3 / .wav files.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git clone https://github.com/spijkervet/clmr.git
+<span class="o">!</span>pip3 install clmr/
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;clmr&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;clmr&#39; already exists and is not an empty directory.
+Processing ./clmr
+Requirement already satisfied: simclr in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (1.0.2)
+Requirement already satisfied: torchaudio-augmentations in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (0.2.2)
+Requirement already satisfied: torch in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (1.9.1)
+Requirement already satisfied: torchaudio in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (0.9.1)
+Requirement already satisfied: pytorch-lightning in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (1.4.9)
+Requirement already satisfied: soundfile in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (0.10.3.post1)
+Requirement already satisfied: sklearn in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (0.0)
+Requirement already satisfied: matplotlib in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from clmr==0.1.0) (3.4.3)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from matplotlib-&gt;clmr==0.1.0) (8.3.2)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from matplotlib-&gt;clmr==0.1.0) (2.4.7)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from matplotlib-&gt;clmr==0.1.0) (2.8.2)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from matplotlib-&gt;clmr==0.1.0) (0.10.0)
+Requirement already satisfied: numpy&gt;=1.16 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from matplotlib-&gt;clmr==0.1.0) (1.21.2)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from matplotlib-&gt;clmr==0.1.0) (1.3.2)
+Requirement already satisfied: six in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib-&gt;clmr==0.1.0) (1.16.0)
+Requirement already satisfied: packaging&gt;=17.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (21.0)
+Requirement already satisfied: future&gt;=0.17.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (0.18.2)
+Requirement already satisfied: tensorboard&gt;=2.2.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (2.6.0)
+Requirement already satisfied: PyYAML&gt;=5.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (5.4.1)
+Requirement already satisfied: typing-extensions in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (3.10.0.2)
+Requirement already satisfied: pyDeprecate==0.3.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (0.3.1)
+Requirement already satisfied: tqdm&gt;=4.41.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (4.62.3)
+Requirement already satisfied: fsspec[http]!=2021.06.0,&gt;=2021.05.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (2021.10.0)
+Requirement already satisfied: torchmetrics&gt;=0.4.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pytorch-lightning-&gt;clmr==0.1.0) (0.5.1)
+Requirement already satisfied: aiohttp in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (3.7.4.post0)
+Requirement already satisfied: requests in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (2.26.0)
+Requirement already satisfied: google-auth&lt;2,&gt;=1.6.3 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (1.35.0)
+Requirement already satisfied: wheel&gt;=0.26 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (0.37.0)
+Requirement already satisfied: markdown&gt;=2.6.8 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (3.3.4)
+Requirement already satisfied: tensorboard-data-server&lt;0.7.0,&gt;=0.6.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (0.6.1)
+Requirement already satisfied: setuptools&gt;=41.0.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (58.0.4)
+Requirement already satisfied: protobuf&gt;=3.6.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (3.18.0)
+Requirement already satisfied: werkzeug&gt;=0.11.15 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (2.0.1)
+Requirement already satisfied: grpcio&gt;=1.24.3 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (1.41.0)
+Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (1.8.0)
+Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (0.4.6)
+Requirement already satisfied: absl-py&gt;=0.4 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (0.14.1)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (0.2.8)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (4.7.2)
+Requirement already satisfied: cachetools&lt;5.0,&gt;=2.0.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (4.2.4)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (1.3.0)
+Requirement already satisfied: pyasn1&lt;0.5.0,&gt;=0.4.6 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth&lt;2,&gt;=1.6.3-&gt;tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (0.4.8)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from requests-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (2021.5.30)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from requests-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (3.2)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from requests-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (2.0.6)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from requests-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (1.26.7)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard&gt;=2.2.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (3.1.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from aiohttp-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (5.2.0)
+Requirement already satisfied: chardet&lt;5.0,&gt;=2.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from aiohttp-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (4.0.0)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from aiohttp-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (1.6.3)
+Requirement already satisfied: async-timeout&lt;4.0,&gt;=3.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from aiohttp-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (3.0.1)
+Requirement already satisfied: attrs&gt;=17.3.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from aiohttp-&gt;fsspec[http]!=2021.06.0,&gt;=2021.05.0-&gt;pytorch-lightning-&gt;clmr==0.1.0) (20.3.0)
+Requirement already satisfied: torchvision in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from simclr-&gt;clmr==0.1.0) (0.10.1)
+Requirement already satisfied: scikit-learn in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from sklearn-&gt;clmr==0.1.0) (1.0)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from scikit-learn-&gt;sklearn-&gt;clmr==0.1.0) (3.0.0)
+Requirement already satisfied: joblib&gt;=0.11 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from scikit-learn-&gt;sklearn-&gt;clmr==0.1.0) (1.0.1)
+Requirement already satisfied: scipy&gt;=1.1.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from scikit-learn-&gt;sklearn-&gt;clmr==0.1.0) (1.7.1)
+Requirement already satisfied: cffi&gt;=1.0 in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from soundfile-&gt;clmr==0.1.0) (1.14.6)
+Requirement already satisfied: pycparser in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from cffi&gt;=1.0-&gt;soundfile-&gt;clmr==0.1.0) (2.20)
+Requirement already satisfied: julius in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from torchaudio-augmentations-&gt;clmr==0.1.0) (0.2.5)
+Requirement already satisfied: wavaugment in /Users/janne/miniconda3/envs/tutorial/lib/python3.8/site-packages (from torchaudio-augmentations-&gt;clmr==0.1.0) (0.2)
+Building wheels for collected packages: clmr
+  Building wheel for clmr (setup.py) ... ?25ldone
+?25h  Created wheel for clmr: filename=clmr-0.1.0-py3-none-any.whl size=7258 sha256=405a5457bfa7d1dac3f51ad0e16076fd845c1d641e5ccc680299d48fdde1200f
+  Stored in directory: /private/var/folders/5n/msbkkqhj2y9bhqwj2gvr70n40000gp/T/pip-ephem-wheel-cache-gimi64r8/wheels/ef/e0/26/af55c7a1a7eac7e884f75767d644d68122ac8a86a7641fad16
+Successfully built clmr
+Installing collected packages: clmr
+  Attempting uninstall: clmr
+    Found existing installation: clmr 0.1.0
+    Uninstalling clmr-0.1.0:
+      Successfully uninstalled clmr-0.1.0
+Successfully installed clmr-0.1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">clmr.datasets</span> <span class="kn">import</span> <span class="n">get_dataset</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">get_dataset</span><span class="p">(</span><span class="s2">&quot;magnatagatune&quot;</span><span class="p">,</span> <span class="s2">&quot;./data&quot;</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+100.0%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Merging zip files...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="audio-data-augmentations">
+<h3>Audio Data Augmentations<a class="headerlink" href="#audio-data-augmentations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Crop</p></li>
+<li><p>Filter</p></li>
+<li><p>Reverb</p></li>
+<li><p>Polarity</p></li>
+<li><p>Noise</p></li>
+<li><p>Pitch</p></li>
+<li><p>Gain</p></li>
+<li><p>Delay</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchaudio</span>
+<span class="kn">from</span> <span class="nn">torchaudio_augmentations</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RandomApply</span><span class="p">,</span>
+    <span class="n">ComposeMany</span><span class="p">,</span>
+    <span class="n">RandomResizedCrop</span><span class="p">,</span>
+    <span class="n">PolarityInversion</span><span class="p">,</span>
+    <span class="n">Noise</span><span class="p">,</span>
+    <span class="n">Gain</span><span class="p">,</span>
+    <span class="n">HighLowPass</span><span class="p">,</span>
+    <span class="n">Delay</span><span class="p">,</span>
+    <span class="n">PitchShift</span><span class="p">,</span>
+    <span class="n">Reverb</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># audio_fp = &quot;test.wav&quot;</span>
+<span class="c1"># audio, sr = torchaudio.load(audio_fp)</span>
+
+<span class="c1"># transformation = HighLowPass(sr)</span>
+<span class="c1"># transformed_audio = transformation(audio)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s apply a series of transformations, each applied with an independent probability:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train_transform = [</span>
+<span class="c1">#     RandomResizedCrop(n_samples=args.audio_length),</span>
+<span class="c1">#     RandomApply([PolarityInversion()], p=args.transforms_polarity),</span>
+<span class="c1">#     RandomApply([Noise()], p=args.transforms_noise),</span>
+<span class="c1">#     RandomApply([Gain()], p=args.transforms_gain),</span>
+<span class="c1">#     RandomApply([HighLowPass(sample_rate=args.sample_rate)], p=args.transforms_filters),</span>
+<span class="c1">#     RandomApply([Delay(sample_rate=args.sample_rate)], p=args.transforms_delay),</span>
+<span class="c1">#     RandomApply([PitchShift(n_samples=args.audio_length, sample_rate=args.sample_rate)], p=args.transforms_pitch),</span>
+<span class="c1">#     RandomApply([Reverb(sample_rate=args.sample_rate)], p=args.transforms_reverb),</span>
+<span class="c1"># ]</span>
+<span class="c1"># num_augmented_samples = 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loss">
+<h2>Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
+<p>Here, we apply an InfoNCE loss, as proposed by van den Oord et al. (2018) for contrastive learning. InfoNCE loss compares the similarity of our representations $z_i$ and $z_j$, to the similarity of $z_i$ to any other representation in our batch, and applies a softmax over the obtained similarity values. We can write this loss more formally as follows:</p>
+<p>$$\ell_{i, j}=-\log \frac{\exp \left(\operatorname{sim}\left(z_{i}, z_{j}\right) / \tau\right)}{\sum_{k=1}^{2 N} \mathbb{1}<em>{[k \neq i]} \exp \left(\operatorname{sim}\left(z</em>{i}, z_{k}\right) / \tau\right)}=-\operatorname{sim}\left(z_{i}, z_{j}\right) / \tau+\log \left[\sum_{k=1}^{2 N} \mathbb{1}<em>{[k \neq i]} \exp \left(\operatorname{sim}\left(z</em>{i}, z_{k}\right) / \tau\right)\right]$$</p>
+<p>The similarity metric is the cosine similarity between our representations:</p>
+<p>$$\operatorname{sim}\left(z_{i}, z_{j}\right)=\frac{z_{i}^{\top} \cdot z_{j}}{\left|z_{i}\right| \cdot\left|z_{j}\right|}$$</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "tutorial"
+        },
+        kernelOptions: {
+            kernelName: "tutorial",
+            path: "./part5_beyond"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'tutorial'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="methods.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Methods for Self-Supervised Learning</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../part7_towards/mlops.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">MLOps</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

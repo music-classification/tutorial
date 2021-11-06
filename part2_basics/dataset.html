@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datasets &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Evaluation" href="evaluation.html" />
+    <link rel="prev" title="Input Representations" href="input-representations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/tutorial.html">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/transfer-learning.html">
+   Transfer learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/self-supervised-learning.html">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/mlops.html">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/underexplored-problems.html">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part2_basics/dataset.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#availabilities-of-audio-signal">
+     Availabilities of audio signal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hidden-traps">
+     Hidden traps!
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gtzan-music-genre-2002">
+   Gtzan Music Genre (2002)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magnatagatune-2009">
+   MagnaTagATune (2009)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#million-song-dataset-2011">
+   Million Song Dataset (2011)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fma-2017">
+   FMA (2017)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mtg-jamendo-2019">
+   MTG-Jamendo (2019)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#audioset-2017">
+   AudioSet (2017)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nsynth-2017">
+   NSynth (2017)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resources">
+   Resources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="datasets">
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>There already exists a great comprehensive <a class="reference external" href="https://github.com/ismir/mir-datasets/blob/master/outputs/mir-datasets.md">list of MIR datasets</a>.
+In this book, we focus on some important datasets and <em>discussion</em> of them including some secrets that worth spreading.<br />
+Over time, researchers have adopted different strategies to create and release datasets.
+This resulted in various pros and cons, and traps.</p>
+<p>These are some important but rarely discussed aspects.</p>
+<div class="section" id="availabilities-of-audio-signal">
+<h3>Availabilities of audio signal<a class="headerlink" href="#availabilities-of-audio-signal" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>This basic and fundamental requirement is already difficult. This is because, well, music is usually copyright-protected.
+The solutions are i) just-do-it,  ii) distribute the features, iii) use copyright-free music, iv) distribute the IDs.</p></li>
+</ul>
+</div>
+<div class="section" id="hidden-traps">
+<h3>Hidden traps!<a class="headerlink" href="#hidden-traps" title="Permalink to this headline">¶</a></h3>
+<p>..Because some of the dataset creation procedure was not perfect.</p>
+<ul class="simple">
+<li><p>How shall we split them</p>
+<ul>
+<li><p>Many datasets don’t have a official dataset split, and this caused many problems. Usually, wrong split gets us an incorrectly optimistic result, which incentives us to overlook the problem.</p></li>
+</ul>
+</li>
+<li><p>How noisy the labels are?</p>
+<ul>
+<li><p>No annotation is perfect, but on a varying level. Why? How?</p></li>
+<li><p>Regarding the inherent noisiness of the label (subjectivity, fuzzy definition, etc), what is the practical/meaningful best performance?</p></li>
+</ul>
+</li>
+<li><p>How realistic the audio signals are?</p>
+<ul>
+<li><p>We want our research (and the resulting models) to be practical. A lot of this depends on how similar the dataset is to the real, target data.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="gtzan-music-genre-2002">
+<h2><a class="reference external" href="http://marsyas.info/downloads/datasets.html">Gtzan Music Genre (2002)</a><a class="headerlink" href="#gtzan-music-genre-2002" title="Permalink to this headline">¶</a></h2>
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333468174&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/gtzan-music-genre" title="Gtzan Music Genre" target="_blank" style="color: #cccccc; text-decoration: none;">Gtzan Music Genre</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Audio is directly available</p></li>
+<li><p>100 items x 10 genres x 30-second mp3 files.</p></li>
+<li><p>Single-label genre classification</p></li>
+</ul>
+</div>
+<p>The famous GTZAN dataset <span id="id1">[<a class="reference internal" href="../references.html#id6">Tzanetakis and Cook, 2001</a>]</span> deserves to be the <a class="reference external" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST</a> for music.
+<a class="reference external" href="https://scholar.google.co.kr/citations?view_op=view_citation&amp;hl=en&amp;user=yPgxxpwAAAAJ&amp;citation_for_view=yPgxxpwAAAAJ:u5HHmVD_uO8C">The first paper using this dataset <span id="id2">[<a class="reference internal" href="../references.html#id10">Tzanetakis and Cook, 2002</a>]</span></a>
+remains a foundational work in the modern music classification. The dataset was used in <a class="reference external" href="https://arxiv.org/abs/1306.1461">more than 100 papers already in 2013 according to a survey (<span id="id3">[<a class="reference internal" href="../references.html#id9">Sturm, 2013</a>]</span>)</a>.
+It is popular since the concept of music genres and single-label classification is easy, simple, and straightforward.
+30-second mp3 is small and short. With a lot of features and a power classifier, researchers these days can quickly achieve
+90+% (or even 95+% (or even 100%!)) accuracy.</p>
+<p>However, now we know that there are way too many issues with the dataset. This is summarized very well in <a class="reference external" href="https://arxiv.org/abs/1306.1461">the aforementioned survey by Bob L. Sturm’s survey <span id="id4">[<a class="reference internal" href="../references.html#id9">Sturm, 2013</a>]</span></a>.
+We’ll list a few.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>The audio quality varies by samples (though it was intended) and it is not annotated</p></li>
+<li><p>There are heavy artist repetition, which are very often ignored during dataset split</p></li>
+<li><p>The labels don’t seem to be 100% correct (which makes the 100%-accuracy models questionable)</p></li>
+</ul>
+</div>
+<p>Because of these known issues, GTZAN doesn’t seem to be as popular as it used to be in published research.
+Still, one may find it a simple benchmark dataset. In that case, please refer to <a class="reference external" href="https://github.com/coreyker/dnn-mgr/tree/master/gtzan">this repo</a>
+made by Corey Kereliuk and Bob Sturm and use a fault-filtered split.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Use other, bigger and better datasets</p></li>
+<li><p>Use a <a class="reference external" href="https://github.com/coreyker/dnn-mgr/tree/master/gtzan">cleaned version and split</a></p></li>
+</ul>
+</div>
+<p>A tremendous number of following researchers owe its creator, George Tzanetakis, for the dataset release.
+Here’s a quote from the website, where you can simply <a class="reference external" href="http://opihi.cs.uvic.ca/sound/genres.tar.gz">one-click-download the dataset</a>.</p>
+<blockquote>
+<div><p>..Unfortunately the database was collected gradually and very early on in my research so I have no titles (and obviously no copyright permission etc)..</p>
+</div></blockquote>
+<p>This is not a viable option these days anymore. Let’s see more modern approaches.</p>
+</div>
+<div class="section" id="magnatagatune-2009">
+<h2><a class="reference external" href="https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset">MagnaTagATune (2009)</a><a class="headerlink" href="#magnatagatune-2009" title="Permalink to this headline">¶</a></h2>
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1333473949&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/magnatagatune" title="MagnaTagATune" target="_blank" style="color: #cccccc; text-decoration: none;">MagnaTagATune</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Designed for tagging problem</p></li>
+<li><p>Audio is directly available. They’re from <a class="reference external" href="http://magnatune.com/">magnatune.com</a>, a marketplace of indie music. John Buckman, the founder of magnatune contributed these files.</p></li>
+<li><p>5,405 tracks (25,863 x 29-second clips), 230 artists, 446 albums, 188 tags.</p></li>
+</ul>
+</div>
+<p>MagnaTagATune <span id="id5">[<a class="reference internal" href="../references.html#id11">Law <em>et al.</em>, 2009</a>]</span> has played a significant role since its release until even now (2021). It was used in pioneering research such as <a class="reference external" href="https://ieeexplore.ieee.org/document/6854950"><span id="id6">[<a class="reference internal" href="../references.html#id12">Dieleman and Schrauwen, 2014</a>]</span></a>, <a class="reference external" href="https://archives.ismir.net/ismir2016/paper/000009.pdf"><span id="id7">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span></a>, <a class="reference external" href="https://arxiv.org/abs/1703.01789"><span id="id8">[<a class="reference internal" href="../references.html#id14">Lee <em>et al.</em>, 2017</a>]</span></a>, [<span id="id9">[<a class="reference internal" href="../references.html#id7">Won <em>et al.</em>, 2021</a>]</span>][todo: add link], etc. [janne’s. work]. etc.</p>
+<p>“Tagging” is a specific kind of classification, and MagnaTagATune is one of the earliest tagging datasets that is in this scale and that comes with audio. The songs are all indie music, so use this dataset at your own risk - the property of the music/audio might not be as realistic as you want.</p>
+<p>The gamification of the annotation process is worth mentioning. In this game called “Tag a Tune”, two players were asked to tag a clip, then shown the other player’s tagging results to finally judge if they were listening to the same clip or not.
+This constraint-free annotation process has pros and cons; it is realistic, which is good; but it makes the label noisy, which is bad as a benchmark dataset.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>Tags are weakly labeled and have synonyms</p></li>
+<li><p>DO NOT RANDOM SPLIT 25,863 clips! They’re from the same track!</p></li>
+<li><p>There are various approaches how to split and whether to include below top-50 tags</p></li>
+<li><p>The score on this dataset is still improving, but only slightly. It means we might be near the glass ceiling.</p></li>
+</ul>
+</div>
+<p>This dataset turned out to be big enough to train some early deep neural network models such as 1D and 2D CNNs. Until late 2010s, MagnaTagATune was probably the most popular dataset in music tagging.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Use split from [] (todo: ask minz)</p></li>
+<li><p>If you split by yourself, do it by tracks (instead of clips) |</p></li>
+<li><p>Know you’re dealing with an indie music|</p></li>
+<li><p>Know you’re dealing with a weakly labeled dataset|</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="million-song-dataset-2011">
+<h2><a class="reference external" href="http://millionsongdataset.com/">Million Song Dataset (2011)</a><a class="headerlink" href="#million-song-dataset-2011" title="Permalink to this headline">¶</a></h2>
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334174407&color=%2300aabb&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/million-song-dataset" title="Million Song Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Million Song Dataset</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Audio is not directly available.</p>
+<ul>
+<li><p>As of 2021, only a crawled version that contains ~99% of the preview clips is available by word of mouth.</p></li>
+</ul>
+</li>
+<li><p>Literally a million tracks: By far the biggest dataset</p></li>
+<li><p>The provided last.fm tags are realistic</p></li>
+</ul>
+</div>
+<p>The million song dataset (MSD, <span id="id10">[<a class="reference internal" href="../references.html#id15">Bertin-Mahieux <em>et al.</em>, 2011</a>]</span>) is a monumental music dataset. It was ahead of time in every aspect – size, quality, reliability, and various complementary features.</p>
+<p>MSD has been <em>the</em> music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system <a class="reference external" href="https://biblio.ugent.be/publication/4324554"><span id="id11">[<a class="reference internal" href="../references.html#id17">Van den Oord <em>et al.</em>, 2013</a>]</span></a> and the first large-scale music tagging <a class="reference external" href="https://arxiv.org/abs/1606.00298"><span id="id12">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span></a>. (+.. similarity search??)</p>
+<p>Researchers usually formulate the music tagging on MSD as a top-50 prediction task. This may be partially due to the convention of MagnaTagATune and earlier research, but it makes sense considering the sparsity of the tags. The tags in MSD are in an extremely long tail.</p>
+<blockquote>
+<div><p>in the MSD, .. there are
+522,366 tags. This is outnumbering the 505,216 unique tracks..</p>
+<p>.. the most popular tag is ‘rock’ which is associated with 101,071 tracks. However, ‘jazz’, the 12th most popular tag is used for only 30,152 tracks and ‘classical’, the 71st popular tag is used
+11,913 times only. ..</p>
+</div></blockquote>
+<p>(from <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8323324"><span id="id13">[<a class="reference internal" href="../references.html#id18">Choi <em>et al.</em>, 2018</a>]</span></a>
+)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>Some splits have artist leakage</p></li>
+<li><p>It might be difficult to get the mp3s</p></li>
+</ul>
+</div>
+<p><a class="reference external" href="https://github.com/keunwoochoi/MSD_split_for_tagging/">The dataset split</a> used in <a class="reference external" href="https://arxiv.org/abs/1606.00298"><span id="id14">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span></a> was based on simple random sampling. However, … [todo; ask Minz]</p>
+<p>One critical downside of MSD is the availability of the audio. The creators of MSD adopted a very modern approach on this - while only distributing audio features and metadata, they released a code snippet for fetching 30-second audio previews from <a class="reference external" href="https://us.7digital.com/">7digital</a>. (Recently, people have reported the audio preview API does not work anymore. This means the audio is available only by word of mouth.)</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>🤫 Ask around for the audio!</p></li>
+<li><p>Use the recent split</p></li>
+<li><p>No music after 2011</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="fma-2017">
+<h2><a class="reference external" href="https://arxiv.org/abs/1612.01840">FMA (2017)</a><a class="headerlink" href="#fma-2017" title="Permalink to this headline">¶</a></h2>
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334749648&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/free-music-archive-dataset" title="Free Music Archive dataset" target="_blank" style="color: #cccccc; text-decoration: none;">Free Music Archive dataset</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Rigorously processed metadata and split. Maintained nicely on Github.</p></li>
+<li><p>More than 100k full tracks of copyright-free indie music</p></li>
+<li><p>Artist-chosen genres in a hierarchy defind by the website (free music archive)</p></li>
+</ul>
+</div>
+<p>Free Music Archive dataset (FMA, <span id="id15">[<a class="reference internal" href="../references.html#id19">Defferrard <em>et al.</em>, 2016</a>]</span>) is a modern, large-scale dataset that contains full-tracks, instead of short preview clips. Along with MTG-Jamendo, it enables interesting research towards fully utilizing the information of the whole audio signal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>Audio quality varies, and the music is quite “indie”.</p></li>
+<li><p>Genre labels are i) from a pre-defined 163-genre hierarchy and ii) chosen by the artist.</p></li>
+</ul>
+</div>
+<p>From a machine learning point of view, the second item in Warning is an advantage. However, it limits the development of realistic models.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Good for genre classification/hierarchical classification.</p></li>
+<li><p>A full-track is available, which is rare in the community</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="mtg-jamendo-2019">
+<h2><a class="reference external" href="https://github.com/MTG/mtg-jamendo-dataset">MTG-Jamendo (2019)</a><a class="headerlink" href="#mtg-jamendo-2019" title="Permalink to this headline">¶</a></h2>
+<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1342367305&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/mtg-jamendo-dataset" title="MTG Jamendo Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">MTG Jamendo Dataset</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>55,000 full audio tracks (320kbps MP3)</p></li>
+<li><p>195 tags from genre, instrument, and mood/theme</p></li>
+<li><p>Pre-defined split based on the target tasks (genre, instrument, mood/theme, top-50, overall.)</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>todo: ask minz if i’m not missing anything</p></li>
+</ul>
+<p>MTG-Jamendo <span id="id16">[<a class="reference internal" href="../references.html#id20">Bogdanov <em>et al.</em>, 2019</a>]</span> is a modern dataset that shares some pros of MSD and FMA. Its audio is readily and legally available, the audio is full-track and high-quality, contains various and realistic tags, and comes with properly defined splits.</p>
+<p>There are some interesting properties of this dataset, too. Pop and rock is the top genres in most of the genre datasets, and that could be the same for your target test set. In MTG-Jamendo, the genre distribution is skewed towards some other genres: The most popular genres are Electronic (16,480 items), soundtrack (~8k), pop, ambient, and rock. For mood alone, MTG-Jamendo is still great but there are alternatives (more information is under Resources section).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>Genre distribution is slightly unusual</p></li>
+</ul>
+</div>
+<p>The distribution mismatch between training, validation, and testing sets is a classic yet critical problem. This wouldn’t be a problem if all the testing and evaluation is within the provided split of MTG-Jamendo. Otherwise, one would want to have a different sampling strategy to alleviate the issue. (To be fair, this is not only applicable for MTG-Jamendo.)</p>
+</div>
+<div class="section" id="audioset-2017">
+<h2><a class="reference external" href="https://research.google.com/audioset/index.html">AudioSet (2017)</a><a class="headerlink" href="#audioset-2017" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://research.google.com/audioset/eval/music.html">Preview of AudioSet</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Large scale (2.1 million in total), 1 million under music</p></li>
+<li><p>Fairly strongly labeled in terms of temporal resolution (labeled for 10-second segment)</p></li>
+<li><p>High-quality annotation</p></li>
+<li><p>Official and reliable split is provided</p></li>
+</ul>
+</div>
+<p>AudioSet <span id="id17">[<a class="reference internal" href="../references.html#id21">Gemmeke <em>et al.</em>, 2017</a>]</span> is made for general audio understanding and not specifically for music. But, in their well-designed taxonomy, there is <a class="reference external" href="https://research.google.com/audioset/ontology/music_1.html">a high-level category ‘music’</a> that includes ‘musical instrument’, ‘music genre’, ‘musical concepts’, ‘music role’, and ‘music mood’. In total, there are more than 1M items, each of which corresponds to a specific 10-second of YouTube video.</p>
+<p>The annotation is considered to be more than quite reliable. Also, for each category, AudioSet provides the estimated accuracy of the annotation.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>It includes music with a low audio quality</p></li>
+<li><p>Only the video URLs are provided</p></li>
+<li><p>The exact version would vary by people</p></li>
+</ul>
+</div>
+<p>The varying audio quality might be a downside depending on the target application. The dataset includes <a class="reference external" href="https://youtu.be/0TiEO149Ydc">an offical live session</a>, <a class="reference external" href="https://youtu.be/-YIT4HBM__g">a noisy and amateur recording</a>, <a class="reference external" href="https://youtu.be/0Ycad70UNwE">music with a low SNR</a>, etc.</p>
+<p>To use AudioSet, one has to crawl the audio signal by themselves. Downloading YouTube video/audio is in a grey zone in terms of copyright, let alone the use of them.</p>
+<p>Another issue is that the availabilities of the items in AudioSet are time-varying and country-dependent! Once the videos are taken down, that’s it. Depending on the setting, some videos are just not available in some countries. Given the large size, this issue might not be critical in practice – so far.</p>
+</div>
+<div class="section" id="nsynth-2017">
+<h2><a class="reference external" href="https://magenta.tensorflow.org/nsynth">NSynth (2017)</a><a class="headerlink" href="#nsynth-2017" title="Permalink to this headline">¶</a></h2>
+<iframe width="100%" height="270" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1334184460&color=%2374f0ed&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/user-537934052" title="Keunwoo Choi" target="_blank" style="color: #cccccc; text-decoration: none;">Keunwoo Choi</a> · <a href="https://soundcloud.com/user-537934052/sets/nsynth-dataset" title="NSynth Dataset" target="_blank" style="color: #cccccc; text-decoration: none;">NSynth Dataset</a></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>‘305,979 musical notes, each with a unique pitch, timbre, and envelope’ as well as five different velocities</p></li>
+<li><p>16 kHz, 4-second, monophonic.</p></li>
+</ul>
+</div>
+<p>NSynth <span id="id18">[<a class="reference internal" href="../references.html#id22">Engel <em>et al.</em>, 2017</a>]</span> is ‘a dataset of musical notes’. Yes, it is a music dataset. But is it a music <em>classification</em> dataset? Yes, in a sense that MNIST is an image dataset. We suggest using this dataset only as a simple proof of concept.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul class="simple">
+<li><p>This dataset is great for a lot of purposes, not exactly for music classification</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We showed that many popular datasets are different (and flawed) in many aspects. This is applied to the datasets we did not discussed above. But that is a part of reality. In general, we strongly recommend investigating the dataset you use closely - audio, labels, split, etc. It is always helpful to talk to the other researchers – the creators and the users of the dataset.</p>
+<p>There’s good news as well. The research community is learning lessons from the mistakes and adopting better data science practices. Recently, as a result, we witness the quality of datasets increases significantly. At the end of this book, we will revisit this in more detail and discuss what to consider when creating datasets.</p>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We barely cover mood-related datasets in this section. We would like to refer to <a class="reference external" href="https://github.com/juansgomez87/datasets_emotion">this repo</a><span id="id19">[<a class="reference internal" href="../references.html#id36">Gómez-Cañón <em>et al.</em>, 2021</a>]</span> which provides great information about music/mood datasets.</p></li>
+<li><p><a class="reference external" href="https://mirdata.readthedocs.io/en/stable/index.html"><code class="docutils literal notranslate"><span class="pre">mirdata</span></code></a> <span id="id20">[<a class="reference internal" href="../references.html#id37">Bittner <em>et al.</em>, 2019</a>]</span> is handy Python package that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., <a class="reference external" href="https://github.com/MTG/acousticbrainz-genre-dataset">the AcousticBrainz genre dataset</a> <span id="id21">[<a class="reference internal" href="../references.html#id38">Bogdanov <em>et al.</em>, 2019</a>]</span></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part2_basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="input-representations.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Input Representations</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="evaluation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Evaluation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
