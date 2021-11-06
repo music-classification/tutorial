@@ -4,3 +4,4 @@ librosa==0.8.1
 matplotlib
 numpy
 ghp-import
+seaborn
