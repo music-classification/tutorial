@@ -6,7 +6,7 @@
 
 ## About the book
 
-This is a book written for a [tutorial session](https://ismir2021.ismir.net/tutorials/) of [the 22nd International Society for Music Information Retrieval Conference](https://ismir2021.ismir.net/), Nov 8-12, 2021 in an online format. The [ISMIR conference](https://ismir.net/) is the world’s leading research forum on processing, searching, organising and accessing music-related data.
+This is a [book](https://music-classification.github.io/tutorial)](https://music-classification.github.io/tutorial) written for a [tutorial session](https://ismir2021.ismir.net/tutorials/) of [the 22nd International Society for Music Information Retrieval Conference](https://ismir2021.ismir.net/), Nov 8-12, 2021, in an online format. The [ISMIR conference](https://ismir.net/) is the world’s leading research forum on processing, searching, organising and accessing music-related data.
 
 
 ## Motivation
@@ -49,11 +49,6 @@ products for music recommendation and discovery. He received a Ph.D degree from
 working at Spotify (2018 - 2020) and several other music companies as well as open-source projects such as 
 [`Kapre`](https://kapre.readthedocs.io/en/latest/), `librosa`, and `torchaudio`. 
 He also writes [some music](https://www.youtube.com/channel/UC6WGQvwwM3M7sX98zJ14XPA).
-
-
-## Software
-
-We use Jupyter Book{cite}`executable_books_community_2020_4539666`, Librosa 0.8.1{cite}`mcfee2015librosa` {cite}`brian_mcfee_2021_4792298`, Pytorch{cite}`paszke2019pytorch`, Torchaudio{cite}`yang2021torchaudio`, Matplotlib{cite}`hunter2007matplotlib`, and Numpy{cite}`harris2020array`.
 
 
 ## Citing this book
