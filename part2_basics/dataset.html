@@ -148,7 +148,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../part4_beyond/transfer-learning.html">
-   Transfer learning
+   Transfer Learning
   </a>
  </li>
  <li class="toctree-l1">
@@ -413,6 +413,8 @@ The solutions are i) just-do-it,  ii) distribute the features, iii) use copyrigh
 </ul>
 </li>
 </ul>
+<hr class="docutils" />
+<p>Now, let’s look into actual datasets.</p>
 </div>
 </div>
 <div class="section" id="gtzan-music-genre-2002">
@@ -470,16 +472,17 @@ Here’s a quote from the website, where you can simply <a class="reference exte
 <li><p>5,405 tracks (25,863 x 29-second clips), 230 artists, 446 albums, 188 tags.</p></li>
 </ul>
 </div>
-<p>MagnaTagATune <span id="id5">[<a class="reference internal" href="../references.html#id11">Law <em>et al.</em>, 2009</a>]</span> has played a significant role since its release until even now (2021). It was used in pioneering research such as <a class="reference external" href="https://ieeexplore.ieee.org/document/6854950"><span id="id6">[<a class="reference internal" href="../references.html#id12">Dieleman and Schrauwen, 2014</a>]</span></a>, <a class="reference external" href="https://archives.ismir.net/ismir2016/paper/000009.pdf"><span id="id7">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span></a>, <a class="reference external" href="https://arxiv.org/abs/1703.01789"><span id="id8">[<a class="reference internal" href="../references.html#id14">Lee <em>et al.</em>, 2017</a>]</span></a>, [<span id="id9">[<a class="reference internal" href="../references.html#id7">Won <em>et al.</em>, 2021</a>]</span>][todo: add link], etc. [janne’s. work]. etc.</p>
+<p>MagnaTagATune <span id="id5">[<a class="reference internal" href="../references.html#id11">Law <em>et al.</em>, 2009</a>]</span> has played a significant role since its release until even now (2021). It was used in pioneering research such as <span id="id6">[<a class="reference internal" href="../references.html#id12">Dieleman and Schrauwen, 2014</a>]</span>, <span id="id7">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span>, <span id="id8">[<a class="reference internal" href="../references.html#id14">Lee <em>et al.</em>, 2017</a>]</span>, <span id="id9">[<a class="reference internal" href="../references.html#id7">Won <em>et al.</em>, 2021</a>]</span>, <span id="id10">[<a class="reference internal" href="../references.html#id45">Spijkervet and Burgoyne, 2021</a>]</span>, etc.</p>
 <p>“Tagging” is a specific kind of classification, and MagnaTagATune is one of the earliest tagging datasets that is in this scale and that comes with audio. The songs are all indie music, so use this dataset at your own risk - the property of the music/audio might not be as realistic as you want.</p>
 <p>The gamification of the annotation process is worth mentioning. In this game called “Tag a Tune”, two players were asked to tag a clip, then shown the other player’s tagging results to finally judge if they were listening to the same clip or not.
 This constraint-free annotation process has pros and cons; it is realistic, which is good; but it makes the label noisy, which is bad as a benchmark dataset.</p>
+<p>There are various approaches how to split and whether to include below top-50 tags during training and/or testing. This hidden difference makes the comparison silently noisy. Finally, The authors of <span id="id11">[<a class="reference internal" href="../references.html#id41">Won <em>et al.</em>, 2020</a>]</span> decided to include items with top-50 tags only, both in training and testing. They then trained various types of models and shared the result in the paper. We recommend follow-up researchers to use the same split for a correct comparison.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul class="simple">
 <li><p>Tags are weakly labeled and have synonyms</p></li>
 <li><p>DO NOT RANDOM SPLIT 25,863 clips! They’re from the same track!</p></li>
-<li><p>There are various approaches how to split and whether to include below top-50 tags</p></li>
+<li><p>Researchers used slightly different splits.</p></li>
 <li><p>The score on this dataset is still improving, but only slightly. It means we might be near the glass ceiling.</p></li>
 </ul>
 </div>
@@ -487,7 +490,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
-<li><p>Use split from [] (todo: ask minz)</p></li>
+<li><p>Follow the split and refer to the numbers in <span id="id12">[<a class="reference internal" href="../references.html#id41">Won <em>et al.</em>, 2020</a>]</span>.</p></li>
 <li><p>If you split by yourself, do it by tracks (instead of clips) |</p></li>
 <li><p>Know you’re dealing with an indie music|</p></li>
 <li><p>Know you’re dealing with a weakly labeled dataset|</p></li>
@@ -509,8 +512,8 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>The provided last.fm tags are realistic</p></li>
 </ul>
 </div>
-<p>The million song dataset (MSD, <span id="id10">[<a class="reference internal" href="../references.html#id15">Bertin-Mahieux <em>et al.</em>, 2011</a>]</span>) is a monumental music dataset. It was ahead of time in every aspect – size, quality, reliability, and various complementary features.</p>
-<p>MSD has been <em>the</em> music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system <a class="reference external" href="https://biblio.ugent.be/publication/4324554"><span id="id11">[<a class="reference internal" href="../references.html#id17">Van den Oord <em>et al.</em>, 2013</a>]</span></a> and the first large-scale music tagging <a class="reference external" href="https://arxiv.org/abs/1606.00298"><span id="id12">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span></a>. (+.. similarity search??)</p>
+<p>The million song dataset (MSD, <span id="id13">[<a class="reference internal" href="../references.html#id15">Bertin-Mahieux <em>et al.</em>, 2011</a>]</span>) is a monumental music dataset. It was ahead of time in every aspect – size, quality, reliability, and various complementary features.</p>
+<p>MSD has been <em>the</em> music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system <span id="id14">[<a class="reference internal" href="../references.html#id17">Van den Oord <em>et al.</em>, 2013</a>]</span> and the first large-scale music tagging <span id="id15">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span>.</p>
 <p>Researchers usually formulate the music tagging on MSD as a top-50 prediction task. This may be partially due to the convention of MagnaTagATune and earlier research, but it makes sense considering the sparsity of the tags. The tags in MSD are in an extremely long tail.</p>
 <blockquote>
 <div><p>in the MSD, .. there are
@@ -518,8 +521,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <p>.. the most popular tag is ‘rock’ which is associated with 101,071 tracks. However, ‘jazz’, the 12th most popular tag is used for only 30,152 tracks and ‘classical’, the 71st popular tag is used
 11,913 times only. ..</p>
 </div></blockquote>
-<p>(from <a class="reference external" href="https://ieeexplore.ieee.org/abstract/document/8323324"><span id="id13">[<a class="reference internal" href="../references.html#id18">Choi <em>et al.</em>, 2018</a>]</span></a>
-)</p>
+<p>(from <span id="id16">[<a class="reference internal" href="../references.html#id18">Choi <em>et al.</em>, 2018</a>]</span>)</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul class="simple">
@@ -527,7 +529,8 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>It might be difficult to get the mp3s</p></li>
 </ul>
 </div>
-<p><a class="reference external" href="https://github.com/keunwoochoi/MSD_split_for_tagging/">The dataset split</a> used in <a class="reference external" href="https://arxiv.org/abs/1606.00298"><span id="id14">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span></a> was based on simple random sampling. However, … [todo; ask Minz]</p>
+<p><a class="reference external" href="https://github.com/keunwoochoi/MSD_split_for_tagging/">The dataset split</a> used in <span id="id17">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span> was based on simple random sampling. However, this resulted in potentially allowing information between splits as same artists appear in different split.<br />
+To avoid this issue, the authors of <span id="id18">[<a class="reference internal" href="../references.html#id7">Won <em>et al.</em>, 2021</a>]</span> introduced CALS split - a cleaned and artist-level stratified split. This includes [TRAIN, VALID, TEST, STUDENT, NONE] sets where STUDENT set is a set of unlabeled items with respect to top-50 tags and can be used for semi-supervised and unsupervised learning. (NONE is a subset of discarded items since their artists appeared in TRAIN.)</p>
 <p>One critical downside of MSD is the availability of the audio. The creators of MSD adopted a very modern approach on this - while only distributing audio features and metadata, they released a code snippet for fetching 30-second audio previews from <a class="reference external" href="https://us.7digital.com/">7digital</a>. (Recently, people have reported the audio preview API does not work anymore. This means the audio is available only by word of mouth.)</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -549,7 +552,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>Artist-chosen genres in a hierarchy defind by the website (free music archive)</p></li>
 </ul>
 </div>
-<p>Free Music Archive dataset (FMA, <span id="id15">[<a class="reference internal" href="../references.html#id19">Defferrard <em>et al.</em>, 2016</a>]</span>) is a modern, large-scale dataset that contains full-tracks, instead of short preview clips. Along with MTG-Jamendo, it enables interesting research towards fully utilizing the information of the whole audio signal.</p>
+<p>Free Music Archive dataset (FMA, <span id="id19">[<a class="reference internal" href="../references.html#id19">Defferrard <em>et al.</em>, 2016</a>]</span>) is a modern, large-scale dataset that contains full-tracks, instead of short preview clips. Along with MTG-Jamendo, it enables interesting research towards fully utilizing the information of the whole audio signal.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul class="simple">
@@ -577,10 +580,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>Pre-defined split based on the target tasks (genre, instrument, mood/theme, top-50, overall.)</p></li>
 </ul>
 </div>
-<ul class="simple">
-<li><p>todo: ask minz if i’m not missing anything</p></li>
-</ul>
-<p>MTG-Jamendo <span id="id16">[<a class="reference internal" href="../references.html#id20">Bogdanov <em>et al.</em>, 2019</a>]</span> is a modern dataset that shares some pros of MSD and FMA. Its audio is readily and legally available, the audio is full-track and high-quality, contains various and realistic tags, and comes with properly defined splits.</p>
+<p>MTG-Jamendo <span id="id20">[<a class="reference internal" href="../references.html#id20">Bogdanov <em>et al.</em>, 2019</a>]</span> is a modern dataset that shares some pros of MSD and FMA. Its audio is readily and legally available, the audio is full-track and high-quality, contains various and realistic tags, and comes with properly defined splits.</p>
 <p>There are some interesting properties of this dataset, too. Pop and rock is the top genres in most of the genre datasets, and that could be the same for your target test set. In MTG-Jamendo, the genre distribution is skewed towards some other genres: The most popular genres are Electronic (16,480 items), soundtrack (~8k), pop, ambient, and rock. For mood alone, MTG-Jamendo is still great but there are alternatives (more information is under Resources section).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -604,7 +604,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>Official and reliable split is provided</p></li>
 </ul>
 </div>
-<p>AudioSet <span id="id17">[<a class="reference internal" href="../references.html#id21">Gemmeke <em>et al.</em>, 2017</a>]</span> is made for general audio understanding and not specifically for music. But, in their well-designed taxonomy, there is <a class="reference external" href="https://research.google.com/audioset/ontology/music_1.html">a high-level category ‘music’</a> that includes ‘musical instrument’, ‘music genre’, ‘musical concepts’, ‘music role’, and ‘music mood’. In total, there are more than 1M items, each of which corresponds to a specific 10-second of YouTube video.</p>
+<p>AudioSet <span id="id21">[<a class="reference internal" href="../references.html#id21">Gemmeke <em>et al.</em>, 2017</a>]</span> is made for general audio understanding and not specifically for music. But, in their well-designed taxonomy, there is <a class="reference external" href="https://research.google.com/audioset/ontology/music_1.html">a high-level category ‘music’</a> that includes ‘musical instrument’, ‘music genre’, ‘musical concepts’, ‘music role’, and ‘music mood’. In total, there are more than 1M items, each of which corresponds to a specific 10-second of YouTube video.</p>
 <p>The annotation is considered to be more than quite reliable. Also, for each category, AudioSet provides the estimated accuracy of the annotation.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -614,7 +614,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>The exact version would vary by people</p></li>
 </ul>
 </div>
-<p>The varying audio quality might be a downside depending on the target application. The dataset includes <a class="reference external" href="https://youtu.be/0TiEO149Ydc">an offical live session</a>, <a class="reference external" href="https://youtu.be/-YIT4HBM__g">a noisy and amateur recording</a>, <a class="reference external" href="https://youtu.be/0Ycad70UNwE">music with a low SNR</a>, etc.</p>
+<p>The varying audio quality might be a downside depending on the target application. The dataset includes <a class="reference external" href="https://youtu.be/0TiEO149Ydc">a live session</a>, <a class="reference external" href="https://youtu.be/-YIT4HBM__g">a noisy and amateur recording</a>, <a class="reference external" href="https://youtu.be/0Ycad70UNwE">music with a low SNR</a>, etc.</p>
 <p>To use AudioSet, one has to crawl the audio signal by themselves. Downloading YouTube video/audio is in a grey zone in terms of copyright, let alone the use of them.</p>
 <p>Another issue is that the availabilities of the items in AudioSet are time-varying and country-dependent! Once the videos are taken down, that’s it. Depending on the setting, some videos are just not available in some countries. Given the large size, this issue might not be critical in practice – so far.</p>
 </div>
@@ -628,7 +628,7 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <li><p>16 kHz, 4-second, monophonic.</p></li>
 </ul>
 </div>
-<p>NSynth <span id="id18">[<a class="reference internal" href="../references.html#id22">Engel <em>et al.</em>, 2017</a>]</span> is ‘a dataset of musical notes’. Yes, it is a music dataset. But is it a music <em>classification</em> dataset? Yes, in a sense that MNIST is an image dataset. We suggest using this dataset only as a simple proof of concept.</p>
+<p>NSynth <span id="id22">[<a class="reference internal" href="../references.html#id22">Engel <em>et al.</em>, 2017</a>]</span> is ‘a dataset of musical notes’. Yes, it is a music dataset. But is it a music <em>classification</em> dataset? Yes, in a sense that MNIST is an image dataset. We suggest using this dataset only as a simple proof of concept.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ul class="simple">
@@ -644,8 +644,8 @@ This constraint-free annotation process has pros and cons; it is realistic, whic
 <div class="section" id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>We barely cover mood-related datasets in this section. We would like to refer to <a class="reference external" href="https://github.com/juansgomez87/datasets_emotion">this repo</a><span id="id19">[<a class="reference internal" href="../references.html#id36">Gómez-Cañón <em>et al.</em>, 2021</a>]</span> which provides great information about music/mood datasets.</p></li>
-<li><p><a class="reference external" href="https://mirdata.readthedocs.io/en/stable/index.html"><code class="docutils literal notranslate"><span class="pre">mirdata</span></code></a> <span id="id20">[<a class="reference internal" href="../references.html#id37">Bittner <em>et al.</em>, 2019</a>]</span> is handy Python package that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., <a class="reference external" href="https://github.com/MTG/acousticbrainz-genre-dataset">the AcousticBrainz genre dataset</a> <span id="id21">[<a class="reference internal" href="../references.html#id38">Bogdanov <em>et al.</em>, 2019</a>]</span></p></li>
+<li><p>We barely cover mood-related datasets in this section. We would like to refer to <a class="reference external" href="https://github.com/juansgomez87/datasets_emotion">this repo</a><span id="id23">[<a class="reference internal" href="../references.html#id36">Gómez-Cañón <em>et al.</em>, 2021</a>]</span> which provides great information about music/mood datasets.</p></li>
+<li><p><a class="reference external" href="https://mirdata.readthedocs.io/en/stable/index.html"><code class="docutils literal notranslate"><span class="pre">mirdata</span></code></a> <span id="id24">[<a class="reference internal" href="../references.html#id37">Bittner <em>et al.</em>, 2019</a>]</span> is handy Python package that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., <a class="reference external" href="https://github.com/MTG/acousticbrainz-genre-dataset">the AcousticBrainz genre dataset</a> <span id="id25">[<a class="reference internal" href="../references.html#id38">Bogdanov <em>et al.</em>, 2019</a>]</span>.</p></li>
 </ul>
 </div>
 </div>
