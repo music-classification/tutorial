@@ -1,4 +1,4 @@
-# Transfer learning
+# Transfer Learning
 
 <p align = "center">
 <img src = "https://i.imgur.com/V5v19Xs.png" width=550>
