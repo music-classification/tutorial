@@ -3,3 +3,5 @@ torchaudio-augmentations
 librosa==0.8.1
 matplotlib
 numpy
+tqdm
+seaborn
