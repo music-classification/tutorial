@@ -304,8 +304,11 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#noisy-student-training">
-   Noisy student training
+  <a class="reference internal nav-link" href="#noisy-student-training-xie2020self">
+   Noisy student training,
+   <span class="xref cite">
+    xie2020self
+   </span>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -336,15 +339,15 @@ Semi-supervised learning is a machine learning approach that utilizes both small
 </p>
 As semi-supervised learning is a broad concept that hybridizes supervised learning and semi-supervised learning, there are many different approaches to facilitate it.
 <ul class="simple">
-<li><p>In self-training, a teacher model is first trained with labeled data. Then the trained teacher model predicts the labels of unlabeled data. A student model is optimized to predict the labels of labeled data and the pseudo-labels (teacher’s predictions) of unlabeled data.</p></li>
-<li><p>Consistency training constrains models to generate noise invariant predictions. Unsupervised loss of consistency training is formalized as:</p></li>
+<li><p>In self-training, a teacher model is first trained with labeled data. Then the trained teacher model predicts the labels of unlabeled data. A student model is optimized to predict the labels of labeled data and the pseudo-labels (teacher’s predictions) of unlabeled data [CITATION].</p></li>
+<li><p>Consistency training constrains models to generate noise invariant predictions <span id="id1">[<a class="reference internal" href="../references.html#id55">Simard <em>et al.</em>, 2003</a>]</span>. Unsupervised loss of consistency training is formalized as:</p></li>
 </ul>
 <p align = "center">
 <img src="https://render.githubusercontent.com/render/math?math=Loss_%7Bunsupervised%7D%20%3D%20D(p(y%7CA(x)%2C%5Ctheta)%2C%20p(y%7CA(x)%2C%5Ctheta))" width=400>
 </p> 
-<p style="margin-left:40px;">where <i>x</i> is an unlabeled input, <i>A</i> is stochastic data augmentation, and <i>D</i> is a distance metric such as mean squared errors. Note that the data augmentation <i>A</i> is stochastic; hence the two outputs <i>A(x)</i> in the equation are different. By applying the consistency regularization, the model can generalize better. This concept is also utilized in contrastive learning, which will be covered in the next section: self-supervised learning.</p>
+<p style="margin-left:40px;">where <i>x</i> is an unlabeled input, <i>A</i> is stochastic data augmentation, and <i>D</i> is a distance metric such as mean squared errors. Note that the data augmentation <i>A</i> is stochastic; hence the two outputs <i>A(x)</i> in the equation are different. By applying the consistency regularization, the model can generalize better. This concept is also utilized in contrastive learning, which will be covered in the next section: self-supervised learning. </p>
 <ul class="simple">
-<li><p>Entropy regularization minimizes the entropy of the model’s predictions. It can be performed by directly minimizing the entropy of predictions. But also, this can be done by targeting one-hot encoded pseudo-labels. The model makes predictions using unlabeled data. Then the class with the maximum probability is picked up to represent the data (one-hot encoded pseudo-label). This process implicitly performs entropy regularization.</p></li>
+<li><p>Entropy regularization minimizes the entropy of the model’s predictions <span id="id2">[<a class="reference internal" href="../references.html#id54">Grandvalet <em>et al.</em>, 2005</a>]</span>. It can be performed by directly minimizing the entropy of predictions. But also, this can be done by targeting one-hot encoded pseudo-labels. The model makes predictions using unlabeled data. Then the class with the maximum probability is picked up to represent the data (one-hot encoded pseudo-label). This process implicitly performs entropy regularization.</p></li>
 <li><p>Some previous works incorporate multiple semi-supervised approaches together.</p></li>
 <li><p>Also, there are more semi-supervised methods, including graph-based approaches and generative modeling.</p></li>
 </ul>
@@ -353,8 +356,8 @@ As semi-supervised learning is a broad concept that hybridizes supervised learni
 <p class="admonition-title">Warning</p>
 <p>In some papers, SSL stands for semi-supervised learning, but others use the acronym to represent self-supervised learning. To avoid confusion, we do not use abbreviations of semi- and self-supervised learning in this book.</p>
 </div>
-<div class="section" id="noisy-student-training">
-<h2>Noisy student training<a class="headerlink" href="#noisy-student-training" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="noisy-student-training-xie2020self">
+<h2>Noisy student training, <span id="id3">[<a class="reference internal" href="../references.html#id56">Xie <em>et al.</em>, 2020</a>]</span><a class="headerlink" href="#noisy-student-training-xie2020self" title="Permalink to this headline">¶</a></h2>
 <p>Noisy student training is a teacher-student framework (self-training) that leverages both labeled and unlabeled data. In teacher-student learning, a teacher model is first trained with labeled data in a supervised scheme. Then, a student model is trained to mimic the teacher’s behavior by optimizing the teacher model’s predictions (pseudo-labels). Noisy student training adds noise to this teacher-student pipeline.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/raPcC8d.png">
@@ -372,8 +375,8 @@ Here are detailed steps. Step 1 in the figure above is identical to the supervis
 </div>
 <div class="section" id="knowledge-expansion-and-distillation">
 <h2>Knowledge expansion and distillation<a class="headerlink" href="#knowledge-expansion-and-distillation" title="Permalink to this headline">¶</a></h2>
-<p>In noisy student training, the size of the student model is not smaller than the size of the teacher model. As a student model leverages larger-scale data with more difficult environments (noise), it can learn more information than the teacher model. One can interpret this method as knowledge expansion.</p>
-<p>On the other hand, we can also reduce the size of the student model. In this case, the student model is trained to mimic or outperform the teacher model with fewer parameters, hence faster than the teacher model. This process is knowledge distillation, and the distilled student model is beneficial for applications with less computing power.</p>
+<p>In noisy student training, the size of the student model is not smaller than the size of the teacher model. As a student model leverages larger-scale data with more difficult environments (noise), it can learn more information than the teacher model. One can interpret this method as knowledge expansion <span id="id4">[<a class="reference internal" href="../references.html#id56">Xie <em>et al.</em>, 2020</a>]</span>.</p>
+<p>On the other hand, we can also reduce the size of the student model. In this case, the student model is trained to mimic or outperform the teacher model with fewer parameters, hence faster than the teacher model. This process is knowledge distillation, and the distilled student model is beneficial for applications with less computing power <span id="id5">[<a class="reference internal" href="../references.html#id57">Kim and Rush, 2016</a>]</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
