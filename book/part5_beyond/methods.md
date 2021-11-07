@@ -11,6 +11,7 @@ It is often presented in the following stages:
 3. Evaluate the pre-trained representations with linear regression on the downstream task(s). A linear evaluation protocol is chosen so that the contribution, effectiveness and the versatility of the self-supervised learned representations for the downstream task can be tested.
 
 
+
 ### Contrastive Predictive Coding
 Contrastive predictive coding (CPC) was introduced by Aäron van den Oord et al. (2018) as a universal framework of representation learning. It is an approach to self-supervised learning that leverages the structure of the data, to learn representations that encode an underlying, shared information between different parts of the data. The data can be an image, in which neighbouring *patches* usually share spatial information locally. Or an audio signal, in which phonemes, or even musical beats, share temporal information locally. Conversely, on a more global level we expect the chorus of a song to repeat in another part of our audio signal. Or, when we look at a picture of a single dog, we expect the shape of a dog's ear to appear at least twice in the entire image.
 

@@ -8,10 +8,15 @@ This resulted in various pros and cons, and traps.
 
 These are some important but rarely discussed aspects.
 
- - Availabilities of audio signal
+### Availabilities of audio signal
    - This basic and fundamental requirement is already difficult. This is because, well, music is usually copyright-protected. 
-   The solutions are i) just-do-it,  ii) distribute the features, and iii) use copyright-free music.
- - Hidden traps! Because some of the dataset creation procedure was not perfect.
+   The solutions are i) just-do-it,  ii) distribute the features, iii) use copyright-free music, iv) distribute the IDs.
+ 
+
+### Hidden traps! 
+
+..Because some of the dataset creation procedure was not perfect.
+
    - How shall we split them
      - Many datasets don't have a official dataset split, and this caused many problems. Usually, wrong split gets us an incorrectly optimistic result, which incentives us to overlook the problem.   
    - How noisy the labels are?
@@ -20,6 +25,9 @@ These are some important but rarely discussed aspects.
    - How realistic the audio signals are?
      - We want our research (and the resulting models) to be practical. A lot of this depends on how similar the dataset is to the real, target data.    
 
+---
+
+Now, let's look into actual datasets.
 
 ## [Gtzan Music Genre (2002)](http://marsyas.info/downloads/datasets.html)
 
@@ -74,24 +82,28 @@ This is not a viable option these days anymore. Let's see more modern approaches
 - 5,405 tracks (25,863 x 29-second clips), 230 artists, 446 albums, 188 tags.
 ```
 
-MagnaTagATune {cite}`law2009evaluation` has played a significant role since its release until even now (2021). It was used in pioneering research such as [{cite}`dieleman2014end`](https://ieeexplore.ieee.org/document/6854950), [{cite}`choi2016automatic`](https://archives.ismir.net/ismir2016/paper/000009.pdf), [{cite}`lee2017sample`](https://arxiv.org/abs/1703.01789), [{cite}`won2021semi`][todo: add link], etc. [janne's. work]. etc.
+MagnaTagATune {cite}`law2009evaluation` has played a significant role since its release until even now (2021). It was used in pioneering research such as {cite}`dieleman2014end`, {cite}`choi2016automatic`, {cite}`lee2017sample`, {cite}`won2021semi`, {cite}`spijkervet2021contrastive`, etc.
 
 "Tagging" is a specific kind of classification, and MagnaTagATune is one of the earliest tagging datasets that is in this scale and that comes with audio. The songs are all indie music, so use this dataset at your own risk - the property of the music/audio might not be as realistic as you want.
 
 The gamification of the annotation process is worth mentioning. In this game called "Tag a Tune", two players were asked to tag a clip, then shown the other player's tagging results to finally judge if they were listening to the same clip or not.
 This constraint-free annotation process has pros and cons; it is realistic, which is good; but it makes the label noisy, which is bad as a benchmark dataset.   
 
+There are various approaches how to split and whether to include below top-50 tags during training and/or testing. This hidden difference makes the comparison silently noisy. Finally, The authors of {cite}`won2020evaluation` decided to include items with top-50 tags only, both in training and testing. They then trained various types of models and shared the result in the paper. We recommend follow-up researchers to use the same split for a correct comparison. 
+
 ```{warning}
 - Tags are weakly labeled and have synonyms
 - DO NOT RANDOM SPLIT 25,863 clips! They're from the same track!
-- There are various approaches how to split and whether to include below top-50 tags
+- Researchers used slightly different splits. 
 - The score on this dataset is still improving, but only slightly. It means we might be near the glass ceiling.
 ```
 
-This dataset turned out to be big enough to train some early deep neural network models such as 1D and 2D CNNs. Until late 2010s, MagnaTagATune was probably the most popular dataset in music tagging.  
+This dataset turned out to be big enough to train some early deep neural network models such as 1D and 2D CNNs. Until late 2010s, MagnaTagATune was probably the most popular dataset in music tagging.
+
+
 
 ```{tip}
-- Use split from [] (todo: ask minz)
+- Follow the split and refer to the numbers in {cite}`won2020evaluation`. 
 - If you split by yourself, do it by tracks (instead of clips) |
 - Know you're dealing with an indie music|
 - Know you're dealing with a weakly labeled dataset|
@@ -109,7 +121,7 @@ This dataset turned out to be big enough to train some early deep neural network
 
 The million song dataset (MSD, {cite}`bertin2011million`) is a monumental music dataset. It was ahead of time in every aspect -- size, quality, reliability, and various complementary features.
 
-MSD has been *the* music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system [{cite}`van2013deep`](https://biblio.ugent.be/publication/4324554) and the first large-scale music tagging [{cite}`choi2016automatic`](https://arxiv.org/abs/1606.00298). (+.. similarity search??)   
+MSD has been *the* music dataset since the beginning of deep learning era. It enabled the first deep learning-based music recommendation system {cite}`van2013deep` and the first large-scale music tagging {cite}`choi2016automatic`.   
 
 Researchers usually formulate the music tagging on MSD as a top-50 prediction task. This may be partially due to the convention of MagnaTagATune and earlier research, but it makes sense considering the sparsity of the tags. The tags in MSD are in an extremely long tail.
 
@@ -119,15 +131,15 @@ Researchers usually formulate the music tagging on MSD as a top-50 prediction ta
 > .. the most popular tag is ‘rock’ which is associated with 101,071 tracks. However, ‘jazz’, the 12th most popular tag is used for only 30,152 tracks and ‘classical’, the 71st popular tag is used
 11,913 times only. ..
 
- (from [{cite}`choi2018effects`](https://ieeexplore.ieee.org/abstract/document/8323324)
-)
+ (from {cite}`choi2018effects`)
 
 ```{warning}
 - Some splits have artist leakage
 - It might be difficult to get the mp3s 
 ```
 
-[The dataset split](https://github.com/keunwoochoi/MSD_split_for_tagging/) used in [{cite}`choi2016automatic`](https://arxiv.org/abs/1606.00298) was based on simple random sampling. However, ... [todo; ask Minz]  
+[The dataset split](https://github.com/keunwoochoi/MSD_split_for_tagging/) used in {cite}`choi2016automatic` was based on simple random sampling. However, this resulted in potentially allowing information between splits as same artists appear in different split.   
+To avoid this issue, the authors of {cite}`won2021semi` introduced CALS split - a cleaned and artist-level stratified split. This includes [TRAIN, VALID, TEST, STUDENT, NONE] sets where STUDENT set is a set of unlabeled items with respect to top-50 tags and can be used for semi-supervised and unsupervised learning. (NONE is a subset of discarded items since their artists appeared in TRAIN.)
 
 One critical downside of MSD is the availability of the audio. The creators of MSD adopted a very modern approach on this - while only distributing audio features and metadata, they released a code snippet for fetching 30-second audio previews from [7digital](https://us.7digital.com/). (Recently, people have reported the audio preview API does not work anymore. This means the audio is available only by word of mouth.)
 
@@ -170,8 +182,6 @@ From a machine learning point of view, the second item in Warning is an advantag
 - Pre-defined split based on the target tasks (genre, instrument, mood/theme, top-50, overall.) 
 ```
 
-* todo: ask minz if i'm not missing anything
-
 MTG-Jamendo {cite}`bogdanov2019mtg` is a modern dataset that shares some pros of MSD and FMA. Its audio is readily and legally available, the audio is full-track and high-quality, contains various and realistic tags, and comes with properly defined splits.
 
 There are some interesting properties of this dataset, too. Pop and rock is the top genres in most of the genre datasets, and that could be the same for your target test set. In MTG-Jamendo, the genre distribution is skewed towards some other genres: The most popular genres are Electronic (16,480 items), soundtrack (~8k), pop, ambient, and rock. For mood alone, MTG-Jamendo is still great but there are alternatives (more information is under Resources section).  
@@ -203,7 +213,7 @@ The annotation is considered to be more than quite reliable. Also, for each cate
 - The exact version would vary by people
 ```
 
-The varying audio quality might be a downside depending on the target application. The dataset includes [an offical live session](https://youtu.be/0TiEO149Ydc), [a noisy and amateur recording](https://youtu.be/-YIT4HBM__g), [music with a low SNR](https://youtu.be/0Ycad70UNwE), etc. 
+The varying audio quality might be a downside depending on the target application. The dataset includes [a live session](https://youtu.be/0TiEO149Ydc), [a noisy and amateur recording](https://youtu.be/-YIT4HBM__g), [music with a low SNR](https://youtu.be/0Ycad70UNwE), etc. 
 
 To use AudioSet, one has to crawl the audio signal by themselves. Downloading YouTube video/audio is in a grey zone in terms of copyright, let alone the use of them.
 
@@ -233,4 +243,4 @@ There's good news as well. The research community is learning lessons from the m
 ## Resources
 
 - We barely cover mood-related datasets in this section. We would like to refer to [this repo](https://github.com/juansgomez87/datasets_emotion){cite}`GomezCanon2021SPM` which provides great information about music/mood datasets.
-- [`mirdata`](https://mirdata.readthedocs.io/en/stable/index.html) {cite}`bittner2019mirdata` is hand software that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., [the AcousticBrainz genre dataset](https://github.com/MTG/acousticbrainz-genre-dataset) {cite}`bogdanov2019acousticbrainz`
+- [`mirdata`](https://mirdata.readthedocs.io/en/stable/index.html) {cite}`bittner2019mirdata` is handy Python package that helps researchers handle MIR datasets easily and correctly. Many classification datasets are included e.g., [the AcousticBrainz genre dataset](https://github.com/MTG/acousticbrainz-genre-dataset) {cite}`bogdanov2019acousticbrainz`.

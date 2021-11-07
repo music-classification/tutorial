@@ -11,7 +11,7 @@ shows various kinds of modules that are needed, on top of ML code, to build an M
 
 
 ## Dataset Creation
-### 1. Collecting the items
+### 1. Item Sampling
 
 To create a dataset, one first needs to collect the items. If the source of an item is limited in some sense, we might want to simply maximize the number of items. Otherwise, we need to sample the items from a bigger set, which might be the whole population (e.g., the whole catalog of streaming service).
 
@@ -19,7 +19,8 @@ In general, the goal of this sampling is to statistically represent the target s
 
  - Use metadata (year, artist, language, genre) to ensure diversity
  - Make sure the items at extreme ends are included (e.g., the oldest and the newest songs)
- - Your dataset may expire. Update it from time to time
+ 
+OpenMIC-2018 {cite}`humphrey2018openmic` set a high bar on this. The source of the dataset is FMA {cite}`defferrard2016fma` which has full tracks, and the goal was to sample 10-second segments so that each instrument class is represented well enough. The authors first trained an instrument recognition model using an existing dataset. The model was used to approximate class occurrence. Based on this, the authors sampled the (assumed to be) positive 10-second segments of an instrument -- from least to most likely instrument class. Finally, then applied a rule so that no two clips share a source track.
 
 ### 2. Annotation
 Once collecting the items, you'll go through an annotation process.
@@ -44,9 +45,9 @@ In the ideal world, you have nothing to do once a dataset is created. In the wor
 
  - Version your dataset. It can be like versioning software (1.0, 1.0.1, 1.1.0, ..) which has nice rules about, for example, [semantic versioning](https://semver.org/). Or maybe simply the dates and some explanation.
    - Save the version of the dataset with your models.  
- - Adding new data samples. Why? 🤷‍♀️ Anyway, it happens. 
+ - You may add new data samples. Why? 🤷‍♀️ Anyway, it happens. 
    - Be aware of the distribution of the new subset and the result 
-   - Be Consistent on the data pipeline (software and parameters to load and process the audio files) 
+   - Be consistent on the data pipeline (software and parameters used during audio processing) 
  - Keep your data samples up-to-date. Add recent samples!
  - Keep your labels up-to-date. 
    - E.g., genre labels (new genres may emerge), labels from language models 
@@ -63,21 +64,20 @@ In the ideal world, you have nothing to do once a dataset is created. In the wor
 
 - High precision? or High recall?
   - Know your application!
-  - (todo - study this)
 - Thresholding or not?
   - Even with softmax, if the target is high precision, simply thresholding with value works. 
   - Confidence estimation can be done in various way. 
 
 ## Deployment
 ### Notes
-  - Ensure the reproducability of:
+  - Ensure the reproducibility of:
     - Software/your code!
     - Model 
     - Data processing pipeline
       - Decoding mp3, or if it's mp3 vs wav input, resampling algorithm, how to downmix, ..
         
   - Is your model actually useful for the whole catalog you have? E.g.,:
-    - if album cover images are used in the model, are they going to be available for all the music tracks? 
+    - If album cover images are used in the model, are they going to be available for all the music tracks? 
     - If you used lyrics, would it work for all the languages you need to support?  
 
 ### Food for thought: Aggregating segment level predictions

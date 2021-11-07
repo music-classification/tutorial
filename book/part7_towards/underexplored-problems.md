@@ -64,7 +64,7 @@ Disclaimer - This section is meant to be subjective. Also, as the content is bas
   - And yes, there is demand! Metadata is NOT always there or correct
   - Relevant to user's musical preference 
 
-### Audio codec quality (mp3, wav, ..)
+### Audio codec quality (mp3, wav, etc)
   **Although**
   - Music services are supposed to always have high-quality audio
   
