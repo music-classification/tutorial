@@ -38,8 +38,7 @@ Training a Momentrum Contrast encoder works by way of using positive and negativ
 
 ```{image} ../../book/images/janne/momentum_contrast.png
 :alt: Momentum Contrast training protocol (From Momentum Contrast for Unsupervised Visual Representation Learning (2019)
-:class: bg-primary mb-1
-:width: 600px
+:width: 400px
 :align: center
 ```
 
@@ -62,24 +61,29 @@ For each image example in the mini-batch, two augmented (but correlated!) views 
 
 During pre-training, the network only learns from the contrastive loss: the labels are only used during the linear evaluation phase (see the previous section for more details).
 
-<div style="margin: auto; width: 300px">
-    <img src="../../../../book/images/janne/simclr_contrastive_learning.png"/>
-</div>
+```{image} ../../book/images/janne/simclr_contrastive_learning.png
+:width: 400px 
+:align: center
+```
+
 
 
 ## Contrastive Losses
 
-<div align="center">
-    <img width="500" src="https://i.imgur.com/2uZeF4U.png"/>
-    <div>Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)</div>
-</div>
+```{image} https://i.imgur.com/2uZeF4U.png
+:alt: Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)
+:width: 600px 
+:align: center
+```
 
 Many contrastive learning methods use a variant of a contrastive loss function, which was first introduced in Noise Contrastive Estimation (Gutmann et al., 2010) and subsequently the InfoNCE loss from Contrastive Predictive Coding (Van den Oord et al., 2018).
 
 This loss can be minimized using a variety of methods, which mostly differ in how they keep track of the keys of data examples. In the case of SimCLR (Chen et al., 2020), a single batch consists both of "positive" and "negative" pairs, which act as "keys" to the original examples. These are updated end-to-end by back-propagation. To increase the complexity of the contrastive learning task, it requires a large batch size to contain more negative examples. Conversely, for Momentum Contrast the negative examples' keys are maintained in a queue. It only encodes the queries and the positive keys in a single batch.
 
 
-$$\mathcal{L}_{q, k^{+},\left\{k^{-}\right\}}=-\log \frac{\exp \left(q \cdot k^{+} / \tau\right)}{\exp \left(q \cdot k^{+} / \tau\right)+\sum_{k^{-}} \exp \left(q \cdot k^{-} / \tau\right)}$$
+$$
+\mathcal{L}_{q, k^{+},\left\{k^{-}\right\}}=-\log \frac{\exp \left(q \cdot k^{+} / \tau\right)}{\exp \left(q \cdot k^{+} / \tau\right)+\sum_{k^{-}} \exp \left(q \cdot k^{-} / \tau\right)}
+$$
 
 ## PASE
 PASE was proposed by Santiago Pascual et al. (2019), which demonstrated that useful representations for speech recognition can be learned by defining multiple pretext tasks that jointly optimize an encoder neural network. The encoder distributes the representations of the input data to multiple, small feed-forward neural networks (called *workers*) that jointly solve different pretext tasks. Each *worker* is composed of a single hidden layer, and either solves a regression or binary classification task. These smaller feed-forward layers are chosen because the emphasis on learning the more expressive representations is put on the larger encoder, i.e., the encoder should learn more high-level features that can be used by the *worker* networks to help solve their tasks. After pre-training the network in a self-supervised manner, the learned representations are evaluated in the task of speaker recognition, emotion recognition and phoneme recognition.
