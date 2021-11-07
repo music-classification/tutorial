@@ -7,6 +7,7 @@ parts:
       - file: part1_intro/what-is-music-classification
       - file: part2_basics/input-representations
       - file: part2_basics/dataset
+      - file: part2_basics/problem-formulation
       - file: part2_basics/evaluation
   - caption: Supervised Learning
     chapters:
