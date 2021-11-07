@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +33,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -81,7 +81,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   The Basics
  </span>
@@ -113,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Supervised Learning
  </span>
@@ -140,7 +140,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Learning
  </span>
@@ -162,7 +162,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Self-supervised Learning
  </span>
@@ -184,7 +184,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Towards Real-world Applications
  </span>
@@ -201,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Conclusion
  </span>
@@ -213,7 +213,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Resources
  </span>
@@ -308,49 +308,37 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Methods for Self-Supervised Learning
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contrastive-learning">
+   Contrastive Learning
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contrastive-learning">
-     Contrastive Learning
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contrastive-predictive-coding">
-     Contrastive Predictive Coding
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#momentum-contrast-moco">
-     Momentum Contrast (MoCO)
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simclr">
-     SimCLR
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contrastive-losses">
-     Contrastive Losses
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simclr-v2">
-     SimCLR v2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pase">
-     PASE
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contrastive-predictive-coding">
+   Contrastive Predictive Coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#momentum-contrast-moco">
+   Momentum Contrast (MoCO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simclr">
+   SimCLR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contrastive-losses">
+   Contrastive Losses
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pase">
+   PASE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-papers-on-self-supervised-learning">
    More papers on self-supervised learning
   </a>
@@ -400,9 +388,7 @@
 <h2>Momentum Contrast (MoCO)<a class="headerlink" href="#momentum-contrast-moco" title="Permalink to this headline">¶</a></h2>
 <p>Momentum Contrast was proposed by Kaiming He et al. (2019). It demonstrated superior performance on seven vision tasks compared to equivalent networks that were trained in a supervised manner, and was one of the first papers to close the gap between unsupervised and supervised learning approaches on some vision tasks. In MoCO, a dictionary of examples in the data are maintained as a queue. Each example in the mini-batch is encoded, and put in front of the queue, while the last item in the dictionary is subsequently dequeued. The dictionary size is not related to the mini-batch size, and can be chosen arbitrarily. The pretext task used in MoCO is to define a contrastive loss on the query and the keys of the dictionary: a query matches the key when the query is an embedding of a different <em>view</em> of the same datapoint. For example: if the query is an embedding of the bassoon solo in Stravinsky’s “Rite of Spring”, it should match with the key that corresponds to the “Rite of Spring”. The encoded query should be similar to its corresponding key, and dissimilar to other keys in the dictionary.</p>
 <p>Training a Momentrum Contrast encoder works by way of using positive and negative pairs of examples in a mini-batch. The positive example pairs are made of queries that correspond to keys of the current mini-batch. Conversely, the negative pairs are queries of the current mini-batch and keys from past mini-batches.</p>
-<div style="margin: auto; width: 400px;">
-    <img alt="Momentum Contrast training protocol (Source: Momentum Contrast for Unsupervised Visual Representation Learning (2019))" src="../../../../book/images/janne/momentum_contrast.png"/>
-</div>
+<a class="reference internal image-reference" href="../_images/momentum_contrast.png"><img alt="Momentum Contrast training protocol (From Momentum Contrast for Unsupervised Visual Representation Learning (2019)" class="align-center" src="../_images/momentum_contrast.png" style="width: 400px;" /></a>
 <p>The keys are encoded by a <em>“slowly progressing”</em> encoder, because the dictionary’s keys are drawn over multiple mini-batches. This encoder is implemented as a momentum-based moving average. We therefore have two encoders: an encoder for the queries and a momentum-encoder for the keys. The main difference between these two encoders, is that the query encoder is updated by backpropagation, while the momentum encoder is updated by a linear interpolation of the query and the momentum encoder.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
@@ -415,23 +401,16 @@
 <p>SimCLR was introduced by Ting Chen et al. (2020) as a simple contrastive learning approach to learn strong visual representations. It leverages strong image data augmentations, large batch sizes, a single large encoder and a simple contrastive loss to pre-train an encoder that learns effective representations. These representations are used to train very effective linear classifiers in various downstream image classification tasks.</p>
 <p>For each image example in the mini-batch, two augmented (but correlated!) views are taken. This is done by way of a series of data augmentations that are applied randomly to each example. This will naturally yield $2N$ datapoints per mini-batch. Each of these augmented views are then embedded using a standard ResNet encoder network. While these representations are used during linear evaluation, during the pre-training stage these representations are projected to a different latent space by a small linear layer on which the contrastive loss is computed.</p>
 <p>During pre-training, the network only learns from the contrastive loss: the labels are only used during the linear evaluation phase (see the previous section for more details).</p>
-<div style="margin: auto; width: 300px">
-    <img src="../../../../book/images/janne/simclr_contrastive_learning.png"/>
-</div>
+<a class="reference internal image-reference" href="../_images/simclr_contrastive_learning.png"><img alt="../_images/simclr_contrastive_learning.png" class="align-center" src="../_images/simclr_contrastive_learning.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="contrastive-losses">
 <h2>Contrastive Losses<a class="headerlink" href="#contrastive-losses" title="Permalink to this headline">¶</a></h2>
-<div align="center">
-    <img width="500" src="https://i.imgur.com/2uZeF4U.png"/>
-    <div>Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)</div>
-</div>
+<a class="reference internal image-reference" href="https://i.imgur.com/2uZeF4U.png"><img alt="Figure 1 from &quot;Improved Baselines with Momentum Contrastive Learning&quot; (Chen et al., 2020)" class="align-center" src="https://i.imgur.com/2uZeF4U.png" style="width: 600px;" /></a>
 <p>Many contrastive learning methods use a variant of a contrastive loss function, which was first introduced in Noise Contrastive Estimation (Gutmann et al., 2010) and subsequently the InfoNCE loss from Contrastive Predictive Coding (Van den Oord et al., 2018).</p>
 <p>This loss can be minimized using a variety of methods, which mostly differ in how they keep track of the keys of data examples. In the case of SimCLR (Chen et al., 2020), a single batch consists both of “positive” and “negative” pairs, which act as “keys” to the original examples. These are updated end-to-end by back-propagation. To increase the complexity of the contrastive learning task, it requires a large batch size to contain more negative examples. Conversely, for Momentum Contrast the negative examples’ keys are maintained in a queue. It only encodes the queries and the positive keys in a single batch.</p>
-<p>$$\mathcal{L}<em>{q, k^{+},\left{k^{-}\right}}=-\log \frac{\exp \left(q \cdot k^{+} / \tau\right)}{\exp \left(q \cdot k^{+} / \tau\right)+\sum</em>{k^{-}} \exp \left(q \cdot k^{-} / \tau\right)}$$</p>
-</div>
-<div class="section" id="simclr-v2">
-<h2>SimCLR v2<a class="headerlink" href="#simclr-v2" title="Permalink to this headline">¶</a></h2>
-<p>&#64;minz what exactly did you want elaborated here, just the semi-supervised gains?</p>
+<p>$$
+\mathcal{L}<em>{q, k^{+},\left{k^{-}\right}}=-\log \frac{\exp \left(q \cdot k^{+} / \tau\right)}{\exp \left(q \cdot k^{+} / \tau\right)+\sum</em>{k^{-}} \exp \left(q \cdot k^{-} / \tau\right)}
+$$</p>
 </div>
 <div class="section" id="pase">
 <h2>PASE<a class="headerlink" href="#pase" title="Permalink to this headline">¶</a></h2>
@@ -439,9 +418,8 @@
 <p><img alt="The PASE architecture (Image source: Learning Problem-agnostic Speech Representations from Multiple Self-supervised Tasks (2019))" src="../_images/pase_architecture.png" /></p>
 <p>The improved version of PASE, which was called PASE+, uses a set of audio data augmentations to improve the robustness of the learned representations for the downstream task.</p>
 </div>
-</div>
 <div class="section" id="more-papers-on-self-supervised-learning">
-<h1>More papers on self-supervised learning<a class="headerlink" href="#more-papers-on-self-supervised-learning" title="Permalink to this headline">¶</a></h1>
+<h2>More papers on self-supervised learning<a class="headerlink" href="#more-papers-on-self-supervised-learning" title="Permalink to this headline">¶</a></h2>
 <p>The following is a short list of important papers in self-supervised learning, of which a few are discussed more in-depth in this tutorial:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -497,6 +475,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

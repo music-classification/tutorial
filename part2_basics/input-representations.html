@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +33,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -81,7 +81,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   The Basics
  </span>
@@ -113,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Supervised Learning
  </span>
@@ -140,7 +140,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Learning
  </span>
@@ -162,7 +162,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Self-supervised Learning
  </span>
@@ -184,7 +184,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Towards Real-world Applications
  </span>
@@ -201,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Conclusion
  </span>
@@ -213,7 +213,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Resources
  </span>
@@ -423,7 +423,7 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="input-representations">
+  <div class="section" id="input-representations">
 <h1>Input Representations<a class="headerlink" href="#input-representations" title="Permalink to this headline">¶</a></h1>
 <p>In this notebook, we’ll study various audio input representations that are used for music classification. Choosing the right input representation is crucial to successful training of neural networks. This may sound against the spirit of deep learning – assume minimally and let the model learn.</p>
 <p>This is because the optimal choice of audio input representations is more difficult than in other domains as you’ll see here. In other words, this is an important design choices that music/audio researchers should make as opposed to people in natural language processing or computer vision.</p>
@@ -483,7 +483,7 @@
 </div>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="waveforms">
+<div class="section" id="waveforms">
 <h1>Waveforms<a class="headerlink" href="#waveforms" title="Permalink to this headline">¶</a></h1>
 <p>The first representation we’ll discuss is waveforms.</p>
 <div class="admonition note">
@@ -571,7 +571,7 @@ Is waveform the best representation for neural networks? It depends, but usually
 <p>What are the alternatives then? There is no single answer to the question. A bunch of types of <strong>spectrograms</strong> could be the answer depending on what you’re looking for.</p>
 <p>But - first of all, what are spectrograms?</p>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="spectrograms-time-frequency-representations">
+<div class="section" id="spectrograms-time-frequency-representations">
 <h1>Spectrograms: time-frequency representations<a class="headerlink" href="#spectrograms-time-frequency-representations" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -942,7 +942,7 @@ log_stft.shape=(257, 862)
 <p>The difference is pretty obvious here - we get a much better pitch resolution!</p>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="practical-issue-how-to-compute-them">
+<div class="section" id="practical-issue-how-to-compute-them">
 <h1>Practical Issue: How to compute them?<a class="headerlink" href="#practical-issue-how-to-compute-them" title="Permalink to this headline">¶</a></h1>
 <p>There are several softwares that computes these representations. Take this information with a grain of salt because it will be outdated after releasing this book (2021 Nov).</p>
 <div class="section" id="id7">
