@@ -39,7 +39,9 @@ There can be an almost infinite number of music classification tasks based on pr
 - Genre classification {cite}`tzanetakis2002musical`
 - Mood classification {cite}`kim2010music`
 - Instrument identification {cite}`herrera2003automatic`
-- Music tagging {cite}`lamere2008social`
+- Music tagging {cite}`lamere2008social
+
+We discuss music classification tasks in more detail later in this chapter.  
 
 ```{note}
 Music tagging subsumes all other classification tasks as any class (label) can be musical tags.

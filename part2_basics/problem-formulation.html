@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem Formulation &#8212; Music Classification: Beyond Supervised Learning, Towards Real-world Applications</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Evaluation" href="evaluation.html" />
+    <link rel="prev" title="Datasets" href="dataset.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption" role="heading">
+ <span class="caption-text">
+  The Basics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part1_intro/what-is-music-classification.html">
+   What is Music Classification?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="input-representations.html">
+   Input Representations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataset.html">
+   Datasets
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Problem Formulation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="evaluation.html">
+   Evaluation
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/architectures.html">
+   Architectures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/data-augmentation.html">
+   Audio Data Augmentations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part3_supervised/tutorial.html">
+   PyTorch tutorial
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Semi-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/introduction.html">
+   Beyond Supervision
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/transfer-learning.html">
+   Transfer Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part4_beyond/semi-supervised-learning.html">
+   Semi-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Self-supervised Learning
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/methods.html">
+   Methods for Self-Supervised Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part5_beyond/self-supervised-learning.html">
+   Self-Supervised Learning
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Towards Real-world Applications
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/mlops.html">
+   MLOps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part7_towards/underexplored-problems.html">
+   Under-Explored Problems in Academia
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Conclusion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part8_conclusion/_intro.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Resources
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part2_basics/problem-formulation.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/music-classification/tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genre-classification">
+   Genre Classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mood-classification">
+   Mood classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrument-identification">
+   Instrument identification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#music-tagging">
+   Music tagging
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="problem-formulation">
+<h1>Problem Formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we share our hands-on experiences of and details about music classification tasks. There are various types of music classification tasks, and a task can be formulated in different ways. The ideas and considerations are reflected when one constructs a new dataset. After then, users of the dataset follow what was assumed in the dataset.</p>
+<div class="section" id="genre-classification">
+<h2>Genre Classification<a class="headerlink" href="#genre-classification" title="Permalink to this headline">¶</a></h2>
+<p>Music genre is one of the first things that come to people’s mind when they talk about music. Every music listener knows at least some genre names. When talking about musical preferences, people assume they’re supposed to talk about their favorite genres.</p>
+<p>The simplest problem formulation of genre classification is to define a genre taxonomy that is <strong>flat</strong> and <strong>mutually exclusive</strong> (single-label classification). This is how the pioneering Gtzan genre classification dataset was constructed. The authors set 10 high-level genres:</p>
+<blockquote>
+<div><p>“blues, classical, country, disco, hip hop, jazz, metal, pop, reggae, rock”.</p>
+</div></blockquote>
+<p>Are they really flat? Musicologists can argue about it for a whole night. Are they mutually exclusive? Probably.. not. One can always find (or write) hybrid music by combining some important features of various genres. However, this simplification works to some extent (Every problem formulation is wrong, but some are useful.) We also suspect people naturally have the idea of mutual exclusiveness when they think of music genres. If that’s true, the simplification is not only a bad thing. It was also adopted in Ballroom dataset, FMA-small, FMA-medium, ISMIR 2004 genre, etc.</p>
+<p>We can find a different problem formulation in more modern datasets. The mutual exclusiveness assumption was loosened in Million Song Dataset (with tagtraum genre annotations). This allows a track to have more than one genre labels (=<strong>multi-label classification</strong>), which is probably more correct. This is also the usual case where genre classification is treated as a part of a tagging problem (since tags usually include various types of labels including genres) such as MTG-Jamendo.</p>
+<p>Finally, a hierarchical genre taxonomy is considered in datasets such as FMA-Full and AcousticBrainz-Genre.</p>
+</div>
+<div class="section" id="mood-classification">
+<h2>Mood classification<a class="headerlink" href="#mood-classification" title="Permalink to this headline">¶</a></h2>
+<p>The genre boundaries are already fuzzy, but perhaps not as much as those of mood. By definition, mood is 100% subjective; and then there is the difference between perceived mood (the mood of music) and induced mood (the mood one would feel when listening to the music) – let alone a time-varying nature of it. In practice, MIR researchers have been brave enough to be ignorant about those details and formulate mood classification problems in various ways.</p>
+<p>In general, the whole scene is similar to that of genre classification. Some early datasets are based on flat hierarchy (e.g., MoodsMIREX). When being a part of tagging problem, it’s allowed to have multi-labeling (MSD, MTG-Jamendo).</p>
+<p>But, there is something special in mood classification. Not all the researchers in mood understanding agreed to make a compromise and formulate it as a classification problem. As a result, some continuity was allowed when annotating mood of music.</p>
+<p>The most common method is to annotate it in a <strong>two-dimensional plane</strong> where the axes represents arousal and valence. DEAP and Emomusic are examples. Sometimes, researchers even went further. For example, the music can be annotated in a three-dimensional space – valence, arousal, and dominance. In another direction, there is time-varying annotation (every 1 second) in DEAM/Mediaeval.</p>
+</div>
+<div class="section" id="instrument-identification">
+<h2>Instrument identification<a class="headerlink" href="#instrument-identification" title="Permalink to this headline">¶</a></h2>
+<p>Instrument identification is another interesting problem that is a bit different from all the others. When pop music is the target, researchers have no control in the range of the existing instruments - when sampling some tracks, it is not possible to limit the instruments to be in a pre-defined taxonomy. One can manually sample items so that there only exist some selected, target instruments. But what’s the point when reality ignores the constraint?</p>
+<p>That was, though, not a problem in the early days since researchers didn’t dare to annotate all the instruments. In fact, in the very early days, the target of instrument identification model was not even music tracks – instrument <strong>samples</strong> (e.g., 1-second clips that contains only a single note of one instrument) were the items to classify.</p>
+<p>The problem became more realistic with datasets such as IRMAS (https://www.upf.edu/web/mtg/irmas). It has annotations of a single <strong>‘predominant’ instrument</strong> of an item. This means mutual exclusiveness is assumed and the problem becomes a single-label classification. It is subjective and noisy, but again - we always approximate anyway.</p>
+<p>More recently, instrument identification was treated as <strong>multi-label classification</strong> in dataset such as OpenMIC-2018. Like other tasks, it is also a multi-label classification when being solved as a part of music tagging in MSD or MTG-Jamendo.</p>
+<p>We can (relatively) safely assume that Instrument annotation is, compared to others such as genres or mood, objective. This may sound good, but this makes it difficult for researchers to accept the noise in the label. When it comes to mood or genre, when the label doesn’t seem quite right, researchers may still accept that as a result of inherent subjectivity. However, there are many, many unannotated existing instruments in OpenMIC-2018, MSD, and MTG-Jamendo – in other words, we really know with high confidence that they are wrong! For this reason, we think that the future of instrument identification dataset might be a synthetic(ally mixed) dataset with 100% correct instrument labels.</p>
+</div>
+<div class="section" id="music-tagging">
+<h2>Music tagging<a class="headerlink" href="#music-tagging" title="Permalink to this headline">¶</a></h2>
+<p>We already mentioned music tagging above, but what is it exactly? The progress of the computer and internet has given the privilege of labeling music to every single music listener – the <strong>democratization of annotation</strong>. We call this process music tagging. Social music services such as Last.fm gathered these tags, and predicting these tags from the audio content became a task named music (auto-)tagging.</p>
+<p>There is no constraint on which tag to use as long as the text field UI allows. Because of this freedom, tagging datasets are extremely <strong>messy, noisy, and in a long-tail</strong>. For example, million song dataset has 505,216 tracks with at least one last.fm tags and the total number of unique tags is.. 522,366. There are more tags than the number of the tracks! Out of them, the 7th popular tag is.. “favorite”. The 18th is “Awesome” (yes, it distinguishes lower/uppercases). 33th is “seen live”. 37th “Favorite” (I told you). 41th is “Favourite”.</p>
+<p>Surprisingly, we can still solve this to some extent! How? Well, actually, many other tags – especially the top ones – are relevant to the music content. These are the top-15 tags after removing those mentioned fuzzy tags.</p>
+<blockquote>
+<div><p>‘rock’, ‘pop’, ‘alternative’, ‘indie’, ‘electronic’, ‘female vocalists’, ‘dance’, ’00s’, ‘alternative rock’, ‘jazz’, ‘beautiful’, ‘metal’, ‘chillout’, ‘male vocalists’, ‘classic rock’,</p>
+</div></blockquote>
+<p>There are genre, mood, and instruments – each of which has been treated as a target category for automatic classification.</p>
+<p>What is the exact point of solving a tagging problem if the tag taxonomy is merely a superset of other labels? Musically, the taxonomy and the occurrence of tags reflects what listeners care about. This means the knowledge a model learns can be more universally useful than that from other tasks. Practically, it is easier to collect music tags than collecting (expert-annotated) genre, mood, or instrument labels. This enabled researchers to train and evaluate deep learning models, and this is why tagging remains to be the most popular music classification problem.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part2_basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="dataset.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Datasets</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="evaluation.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Evaluation</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

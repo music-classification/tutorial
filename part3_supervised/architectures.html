@@ -103,6 +103,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../part2_basics/problem-formulation.html">
+   Problem Formulation
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../part2_basics/evaluation.html">
    Evaluation
   </a>
@@ -384,20 +389,20 @@
 <h1>Architectures<a class="headerlink" href="#architectures" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This tutorial mainly covers deep learning approaches for music classification. Before we jump into the details of different deep architectures, let’s check some essential attributes of music classification.</p>
+<p>This tutorial mainly covers deep learning approaches for music classification. Before we jump into the details of different deep architectures, let’s check some essential attributes of music classification models.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/he0L4nX.png" width=650>
 </p>
 <p align = "center">
 Music classification model
 </p>
-<p>As shown in the figure above, a music classification model consists of preprocessing, front end, and back end modules. We have already checked the preprocessing steps to extract different input representations in the previous section. The front end of the music classification model captures local acoustic characteristics such as timbre, pitch, or existence of a particular instrument. Then the back end summarizes the sequence of the extracted features from the front end module. Based on the architecture design, sometimes, the front and back end boundary can be ambiguous.</p>
+<p>As shown in the figure above, a music classification model can be broken into preprocessing, front end, and back end modules. In the previous section, we have already covered the preprocessing steps where the model extracts different input representations. The front end of the music classification model usually captures local acoustic characteristics such as timbre, pitch, or existence of a particular instrument. Then the back end module summarizes a sequence of the extracted features, which are the output of the front end module. The boundary between the front and back end may be ambiguous, sometimes.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/LYeb263.png" width=450>
 </p>
 <p align = "center">
 </p>
-<p>Another critical attribute of music classification is song-level training vs instance-level training. Although our goal is to make song-level predictions, music classification models often use only short audio segments during the training (instance-level training). Instance-level training is justified by the intuition – humans can predict music tags within just a few seconds. For example, people would not spend 3 minutes to determine whether a track is rock music. As shown in the figure above, when we train the model with an instance level, we have more training examples, and the task becomes more difficult as the model needs to predict only with short audio segments. In consequence, one can expect more robust music tagging models. After training, when the model predicts in a song-level, the instance-level predictions are aggregated using max-pooling, average-pooling, or majority vote.</p>
+<p>Another important attribute of music classification is song-level training vs instance-level training. Although our goal is to make song-level predictions, music classification models often use only short audio segments during the training. This is called instance-level training. Instance-level training is justified by our intuition; that humans can predict music tags (e.g., rock music) with just a few-second snippet. As shown in the figure above, when we train a model with an instance level, we end up having more training examples. The task may become more difficult because the model is given a less amount of information. In practice, sometimes this ends up obtaining a more robust music tagging model, probably due to the higher stochasticity. After training an instance-level model, if we need a song-level prediction, the instance-level predictions can be aggregated. Max-pooling, average-pooling, or majority vote is the common operations used for the aggregation.</p>
 <p>We summarize important attributes of music classification models as follow:</p>
 <style>
 td {
@@ -485,14 +490,14 @@ td {
 </div>
 <div class="section" id="fully-convolutional-network-fcn-choi2016automatic">
 <h2>Fully Convolutional Network (FCN), <span id="id1">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span><a class="headerlink" href="#fully-convolutional-network-fcn-choi2016automatic" title="Permalink to this headline">¶</a></h2>
-<p>Motivated by the huge success of convolutional neural networks (CNN) in computer vision, MIR researchers adopted the successful architectures to solve automatic music tagging problems. The fully convolutional network (FCN) is one of the early deep learning approaches for music tagging, which comprises four convolutional layers. Each layer is followed by batch normalization, rectified linear unit (ReLU) non-linearity, and a max-pooling layer. 3x3 convolutional filters are used to capture spectro-temporal acoustic characteristics of an input Mel spectrogram.</p>
+<p>Motivated by the huge success of convolutional neural networks (CNN) in computer vision, MIR researchers adopted the successful architectures to solve automatic music tagging problems. The fully convolutional network (FCN) is one of the early deep learning approaches for music tagging, which comprises four convolutional layers. Each layer is followed by batch normalization, rectified linear unit (ReLU) non-linearity, and a max-pooling layer. 3x3 convolutional filters are used to capture spectro-temporal acoustic characteristics of an input melspectrogram.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/P0E0zU8.png" width=650>
 </p>
 <p align = "center">
 Fully convolutional network
 </p>
-The input length of FCN is 29.1s, yielding a 96x1366 Mel spectrogram. Different sizes of strides are used for max-pooling layers ((2, 4), (4, 5), (3, 8), (4, 8)) to increase the size of receptive fields to cover the entire input Mel spectrogram.
+The input length of FCN is 29.1s, yielding a 96x1366 melspectrogram. Different sizes of strides are used for max-pooling layers ((2, 4), (4, 5), (3, 8), (4, 8)) to increase the size of receptive fields to cover the entire input melspectrogram
 </div>
 <div class="section" id="vgg-ish-short-chunk-cnn-won2020evaluation">
 <h2>VGG-ish / Short-chunk CNN, <span id="id2">[<a class="reference internal" href="../references.html#id41">Won <em>et al.</em>, 2020</a>]</span><a class="headerlink" href="#vgg-ish-short-chunk-cnn-won2020evaluation" title="Permalink to this headline">¶</a></h2>
