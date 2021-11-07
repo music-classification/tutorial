@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +33,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -81,7 +81,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p class="caption" role="heading">
  <span class="caption-text">
   The Basics
  </span>
@@ -113,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Supervised Learning
  </span>
@@ -140,7 +140,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Learning
  </span>
@@ -162,7 +162,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Self-supervised Learning
  </span>
@@ -184,7 +184,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Towards Real-world Applications
  </span>
@@ -201,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Conclusion
  </span>
@@ -213,7 +213,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -311,13 +311,13 @@
         
               <div>
                 
-  <div class="section" id="introduction">
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>In this section, we will discuss a learning paradigm that uses annotated data to solve tasks: supervised learning. Deep neural networks currently achieve state-of-the-art results in music classification. An input data of either raw waveforms of music, spectrograms, or other audio features or transformations, are fed to a neural networks that is often many layers deep and wide, and can be constructed in many different ways. We call these “deep learning architectures”. We will discuss the most successful and commonly used deep learning architectures for solving music classification tasks.</p>
-<p>In order to learn from the input data, the neural network also requires a source of truth. We often call this the <em>ground truth</em> data, <em>annotations</em> or <em>labels</em> of the dataset. To reach state-of-the-art performance, deep neural networks often need many different labeled ground truth examples to learn from.</p>
-<p>Creating or getting access to large datasets is often an expensive, let alone a hard process. Therefore, we will also observe and gain an understanding of how we can help a model to generalize by way of making variations the input data, in ways that make sense for musical data.</p>
-<p>To put everything in perspective, we will give a practical example of implementing a supervised model for the task of music classification on the GTZAN dataset.</p>
-<p>In the next section, we will first discuss common deep learning architectures that are used for solving the music classification task by way of supervised learning.</p>
+<p>In this chapter, we discuss a learning paradigm, supervised learning, which fully relies on ground truth to solve music classification tasks.</p>
+<p>The state-of-the-art in music classification has been improved with various deep neural network architectures that are based on different goals and assumptions. We discuss the most successful and commonly used architectures in music classification.</p>
+<p>We need some information to train a neural network model. We call this <em>ground truth</em>, <em>annotations</em>, or <em>labels</em> of the dataset. To reach state-of-the-art performance, deep neural networks often need many different labeled ground truth examples.</p>
+<p>Creating a large dataset is costly and tricky. As a solution, in this chapter, we introduce data augmentation – a technique we use to increase the size of dataset. Data augmentation is deeply domain specific, and we discuss the methods for musical data.</p>
+<p>Along this chapter, we implement a practical example of a supervised music classification model using GTZAN dataset. This will help the readers to put everything in perspective,</p>
 </div>
 
     <script type="text/x-thebe-config">

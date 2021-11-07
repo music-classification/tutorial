@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +33,17 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -81,7 +81,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption">
+        <p class="caption" role="heading">
  <span class="caption-text">
   The Basics
  </span>
@@ -113,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Supervised Learning
  </span>
@@ -140,7 +140,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Semi-supervised Learning
  </span>
@@ -162,7 +162,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Self-supervised Learning
  </span>
@@ -184,7 +184,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Towards Real-world Applications
  </span>
@@ -201,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Conclusion
  </span>
@@ -213,7 +213,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -341,19 +341,20 @@
                 
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>Supervised learning of deep neural networks has seen many breakthroughs in music information retrieval. Across tasks like music classification, to source seperation or music recommendation, large neural networks that use a supervised optimization scheme have reached state-of-the-art results by way of using large, human-annotated datasets.</p>
-<p>These large parameterised networks are data-hungry; they require many independent and identically distributed (i.i.d.) datapoints to generalize well in the task they are trained on. Especially in music, it can be hard to manually annotate, and the annotations often suffer from a single sources of truth. There is no single oracle: depending on the context, music theoretical background and cultural background, a song’s analysis can yield different results. In this chapter we observe a machine learning method that attempts to learn from unlabeled i.i.d. datapoints: self-supervised learning. We will first consider the term pre-training, how it is linked to self-supervised learning and its inherent caveats. Then, we will introduce the concept of self-supervised learning and review some key papers in this line of work at this moment of writing (October 2021).</p>
+<p>Supervised learning of deep neural networks has seen many breakthroughs in music information retrieval. Across tasks from music classification to source separation and music recommendation, large neural networks that use a supervised optimization scheme have reached state-of-the-art results by using large, human-annotated datasets.</p>
+<p>These large parameterised networks are data-hungry; they require many independent and identically distributed (i.i.d.) data points to generalize well in the task they are trained on. Especially in music, it can be hard to manually annotate, and the annotations often suffer from a single sources of truth. There is no single oracle: depending on the context, music theoretical background and cultural background, a song’s analysis can yield different results. This was the motivation of the previous chapter, semi-supervised learning.</p>
+<p>In this chapter, we introduce another straining strategy that attempts to learn from unlabeled i.i.d. data points: self-supervised learning. We first consider the term pre-training, how it is linked to self-supervised learning and its inherent caveats. Then, we introduce the concept of self-supervised learning and review some key papers in this line of work at this moment of writing (November 2021).</p>
 </div>
 <div class="section" id="pre-training">
 <h1>Pre-training<a class="headerlink" href="#pre-training" title="Permalink to this headline">¶</a></h1>
-<p>The weights of neural networks have to be initialized before commencing the training on a target task. This initialization currently does not hold any apriori knowledge on the task at hand. To gain the weights that belong to a global minimum in our task is not an easy feat currently, especially for smaller, annotated datasets. However, we can choose to pre-train our network on a large annotated dataset to inject some information into the weights of our network, to help it steer our optimization scheme in the direction of our global minimum. This increasingly popular way to learn embeddings from large datasets of audio, and use these to train more shallow classifiers on smaller datasets, is referred to as pre-training.</p>
-<p>However, pre-training also yields many caveats that have to be considered. Music datasets can be very biased towards certain concepts: they are represented more often and this will be picked up by our machine learning models. Even though we cannot clearly observe the bias by inspecting the weights of a trained network, it is now embedded in the pre-trained weights and will transfer downstream.</p>
-<p>Also, the weights from a network trained on a different audio task often do not transfer well. When we use the pre-trained weights of a network that is trained on speech signals, one could make a clear argument why these weights are not helpful when our downstream task is to classify music.</p>
-<p>Another challenge to consider, is that rare musical concepts (obviously) appear less in labeled datasets. In order to scale to these rarer concepts, we need a lot more data to account for this. This is generally known as the “long tail problem”, which is named after the data distribution we obtain when analyzing concepts in a dataset.</p>
+<p>The weights of neural networks have to be initialized before commencing the training on a target task. This initialization currently does not hold any apriori knowledge on the task at hand. Gaining the weights that belong to a global minimum in our task is not an easy feat currently, especially for smaller, annotated datasets.</p>
+<p>One solution is to pre-train our network on a large annotated dataset to help it steer the optimization scheme in the right direction. This is called pre-training and gaining popularity more and more.</p>
+<p>However, classical pre-training have many caveats. Music datasets can be biased towards certain concepts, which will be reflected in the trained model – and to its application to the target task. The source task and the target task won’t be the same, and the negative effective of this difference is hard to predict.</p>
+<p>Another challenge is that there are some musical concepts that rarely appear in labeled datasets. This means we would need a huge dataset to have enough representations of those rarity.</p>
 </div>
 <div class="section" id="self-supervised-learning">
 <h1>Self-supervised learning<a class="headerlink" href="#self-supervised-learning" title="Permalink to this headline">¶</a></h1>
-<p>In self-supervised learning, we obtain a supervisory signal from the data by leveraging its underlying structure. Generally, this can be done on the data itself, or in the space of the data representations. For example, we can predict part of the data from other parts of the data. Or, we can predict the future from events that occured in the past. In short - we predict the occluded from the visible, and we can control what events to occlude. Perhaps one task already sounds familiar and almost analogous: language modeling.</p>
+<p>In self-supervised learning, we obtain a supervisory signal from the data by leveraging its underlying structure. Generally, this can be done on the data itself, or in the space of the data representations. For example, we can predict part of the data from other parts of the data. Or, we can predict the future from events that occurred in the past. In short - we let the model predict the occluded from the visible while we control what to occlude. This has been a very popular approach in language modeling in the past 10 years.</p>
 <p>Within the last two years, many different self-supervised methods have been proposed, in particular for vision tasks, and resulted in great improvements over supervised methods when labeled datapoints are scarce. Recently, they even started to perform better than equivalent networks trained in a supervised manner.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -371,9 +372,9 @@
 <h1>Should I use self-supervised learning?<a class="headerlink" href="#should-i-use-self-supervised-learning" title="Permalink to this headline">¶</a></h1>
 <p>Self-supervised learning can be beneficial in the following situations:</p>
 <ul class="simple">
-<li><p>The amount of labeled data available is scarce, and you do not want to sacrifice the size, and the expressivity, of your model.</p></li>
-<li><p>Create more general-purpose representations that are not tightly coupled with a single use case, and can be used for multiple downstream tasks.</p></li>
-<li><p>Improve the robustness of your network.</p></li>
+<li><p>The amount of labeled data available is scarce</p></li>
+<li><p>You do not want to sacrifice the size and the expressivity of your model.</p></li>
+<li><p>You need general-purpose representations that are not less tightly coupled with a single use case.</p></li>
 </ul>
 <p>You should take these considerations into account:</p>
 <ul class="simple">
