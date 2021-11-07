@@ -22,13 +22,21 @@ Within the last two years, many different self-supervised methods have been prop
 ```{note}
 **Learning scheme**
 
-It is worth visiting the general learning scheme of this line of work. First, we pre-train a neural network using a self-supervised objective (the pretext task). In order to test the effectiveness of the learned representations, the pre-trained networks' weights are "frozen" and a linear evaluation on (part of) the supervised dataset is performed to compare against existing benchmarks. The linear evaluation scheme involves training a supervised linear classifier (a fully-connected layer followed by softmax) using the representations extracted from the self-supervised network, and (a subset of) the labels associated with the data.
+It is worth visiting the general learning scheme of this line of work:
+1. First, we pre-train a neural network using a self-supervised objective (the pretext task).
+2. In order to test the effectiveness of the learned representations, the pre-trained networks' weights are "frozen", and;
+3. A linear evaluation on (part of) the supervised dataset is performed to compare against existing benchmarks.
+
+The linear evaluation scheme involves training a supervised linear classifier (a fully-connected layer followed by a softmax) using the representations extracted from the self-supervised network, and (a subset of) the labels associated with the data.
 ```
 
 ## Should I use self-supervised learning?
 Self-supervised learning can be beneficial in the following situations:
-- The amount of labeled data available is scarce, but you do not want to sacrifice the size of your model.
-- Create more general-purpose representations that are not tightly coupled with your downstream task.
+- The amount of labeled data available is scarce, and you do not want to sacrifice the size, and the expressivity, of your model.
+- Create more general-purpose representations that are not tightly coupled with a single use case, and can be used for multiple downstream tasks.
+- Improve the robustness of your network.
+
 
 You should take these considerations into account:
 - A pre-trained model will have weights that reflect (and augment!) the biases embedded in a dataset.
+- The pretext task used as the self-supervised learning objective is important to analyze and reflect on, as it can yield many assumptions for the downstream task.

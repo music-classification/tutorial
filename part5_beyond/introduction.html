@@ -180,7 +180,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="self-supervised-learning.html">
-   Self-Supervised Learning
+   PyTorch Tutorial
   </a>
  </li>
 </ul>
@@ -358,19 +358,27 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>Learning scheme</strong></p>
-<p>It is worth visiting the general learning scheme of this line of work. First, we pre-train a neural network using a self-supervised objective (the pretext task). In order to test the effectiveness of the learned representations, the pre-trained networks’ weights are “frozen” and a linear evaluation on (part of) the supervised dataset is performed to compare against existing benchmarks. The linear evaluation scheme involves training a supervised linear classifier (a fully-connected layer followed by softmax) using the representations extracted from the self-supervised network, and (a subset of) the labels associated with the data.</p>
+<p>It is worth visiting the general learning scheme of this line of work:</p>
+<ol class="simple">
+<li><p>First, we pre-train a neural network using a self-supervised objective (the pretext task).</p></li>
+<li><p>In order to test the effectiveness of the learned representations, the pre-trained networks’ weights are “frozen”, and;</p></li>
+<li><p>A linear evaluation on (part of) the supervised dataset is performed to compare against existing benchmarks.</p></li>
+</ol>
+<p>The linear evaluation scheme involves training a supervised linear classifier (a fully-connected layer followed by a softmax) using the representations extracted from the self-supervised network, and (a subset of) the labels associated with the data.</p>
 </div>
 </div>
 <div class="section" id="should-i-use-self-supervised-learning">
 <h1>Should I use self-supervised learning?<a class="headerlink" href="#should-i-use-self-supervised-learning" title="Permalink to this headline">¶</a></h1>
 <p>Self-supervised learning can be beneficial in the following situations:</p>
 <ul class="simple">
-<li><p>The amount of labeled data available is scarce, but you do not want to sacrifice the size of your model.</p></li>
-<li><p>Create more general-purpose representations that are not tightly coupled with your downstream task.</p></li>
+<li><p>The amount of labeled data available is scarce, and you do not want to sacrifice the size, and the expressivity, of your model.</p></li>
+<li><p>Create more general-purpose representations that are not tightly coupled with a single use case, and can be used for multiple downstream tasks.</p></li>
+<li><p>Improve the robustness of your network.</p></li>
 </ul>
 <p>You should take these considerations into account:</p>
 <ul class="simple">
 <li><p>A pre-trained model will have weights that reflect (and augment!) the biases embedded in a dataset.</p></li>
+<li><p>The pretext task used as the self-supervised learning objective is important to analyze and reflect on, as it can yield many assumptions for the downstream task.</p></li>
 </ul>
 </div>
 
