@@ -32,9 +32,13 @@ Momentum Contrast was proposed by Kaiming He et al. (2019). It was one of the fi
 
 Training a Momentrum Contrast encoder is done with positive and negative pairs of examples in a mini-batch. The positive example pairs are made of queries that correspond to keys of the current mini-batch. The negative pairs are queries of the current mini-batch and keys from past mini-batches.
 
-<div style="margin: auto; width: 400px;">
-    <img alt="Momentum Contrast training protocol (Source: Momentum Contrast for Unsupervised Visual Representation Learning (2019))" src="../../../../book/images/janne/momentum_contrast.png"/>
-</div>
+
+```{image} ../../book/images/janne/momentum_contrast.png
+:alt: Momentum Contrast training protocol (From Momentum Contrast for Unsupervised Visual Representation Learning (2019)
+:width: 400px
+:align: center
+```
+
 
 
 The keys are encoded by a *"slowly progressing"* encoder, because the dictionary's keys are drawn over multiple mini-batches. This encoder is implemented as a momentum-based moving average. We therefore have two encoders: an encoder for the queries and a momentum-encoder for the keys. The main difference between these two encoders is in the way they are updated. The query encoder is updated by backpropagation while the momentum encoder is updated by a linear interpolation of the query and the momentum encoder.
@@ -47,24 +51,27 @@ An advantage of Momentum Contrast is that the batch size is not related to the n
 
 ![Momentum Contrast vs. other contrastive loss mechanisms (Source: Momentum Contrast for Unsupervised Visual Representation Learning (2019))](../../book/images/janne/momentum_contrast_compared.png)
 
-### SimCLR
+## SimCLR
 SimCLR was introduced by Ting Chen et al. (2020) as a simple contrastive learning approach to learn strong visual representations. It leverages strong image data augmentations, large batch sizes, a single large encoder and a simple contrastive loss to pre-train an encoder that learns effective representations. These representations are used to train very effective linear classifiers in various downstream image classification tasks.
 
 For each image example in the mini-batch, two augmented (but correlated!) views are taken. This is done by a series of data augmentations that are applied randomly to each example. This will naturally yield $2N$ datapoints per mini-batch. Each of these augmented views are then embedded using a standard ResNet encoder network. While these representations are used during linear evaluation, during the pre-training stage these representations are projected to a different latent space by a small linear layer on which the contrastive loss is computed.
 
 During pre-training, the network only learns from the contrastive loss: the labels are only used during the linear evaluation phase (see the previous section for more details).
 
-<div style="margin: auto; width: 300px">
-    <img src="../../../../book/images/janne/simclr_contrastive_learning.png"/>
-</div>
+```{image} ../../book/images/janne/simclr_contrastive_learning.png
+:width: 400px 
+:align: center
+```
 
 
-### Contrastive Losses
 
-<div align="center">
-    <img width="500" src="https://i.imgur.com/2uZeF4U.png"/>
-    <div>Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)</div>
-</div>
+## Contrastive Losses
+
+```{image} https://i.imgur.com/2uZeF4U.png
+:alt: Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)
+:width: 600px 
+:align: center
+```
 
 Many contrastive learning methods use a variant of a contrastive loss function. The contrastive loss function was first introduced in Noise Contrastive Estimation (Gutmann et al., 2010) and subsequently the InfoNCE loss from Contrastive Predictive Coding (Van den Oord et al., 2018).
 
@@ -72,9 +79,6 @@ This loss can be minimized using a variety of methods, which mostly differ in th
 
 
 $$\mathcal{L}_{q, k^{+},\left\{k^{-}\right\}}=-\log \frac{\exp \left(q \cdot k^{+} / \tau\right)}{\exp \left(q \cdot k^{+} / \tau\right)+\sum_{k^{-}} \exp \left(q \cdot k^{-} / \tau\right)}$$
-
-### SimCLR v2
-(tbd; sorry if you're reading here! @minz what exactly did you want elaborated here, just the semi-supervised gains?)
 
 
 ### PASE
