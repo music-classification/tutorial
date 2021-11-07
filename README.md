@@ -30,7 +30,7 @@ Kakao Corp., Naver Corp., Pandora, Adobe, and he recently joined ByteDance as a 
 He contributed to the winning entry in the WWW 2018 Challenge: Learning to Recognize Musical Genre.
 
 <p align = "left">
-<img src = "https://i.imgur.com/PegbqPJ.jpg" width=100>
+<img src = "https://i.imgur.com/NbpGtFZ.jpg" width=100>
 </p>
 
 [**Janne Spijkervet**](https://jspijkervet.com/) graduated from the University of Amsterdam in 2021 with her 
