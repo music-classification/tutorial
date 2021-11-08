@@ -12,6 +12,7 @@ parse:
 html:
   home_page_in_navbar  : false
   use_repository_button: true
+  google_analytics_id: UA-208590538-1
 
 repository:
   url           : "https://github.com/music-classification/tutorial"
