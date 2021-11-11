@@ -1,9 +1,19 @@
 # Music Classification: Beyond Supervised Learning, Towards Real-world Applications ![Book](images/favicon_io/favicon-32x32.png)
-## About the book 
 
 
 This is a book written for a [tutorial session](https://ismir2021.ismir.net/tutorials/) of [the 22nd International Society for Music Information Retrieval Conference](https://ismir2021.ismir.net/), Nov 8-12, 2021 in an online format. The [ISMIR conference](https://ismir.net/) is the world’s leading research forum on processing, searching, organising and accessing music-related data.
 
+## The scope
+
+The history of music classification dates back to at least 1996 {cite}`wold1996content`. The motivation of music classification remains the same since then.
+
+> *The rapid increase in speed and capacity of computers and networks has allowed the inclusion of audio as a data type in many modern computer applications.* 
+
+It was further clarified in {cite}`tzanetakis2002musical`.
+
+> .*.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..*
+
+In this book, we focus on the more modern history of music classification since the popularization of deep learning in mid 2010s. Please refer to {cite}`fu2010survey` for the earlier progress in 2000s, which was mainly the design of audio features and adoption of classifiers as well as the birth of many music classification problems.
 
 ## Motivation
 **Lower the barrier**: As deep learning emerges, music classification research has entered a new phase, and many data-driven approaches have been proposed to solve the problem. However, researchers sometimes use jargon in various ways. Also, some implementation details and evaluation methods are ambiguously described in the papers, blocking access to the information without personal contact. These are tremendous obstacles when new researchers want to dive into this fascinating research area. Through this book, we would like to lower the barrier for newcomers and reduce miscommunication between researchers by sharing the secrets.
