@@ -489,7 +489,7 @@ td {
 -->
 </div>
 <div class="section" id="fully-convolutional-networks-fcns-choi2016automatic">
-<h2>Fully Convolutional Networks (FCNs), <span id="id1">[<a class="reference internal" href="../references.html#id13">Choi <em>et al.</em>, 2016</a>]</span><a class="headerlink" href="#fully-convolutional-networks-fcns-choi2016automatic" title="Permalink to this headline">¶</a></h2>
+<h2>Fully Convolutional Networks (FCNs), <span id="id1">[<a class="reference internal" href="../references.html#id15">Choi <em>et al.</em>, 2016</a>]</span><a class="headerlink" href="#fully-convolutional-networks-fcns-choi2016automatic" title="Permalink to this headline">¶</a></h2>
 <p>Motivated by the huge success of convolutional neural networks (CNN) in computer vision, MIR researchers adopted the successful architectures to solve automatic music tagging problems. The fully convolutional network (FCN) is one of the early deep learning approaches for music tagging, which comprises four convolutional layers. Each layer is followed by batch normalization, rectified linear unit (ReLU) non-linearity, and a max-pooling layer. 3x3 convolutional filters are used to capture spectro-temporal acoustic characteristics of an input melspectrogram.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/P0E0zU8.png" width=650>
@@ -500,12 +500,12 @@ Fully convolutional network
 In the original paper, the input length of FCN was 29.1s, yielding a 96x1366 melspectrogram. Different sizes of strides were used for max-pooling layers ((2, 4), (4, 5), (3, 8), (4, 8)) to increase the size of receptive fields to cover the entire input melspectrogram
 </div>
 <div class="section" id="vgg-ish-short-chunk-cnns-won2020evaluation">
-<h2>VGG-ish / Short-chunk CNNs, <span id="id2">[<a class="reference internal" href="../references.html#id41">Won <em>et al.</em>, 2020</a>]</span><a class="headerlink" href="#vgg-ish-short-chunk-cnns-won2020evaluation" title="Permalink to this headline">¶</a></h2>
+<h2>VGG-ish / Short-chunk CNNs, <span id="id2">[<a class="reference internal" href="../references.html#id43">Won <em>et al.</em>, 2020</a>]</span><a class="headerlink" href="#vgg-ish-short-chunk-cnns-won2020evaluation" title="Permalink to this headline">¶</a></h2>
 <p>The VGG-ish model and Short-chunk CNNs are very similar to FCN except for their inputs. Instead of learning song-level representation, they utilize instance-level (chunk-level) training.</p>
 <p>Since their input length is shorter than FCN’s, the VGG-ish model and Short-chunk CNN do not need to increase the size of receptive fields with sparse strides. Instead, Short-chunk CNN, for example, consists of 7 convolutional layers with dense max-pooling (2, 2), which fits a 3.69s audio chunk. When its input becomes longer, the model summarizes the features using global max pooling.</p>
 </div>
 <div class="section" id="harmonic-cnns-won2019automatic">
-<h2>Harmonic CNNs, <span id="id3">[<a class="reference internal" href="../references.html#id40">Won <em>et al.</em>, 2019</a>]</span><a class="headerlink" href="#harmonic-cnns-won2019automatic" title="Permalink to this headline">¶</a></h2>
+<h2>Harmonic CNNs, <span id="id3">[<a class="reference internal" href="../references.html#id42">Won <em>et al.</em>, 2019</a>]</span><a class="headerlink" href="#harmonic-cnns-won2019automatic" title="Permalink to this headline">¶</a></h2>
 <p>The convolutional modules of Harmonic CNNs are identical to those of Short-chunk CNNs, but they use slightly different inputs. Harmonic CNNs take advantage of trainable band-pass filters and harmonically stacked time-frequency representation inputs. In contrast with fixed mel filterbanks, trainable filters bring more flexibility to the model. And harmonically stacked representation preserves spectro-temporal locality while keeping the harmonic structures through the channel of the input tensor in the first convolutional layer.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/WRBoq51.png" width=650>
@@ -516,7 +516,7 @@ Harmonic CNN
 If the convolution filter (red square) in the most front representation captures the activation around 200Hz, the filter in the second channel captures the activation around 400Hz, and 600Hz and 800Hz for the third and the fourth channel respectively. Since harmonic structure plays an important role in the perception of timbre, this spectro-temporal-harmonic representation can be helpful in music classification tasks. In the original paper, Harmonic CNN was trained with 5s audio segments, and the instance-level predictions were aggregated using global average pooling.
 </div>
 <div class="section" id="musicnn-pons2019musicnn">
-<h2>MusiCNN, <span id="id4">[<a class="reference internal" href="../references.html#id50">Pons and Serra, 2019</a>]</span><a class="headerlink" href="#musicnn-pons2019musicnn" title="Permalink to this headline">¶</a></h2>
+<h2>MusiCNN, <span id="id4">[<a class="reference internal" href="../references.html#id52">Pons and Serra, 2019</a>]</span><a class="headerlink" href="#musicnn-pons2019musicnn" title="Permalink to this headline">¶</a></h2>
 <p>Instead of using 3x3 filters, the authors of MusiCNN proposed to use manually designed filter shapes for music tagging. Let’s first assume that x- and y-axes correspond to time and frequency. Vertically long filters are designed to capture timbral characteristics, while horizontally long filters are designed to capture temporal energy flux that is probably related to rhythmic patterns and tempo.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/opVUKoE.png" width=650>
@@ -527,7 +527,7 @@ MusiCNN
 To enforce the pitch-invariance, a following max-pooling layer aggregates the input with the maximum value across the frequency axis. Finally, the sequence of extracted timbral and temporal features are summarized in 1D convolutional layers. MusiCNN is trained with 3s audio segments, and the instance-level predictions are aggregated using global average pooling.
 </div>
 <div class="section" id="sample-level-cnns-lee2017sample">
-<h2>Sample-level CNNs, <span id="id5">[<a class="reference internal" href="../references.html#id14">Lee <em>et al.</em>, 2017</a>]</span><a class="headerlink" href="#sample-level-cnns-lee2017sample" title="Permalink to this headline">¶</a></h2>
+<h2>Sample-level CNNs, <span id="id5">[<a class="reference internal" href="../references.html#id16">Lee <em>et al.</em>, 2017</a>]</span><a class="headerlink" href="#sample-level-cnns-lee2017sample" title="Permalink to this headline">¶</a></h2>
 <p>Sample-level CNNs and its variant tackle automatic music tagging in an end-to-end manner by directly using raw audio waveforms as their inputs. In this architecture, 1x2 or 1x3 (1D) convolution filters are used. Each layer consists of 1D convolution, batch normalization, and ReLU non-linearity. Strided convolution is used to increase the size of the receptive field.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/Q7z4vmv.png" width=650>
@@ -545,7 +545,7 @@ Spectra of the filters in the sample-level convolution layers (x-axis: index of 
 In the original paper, sample-level CNN was trained with 3.69s audio segments. The instance-level predictions are then aggregated using global average pooling.
 </div>
 <div class="section" id="convolutional-recurrent-neural-networks-crnns-choi2017convolutional">
-<h2>Convolutional Recurrent Neural Networks (CRNNs), <span id="id6">[<a class="reference internal" href="../references.html#id51">Choi <em>et al.</em>, 2017</a>]</span><a class="headerlink" href="#convolutional-recurrent-neural-networks-crnns-choi2017convolutional" title="Permalink to this headline">¶</a></h2>
+<h2>Convolutional Recurrent Neural Networks (CRNNs), <span id="id6">[<a class="reference internal" href="../references.html#id53">Choi <em>et al.</em>, 2017</a>]</span><a class="headerlink" href="#convolutional-recurrent-neural-networks-crnns-choi2017convolutional" title="Permalink to this headline">¶</a></h2>
 <p>Unlike the previously introduced instance-level models, the convolutional recurrent neural networks (CRNNs) are designed to represent music as a long sequence of multiple instances. CRNNs can be described as a combination of CNN and RNN. The CNN front end captures local acoustic characteristics (instance-level), and the RNN back end summarizes the sequence of instance-level features.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/Am4drg2.png" width=350>
@@ -556,7 +556,7 @@ Convolutional recurrent neural network
 In the original paper, four convolutional layers with 3x3 filters were used in the CNN front end, and two-layer RNN with gated recurrent units (GRU) were used in the back end. The model used 29.1s audio inputs, and it was possible because it does not need a feature aggregation step as RNN summarizes the sequence.
 </div>
 <div class="section" id="music-tagging-transformer-won2021semi">
-<h2>Music tagging transformer, <span id="id7">[<a class="reference internal" href="../references.html#id7">Won <em>et al.</em>, 2021</a>]</span><a class="headerlink" href="#music-tagging-transformer-won2021semi" title="Permalink to this headline">¶</a></h2>
+<h2>Music tagging transformer, <span id="id7">[<a class="reference internal" href="../references.html#id8">Won <em>et al.</em>, 2021</a>]</span><a class="headerlink" href="#music-tagging-transformer-won2021semi" title="Permalink to this headline">¶</a></h2>
 <p>The motivation of the convolutional neural network with self-attention (CNNSA) and Music tagging transformer is identical to that of the CRNN model. The front end captures local acoustic characteristics, and the back end summarizes the sequence. In the field of natural language processing, Transformer has shown its suitability in long sequence modeling by using self-attention layers. Both CNNSA and Music tagging transformer use the CNN front end and the Transformer back end. The back end summarizes the instance-level features effectively.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/DsGDE5U.png" width=450>
