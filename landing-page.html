@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -33,17 +33,18 @@
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -80,7 +81,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   The Basics
  </span>
@@ -112,7 +113,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Supervised Learning
  </span>
@@ -139,7 +140,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Learning
  </span>
@@ -161,7 +162,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Self-supervised Learning
  </span>
@@ -183,7 +184,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Towards Real-world Applications
  </span>
@@ -200,7 +201,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Conclusion
  </span>
@@ -212,7 +213,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Resources
  </span>
@@ -354,7 +355,7 @@
 </div></blockquote>
 <p>It was further clarified in <span id="id2">[<a class="reference internal" href="references.html#id12">Tzanetakis and Cook, 2002</a>]</span>.</p>
 <blockquote>
-<div><p>.<em>.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..</em>.</p>
+<div><p>.<em>.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..</em></p>
 </div></blockquote>
 <p>In this book, we focus on the more modern history of music classification since the popularization of deep learning in mid 2010s. Please refer to <span id="id3">[<a class="reference internal" href="references.html#id11">Fu <em>et al.</em>, 2010</a>]</span> for the earlier progress in 2000s, which was mainly the design of audio features and adoption of classifiers as well as the birth of many music classification problems.</p>
 </div>
@@ -395,7 +396,7 @@ He also writes <a class="reference external" href="https://www.youtube.com/chann
 </div>
 <div class="section" id="software">
 <h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
-<p>We use Jupyter Book<span id="id4">[<a class="reference internal" href="references.html#id28">Community, 2020</a>]</span>, Librosa 0.8.1<span id="id5">[<a class="reference internal" href="references.html#id29">McFee <em>et al.</em>, 2015</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id30">McFee <em>et al.</em>, 2021</a>]</span>, Pytorch<span id="id7">[<a class="reference internal" href="references.html#id33">Paszke <em>et al.</em>, 2019</a>]</span>, Torchaudio<span id="id8">[<a class="reference internal" href="references.html#id34">Yang <em>et al.</em>, 2021</a>]</span>, Matplotlib<span id="id9">[<a class="reference internal" href="references.html#id35">Hunter, 2007</a>]</span>, and Numpy<span id="id10">[<a class="reference internal" href="references.html#id37">Harris <em>et al.</em>, 2020</a>]</span>.</p>
+<p>We use Jupyter Book<span id="id4">[<a class="reference internal" href="references.html#id27">Community, 2020</a>]</span>, Librosa 0.8.1<span id="id5">[<a class="reference internal" href="references.html#id28">McFee <em>et al.</em>, 2015</a>]</span> <span id="id6">[<a class="reference internal" href="references.html#id29">McFee <em>et al.</em>, 2021</a>]</span>, Pytorch<span id="id7">[<a class="reference internal" href="references.html#id32">Paszke <em>et al.</em>, 2019</a>]</span>, Torchaudio<span id="id8">[<a class="reference internal" href="references.html#id33">Yang <em>et al.</em>, 2021</a>]</span>, Matplotlib<span id="id9">[<a class="reference internal" href="references.html#id34">Hunter, 2007</a>]</span>, and Numpy<span id="id10">[<a class="reference internal" href="references.html#id36">Harris <em>et al.</em>, 2020</a>]</span>.</p>
 </div>
 <div class="section" id="citing-this-book">
 <h2>Citing this book<a class="headerlink" href="#citing-this-book" title="Permalink to this headline">¶</a></h2>

@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -33,17 +33,25 @@
     
   <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -81,7 +89,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <p class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   The Basics
  </span>
@@ -113,7 +121,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Supervised Learning
  </span>
@@ -140,7 +148,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Semi-supervised Learning
  </span>
@@ -162,7 +170,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Self-supervised Learning
  </span>
@@ -184,7 +192,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Towards Real-world Applications
  </span>
@@ -201,7 +209,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Conclusion
  </span>
@@ -213,7 +221,7 @@
   </a>
  </li>
 </ul>
-<p class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Resources
  </span>
@@ -344,7 +352,13 @@
 <p>Music classification is a music information retrieval (MIR) task whose objective is the computational understanding of music semantics. For a given song, the classifier predicts relevant musical attributes. Based on the task definition, there are a nearly infinite number of classification tasks – from genres, moods, and instruments to broader concepts including music similarity and musical preferences. The retrieved information can be further utilized in many applications including music recommendation, curation, playlist generation, and semantic search.</p>
 <div class="section" id="single-label-classification">
 <h2>Single-label classification<a class="headerlink" href="#single-label-classification" title="Permalink to this headline">¶</a></h2>
-<p>Let’s say there are two record stores in your town. Record store A curates all the records in alphabetic order, while record store B categorizes their stocks based on musical genres. When you already know what you want to buy, record store A is a good place to go as you can search by the alphabetic index. However, when you want to browse and discover new music, record store B will be preferable as you can visit the section with your favorite genre. Like this, well-designed categorization (i.e., music classification) helps customers browse music more efficiently. This record store scenario can be interpreted as a single-label classification task. One item can be in a single section; hence categories (genres in this example) are exclusive.</p>
+<p align = "center">
+<img src = "https://imgur.com/zET3gNR.png" width=650>
+</p>
+<p align = "center">
+Which record store would you prefer to go?
+</p>
+<p>Let’s say there are two record stores in your town. 『ABC Records』 curates all the records in alphabetic order, while 『MIR Records』 categorizes their stocks based on musical genres. When you already know what you want to buy, 『ABC Records』 is a good place to go as you can search by the alphabetic index. However, when you want to browse and discover new music, 『MIR Records』 will be preferable as you can visit the section with your favorite genre. Like this, well-designed categorization (i.e., music classification) helps customers browse music more efficiently. This record store scenario can be interpreted as a single-label classification task. One item can be in a single section; hence categories (genres in this example) are exclusive.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/jkgJD4Z.png" width=400>
 </p>

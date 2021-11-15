@@ -57,8 +57,8 @@ Fully convolutional network
 In the original paper, the input length of FCN was 29.1s, yielding a 96x1366 melspectrogram. Different sizes of strides were used for max-pooling layers ((2, 4), (4, 5), (3, 8), (4, 8)) to increase the size of receptive fields to cover the entire input melspectrogram
 
 
-### VGG-ish / Short-chunk CNNs, {cite}`won2020evaluation`
-The VGG-ish model and Short-chunk CNNs are very similar to FCN except for their inputs. Instead of learning song-level representation, they utilize instance-level (chunk-level) training. 
+### VGG-ish / Short-chunk CNNs
+The VGG-ish model {cite}`hershey2017cnn` and Short-chunk CNNs {cite}`won2020evaluation` are very similar to FCN except for their inputs. Instead of learning song-level representation, they utilize instance-level (chunk-level) training. 
 
 
 Since their input length is shorter than FCN's, the VGG-ish model and Short-chunk CNN do not need to increase the size of receptive fields with sparse strides. Instead, Short-chunk CNN, for example, consists of 7 convolutional layers with dense max-pooling (2, 2), which fits a 3.69s audio chunk. When its input becomes longer, the model summarizes the features using global max pooling.
@@ -117,7 +117,7 @@ In the original paper, four convolutional layers with 3x3 filters were used in t
 
 
 ### Music tagging transformer, {cite}`won2021semi`
-The motivation of the convolutional neural network with self-attention (CNNSA) and Music tagging transformer is identical to that of the CRNN model. The front end captures local acoustic characteristics, and the back end summarizes the sequence. In the field of natural language processing, Transformer has shown its suitability in long sequence modeling by using self-attention layers. Both CNNSA and Music tagging transformer use the CNN front end and the Transformer back end. The back end summarizes the instance-level features effectively.
+The motivation of the convolutional neural network with self-attention (CNNSA) {cite}`won2019toward` and Music tagging transformer {cite}`won2021semi` is identical to that of the CRNN model. The front end captures local acoustic characteristics, and the back end summarizes the sequence. In the field of natural language processing, Transformer has shown its suitability in long sequence modeling by using self-attention layers. Both CNNSA and Music tagging transformer use the CNN front end and the Transformer back end. The back end summarizes the instance-level features effectively.
 <p align = "center">
 <img src = "https://i.imgur.com/DsGDE5U.png" width=450>
 </p>
@@ -136,7 +136,7 @@ Besides its performance, an advantage of using a Transformer back end is the int
 
 
 ### Which model should we use?
-After exploring this many different architectures, the first natural question would be about the *best* model to use. In previous works, experimental results in three datasets (MagnaTagATune, Million Song Data, MTG-Jamendo) are reported as follows.
+After exploring these many different architectures, the first natural question would be about the *best* model to use. In previous work {cite}`won2020evaluation`, experimental results in three datasets (MagnaTagATune, Million Song Data, MTG-Jamendo) are reported as follows.
 <p align = "center">
 <img src = "https://i.imgur.com/5rdBGjX.png" width=650>
 </p>
@@ -149,7 +149,7 @@ Comparison of music tagging models
 Summary:
 - For the best performance, use the Music tagging transformer.
 - VGG-ish and Short-chunk CNN are simple but powerful choices.
-When your training dataset is small, try with a reduced search space by using MusiCNN or Harmonic CNN.
+- When your training dataset is small, try with a reduced search space by using MusiCNN or Harmonic CNN.
 - Sample-level CNN achieves strong performance with the increase of the size of the dataset. Still, spectrogram-based models are showing state-of-the-art results.
 ```
 

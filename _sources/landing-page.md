@@ -11,7 +11,7 @@ The history of music classification dates back to at least 1996 {cite}`wold1996c
 
 It was further clarified in {cite}`tzanetakis2002musical`.
 
-> .*.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..*.
+> .*.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..*
 
 In this book, we focus on the more modern history of music classification since the popularization of deep learning in mid 2010s. Please refer to {cite}`fu2010survey` for the earlier progress in 2000s, which was mainly the design of audio features and adoption of classifiers as well as the birth of many music classification problems.
 
