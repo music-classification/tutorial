@@ -4,7 +4,14 @@ Music classification is a music information retrieval (MIR) task whose objective
 
 
 ### Single-label classification
-Let's say there are two record stores in your town. Record store A curates all the records in alphabetic order, while record store B categorizes their stocks based on musical genres. When you already know what you want to buy, record store A is a good place to go as you can search by the alphabetic index. However, when you want to browse and discover new music, record store B will be preferable as you can visit the section with your favorite genre. Like this, well-designed categorization (i.e., music classification) helps customers browse music more efficiently. This record store scenario can be interpreted as a single-label classification task. One item can be in a single section; hence categories (genres in this example) are exclusive.
+<p align = "center">
+<img src = "https://imgur.com/zET3gNR.png" width=650>
+</p>
+<p align = "center">
+Which record store would you prefer to go?
+</p>
+
+Let's say there are two record stores in your town. 『ABC Records』 curates all the records in alphabetic order, while 『MIR Records』 categorizes their stocks based on musical genres. When you already know what you want to buy, 『ABC Records』 is a good place to go as you can search by the alphabetic index. However, when you want to browse and discover new music, 『MIR Records』 will be preferable as you can visit the section with your favorite genre. Like this, well-designed categorization (i.e., music classification) helps customers browse music more efficiently. This record store scenario can be interpreted as a single-label classification task. One item can be in a single section; hence categories (genres in this example) are exclusive.
 
 
 <p align = "center">
