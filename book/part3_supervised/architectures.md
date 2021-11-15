@@ -65,7 +65,7 @@ Since their input length is shorter than FCN's, the VGG-ish model and Short-chun
 
 
 
-### Harmonic CNNs, {cite}`won2019automatic`
+### Harmonic CNNs, {cite}`won2020data`
 The convolutional modules of Harmonic CNNs are identical to those of Short-chunk CNNs, but they use slightly different inputs. Harmonic CNNs take advantage of trainable band-pass filters and harmonically stacked time-frequency representation inputs. In contrast with fixed mel filterbanks, trainable filters bring more flexibility to the model. And harmonically stacked representation preserves spectro-temporal locality while keeping the harmonic structures through the channel of the input tensor in the first convolutional layer.
 <p align = "center">
 <img src = "https://i.imgur.com/WRBoq51.png" width=650>
