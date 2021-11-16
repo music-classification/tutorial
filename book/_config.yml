@@ -1,4 +1,5 @@
 title: "Music Classification: Beyond Supervised Learning, Towards Real-world Applications"
+author: Minz Won, Janne Spijkervet, Keunwoo Choi
 #logo: images/bd.svg
 execute:
   execute_notebooks: "off"
@@ -9,8 +10,14 @@ parse:
     # including those that are enabled by default!
     - html_admonition
 
+launch_buttons:
+  notebook_interface: "classic"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
+  binderhub_url: "https://mybinder.org"
+
 html:
-  favicon: favicon.ico
+  favicon: images/favicon_io/favicon.ico
   home_page_in_navbar  : false
   use_repository_button: true
   google_analytics_id: UA-208590538-1
@@ -22,7 +29,3 @@ repository:
 
 bibtex_bibfiles:
   - references.bib
-
-sphinx:
-  config:
-    bibtex_reference_style: author_year

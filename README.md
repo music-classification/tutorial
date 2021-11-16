@@ -54,12 +54,12 @@ He also writes [some music](https://www.youtube.com/channel/UC6WGQvwwM3M7sX98zJ1
 ## Citing this book
 ```
 @book{musicclassification:book,
-	Author = {Won, Minz and Spijkervet, Janne and Choi, Keunwoo},
-	Month = Nov.,
-	Publisher = {https://music-classification.github.io/tutorial},
-	Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
-	Year = 2021,
-	Url = {https://music-classification.github.io/tutorial},
+    Author = {Won, Minz and Spijkervet, Janne and Choi, Keunwoo},
+    Month = Nov.,
+    Publisher = {https://music-classification.github.io/tutorial},
+    Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
+    Year = 2021,
+    Url = {https://music-classification.github.io/tutorial},
     doi = {10.5281/zenodo.5703780}
 }
 ```

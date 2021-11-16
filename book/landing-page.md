@@ -66,12 +66,12 @@ We use Jupyter Book{cite}`executable_books_community_2020_4539666`, Librosa 0.8.
 ## Citing this book
 ```
 @book{musicclassification:book,
-	Author = {Won, Minz and Spijkervet, Janne and Choi, Keunwoo},
-	Month = Nov.,
-	Publisher = {https://music-classification.github.io/tutorial},
-	Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
-	Year = 2021,
-	Url = {https://music-classification.github.io/tutorial},
+    Author = {Won, Minz and Spijkervet, Janne and Choi, Keunwoo},
+    Month = Nov.,
+    Publisher = {https://music-classification.github.io/tutorial},
+    Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
+    Year = 2021,
+    Url = {https://music-classification.github.io/tutorial},
     doi = {10.5281/zenodo.5703780}
 }
 ```
