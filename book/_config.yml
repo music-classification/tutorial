@@ -1,6 +1,6 @@
 title: "Music Classification: Beyond Supervised Learning, Towards Real-world Applications"
 author: Minz Won, Janne Spijkervet, Keunwoo Choi
-#logo: images/bd.svg
+logo: images/favicon_io/android-chrome-512x512.png
 execute:
   execute_notebooks: "off"
 
