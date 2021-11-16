@@ -1,7 +1,7 @@
 # Music Classification: Beyond Supervised Learning, Towards Real-world Applications
 
 
-[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://music-classification.github.io/tutorial)
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://music-classification.github.io/tutorial) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5703780.svg)](https://doi.org/10.5281/zenodo.5703780)
 
 
 ## About the book
