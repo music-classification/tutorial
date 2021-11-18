@@ -45,39 +45,40 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Datasets" href="dataset.html" />
@@ -100,6 +101,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/android-chrome-512x512.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
@@ -340,6 +346,14 @@
         
         
         
+        <a class="colab-button" href="https://colab.research.google.com/github/music-classification/tutorial/blob/main/book/part2_basics/input-representations.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
         
     </div>
 </div>
@@ -592,10 +606,10 @@
 <img alt="../_images/input-representations_13_0.png" src="../_images/input-representations_13_0.png" />
 </div>
 </div>
-<p>As the raw end of audio signals, waveforms were used as input of music classification models in <span id="id1">[<a class="reference internal" href="../references.html#id14">Dieleman and Schrauwen, 2014</a>]</span>, <span id="id2">[<a class="reference internal" href="../references.html#id16">Lee <em>et al.</em>, 2017</a>]</span>, etc.
+<p>As the raw end of audio signals, waveforms were used as input of music classification models in <span id="id1">[<a class="reference internal" href="../references.html#id15">DS14</a>]</span>, <span id="id2">[<a class="reference internal" href="../references.html#id17">LPKN17</a>]</span>, etc.
 Is waveform the best representation for neural networks? It depends, but usually it’s not.</p>
 <ul class="simple">
-<li><p>If you have a lot of data, it’s worth trying with the minimally assuming, waveform-based models such as Sample-CNN (<span id="id3">[<a class="reference internal" href="../references.html#id16">Lee <em>et al.</em>, 2017</a>]</span>). Beware though, it’s requires a large memory, lots of computation, and large-scale data.</p></li>
+<li><p>If you have a lot of data, it’s worth trying with the minimally assuming, waveform-based models such as Sample-CNN (<span id="id3">[<a class="reference internal" href="../references.html#id17">LPKN17</a>]</span>). Beware though, it’s requires a large memory, lots of computation, and large-scale data.</p></li>
 </ul>
 <p>What are the alternatives then? There is no single answer to the question. A bunch of types of <strong>spectrograms</strong> could be the answer depending on what you’re looking for.</p>
 <p>But - first of all, what are spectrograms?</p>
@@ -642,7 +656,7 @@ Is waveform the best representation for neural networks? It depends, but usually
 <div class="output text_html"><img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Uncoiled_cochlea_with_basilar_membrane.png" width="871" height="520"/></div></div>
 </div>
 <p>This means that 2-dimensioal representations are biologically plausible, which is not bad.</p>
-<p>Additionally, spectrograms are neural network-friendly because they fit well with properties of some popular architectures. For example, local correlation and the shift invariance of CNNs can be utilized nicely when we’re using spectrograms. One would argue that the harmonic relationship along the frequency axis is hardly considered in CNNs. But i) we can modify the structure to take it into account <span id="id4">[<a class="reference internal" href="../references.html#id42">Won <em>et al.</em>, 2019</a>]</span>, and its performance was on par with typical (non-harmonic) CNNs <span id="id5">[<a class="reference internal" href="../references.html#id43">Won <em>et al.</em>, 2020</a>]</span>.</p>
+<p>Additionally, spectrograms are neural network-friendly because they fit well with properties of some popular architectures. For example, local correlation and the shift invariance of CNNs can be utilized nicely when we’re using spectrograms. One would argue that the harmonic relationship along the frequency axis is hardly considered in CNNs. But i) we can modify the structure to take it into account <span id="id4">[<a class="reference internal" href="../references.html#id50">WCNCS19</a>]</span>, and its performance was on par with typical (non-harmonic) CNNs <span id="id5">[<a class="reference internal" href="../references.html#id51">WFBS20</a>]</span>.</p>
 <p>For the rest of this section, we’ll focus on three types of spectrogram. They are STFT, melspectrograms, or constant-Q transform (CQT). Let me first summarize their property from a deep learning point of view.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -733,7 +747,7 @@ stft[3, 3]=0.9398466
 </div>
 </div>
 <p>Seems like the magnitude is much larger in the low frequency region. This is very common due to our nonliear perception of loudness per frequency, and this is why the spectrogram above didn’t seem very clear to us.
-And even worse, this kind of an extreme distribution is not good for neural networks. You can find more discussion on this in <span id="id6">[<a class="reference internal" href="../references.html#id20">Choi <em>et al.</em>, 2018</a>]</span>.</p>
+And even worse, this kind of an extreme distribution is not good for neural networks. You can find more discussion on this in <span id="id6">[<a class="reference internal" href="../references.html#id26">CFCS18</a>]</span>.</p>
 <p>The solution is to take <code class="docutils literal notranslate"><span class="pre">log()</span></code> to magnitude spectrograms.</p>
 <ul class="simple">
 <li><p><strong>Modification 2</strong> After <code class="docutils literal notranslate"><span class="pre">abs()</span></code>, we compress the magnitude with <code class="docutils literal notranslate"><span class="pre">log()</span></code>. This is also biologically plausible - the human perception of loudness is much closer to a logarithmic scale than a linear scale (i.e., it follows <a class="reference external" href="https://en.wikipedia.org/wiki/Weber%E2%80%93Fechner_law">Weber–Fechner law</a>).</p></li>
@@ -992,17 +1006,17 @@ log_stft.shape=(257, 862)
 <ul class="simple">
 <li><p>On CPU</p>
 <ul>
-<li><p><strong>librosa</strong>: <a class="reference external" href="https://librosa.org/doc/latest/generated/librosa.stft.html">librosa.stft</a> internally uses <code class="docutils literal notranslate"><span class="pre">stft</span></code> but with a more tailored and carefully chosen API with default values. It also includes functions to compute a <a class="reference external" href="https://librosa.org/doc/latest/generated/librosa.feature.melspectrogram.html">melspectrogram</a> and a <a class="reference external" href="https://librosa.org/doc/latest/generated/librosa.cqt.html">CQT</a> <span id="id8">[<a class="reference internal" href="../references.html#id29">McFee <em>et al.</em>, 2015</a>]</span>.</p></li>
-<li><p><strong>scipy</strong>: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.stft.html">scipy.signal.stft</a> is a cpu-based implementation of STFT using FFT <span id="id9">[<a class="reference internal" href="../references.html#id32">Virtanen <em>et al.</em>, 2020</a>]</span>.</p></li>
-<li><p><a class="reference external" href="https://essentia.upf.edu/documentation.html"><strong>Essentia</strong></a> provides C++-based implementation of STFT and melspectrogram as well as their python bindings <span id="id10">[<a class="reference internal" href="../references.html#id31">Bogdanov <em>et al.</em>, 2013</a>]</span>.</p></li>
+<li><p><strong>librosa</strong>: <a class="reference external" href="https://librosa.org/doc/latest/generated/librosa.stft.html">librosa.stft</a> internally uses <code class="docutils literal notranslate"><span class="pre">stft</span></code> but with a more tailored and carefully chosen API with default values. It also includes functions to compute a <a class="reference external" href="https://librosa.org/doc/latest/generated/librosa.feature.melspectrogram.html">melspectrogram</a> and a <a class="reference external" href="https://librosa.org/doc/latest/generated/librosa.cqt.html">CQT</a> <span id="id8">[<a class="reference internal" href="../references.html#id36">MRL+15</a>]</span>.</p></li>
+<li><p><strong>scipy</strong>: <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.stft.html">scipy.signal.stft</a> is a cpu-based implementation of STFT using FFT <span id="id9">[<a class="reference internal" href="../references.html#id39">VGO+20</a>]</span>.</p></li>
+<li><p><a class="reference external" href="https://essentia.upf.edu/documentation.html"><strong>Essentia</strong></a> provides C++-based implementation of STFT and melspectrogram as well as their python bindings <span id="id10">[<a class="reference internal" href="../references.html#id38">BWGomezGutierrez+13</a>]</span>.</p></li>
 </ul>
 </li>
 <li><p>On CPU &amp; GPU</p>
 <ul>
-<li><p><strong>Torchaudio</strong>: One can compute STFT using <a class="reference external" href="https://pytorch.org/audio/stable/functional.html#spectrogram"><code class="docutils literal notranslate"><span class="pre">torchaudio.functional.spectrogram</span></code></a>. It also includes a wide variety of functions and utilities such as <a class="reference external" href="https://pytorch.org/audio/stable/functional.html#amplitude-to-db"><code class="docutils literal notranslate"><span class="pre">amplitude_to_DB</span></code></a> and <a class="reference external" href="https://pytorch.org/audio/stable/functional.html#resample"><code class="docutils literal notranslate"><span class="pre">resampling</span></code></a> <span id="id11">[<a class="reference internal" href="../references.html#id34">Yang <em>et al.</em>, 2021</a>]</span>.</p></li>
-<li><p><strong>nnAudio</strong>: It has multiple versions of <a class="reference external" href="https://kinwaicheuk.github.io/nnAudio/_autosummary/nnAudio.Spectrogram.html">CQT computation functions</a> as well as others e.g., STFT and melspectrogram. Its STFT computation is based on Conv1D, not FFT <span id="id12">[<a class="reference internal" href="../references.html#id36">Cheuk <em>et al.</em>, 2020</a>]</span>.</p></li>
-<li><p><strong>Tensorflow</strong>: It has a native support of <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/signal/stft">stft</a>. However, <a class="reference external" href="https://github.com/tensorflow/tensorflow/issues/6541">it is slow on cpu</a>, which might be critical if your model is going to be deployed on cpu-only machines. It, by the way, even has a <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/signal/linear_to_mel_weight_matrix">function to convert an STFT to melspectrogram</a> <span id="id13">[<a class="reference internal" href="../references.html#id44">Abadi <em>et al.</em>, 2016</a>]</span>.</p></li>
-<li><p><strong>kapre</strong>: <a class="reference external" href="https://kapre.readthedocs.io/en/latest/time_frequency.html">kapre.time_frequency</a> includes <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code> layers such as STFT and melspectrogram as well as utilities as decibel conversion. Its STFT layer is a wrapper of <code class="docutils literal notranslate"><span class="pre">tf.signal.stft</span></code> <span id="id14">[<a class="reference internal" href="../references.html#id45">Choi <em>et al.</em>, 2017</a>]</span>.</p></li>
+<li><p><strong>Torchaudio</strong>: One can compute STFT using <a class="reference external" href="https://pytorch.org/audio/stable/functional.html#spectrogram"><code class="docutils literal notranslate"><span class="pre">torchaudio.functional.spectrogram</span></code></a>. It also includes a wide variety of functions and utilities such as <a class="reference external" href="https://pytorch.org/audio/stable/functional.html#amplitude-to-db"><code class="docutils literal notranslate"><span class="pre">amplitude_to_DB</span></code></a> and <a class="reference external" href="https://pytorch.org/audio/stable/functional.html#resample"><code class="docutils literal notranslate"><span class="pre">resampling</span></code></a> <span id="id11">[<a class="reference internal" href="../references.html#id43">YHN+21</a>]</span>.</p></li>
+<li><p><strong>nnAudio</strong>: It has multiple versions of <a class="reference external" href="https://kinwaicheuk.github.io/nnAudio/_autosummary/nnAudio.Spectrogram.html">CQT computation functions</a> as well as others e.g., STFT and melspectrogram. Its STFT computation is based on Conv1D, not FFT <span id="id12">[<a class="reference internal" href="../references.html#id45">CAAH20</a>]</span>.</p></li>
+<li><p><strong>Tensorflow</strong>: It has a native support of <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/signal/stft">stft</a>. However, <a class="reference external" href="https://github.com/tensorflow/tensorflow/issues/6541">it is slow on cpu</a>, which might be critical if your model is going to be deployed on cpu-only machines. It, by the way, even has a <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/signal/linear_to_mel_weight_matrix">function to convert an STFT to melspectrogram</a> <span id="id13">[<a class="reference internal" href="../references.html#id52">ABC+16</a>]</span>.</p></li>
+<li><p><strong>kapre</strong>: <a class="reference external" href="https://kapre.readthedocs.io/en/latest/time_frequency.html">kapre.time_frequency</a> includes <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code> layers such as STFT and melspectrogram as well as utilities as decibel conversion. Its STFT layer is a wrapper of <code class="docutils literal notranslate"><span class="pre">tf.signal.stft</span></code> <span id="id14">[<a class="reference internal" href="../references.html#id53">CJK17</a>]</span>.</p></li>
 </ul>
 </li>
 </ul>
@@ -1028,8 +1042,8 @@ log_stft.shape=(257, 862)
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "music-classification/tutorial",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1080,7 +1094,7 @@ log_stft.shape=(257, 862)
     <div class="container">
       <p>
         
-          By The Jupyter Book community<br/>
+          By Minz Won, Janne Spijkervet, Keunwoo Choi<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

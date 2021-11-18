@@ -45,46 +45,47 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Evaluation" href="evaluation.html" />
@@ -107,6 +108,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/android-chrome-512x512.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
@@ -381,33 +387,33 @@
 <div class="section" id="genre-classification">
 <h2>Genre Classification<a class="headerlink" href="#genre-classification" title="Permalink to this headline">¶</a></h2>
 <p>Music genre is one of the first things that come to people’s mind when they talk about music. Every music listener knows at least some genre names. When talking about musical preferences, people assume they’re supposed to talk about their favorite genres.</p>
-<p>The simplest problem formulation of genre classification is to define a genre taxonomy that is <strong>flat</strong> and <strong>mutually exclusive</strong> (single-label classification). This is how the pioneering Gtzan genre classification dataset was constructed. The authors set 10 high-level genres:</p>
+<p>The simplest problem formulation of genre classification is to define a genre taxonomy that is <strong>flat</strong> and <strong>mutually exclusive</strong> (single-label classification). This is how the pioneering Gtzan genre classification dataset was constructed <span id="id1">[<a class="reference internal" href="../references.html#id13">TC02</a>]</span>. The authors set 10 high-level genres:</p>
 <blockquote>
 <div><p>“blues, classical, country, disco, hip hop, jazz, metal, pop, reggae, rock”.</p>
 </div></blockquote>
-<p>Are they really flat? Musicologists can argue about it for a whole night. Are they mutually exclusive? Probably.. not. One can always find (or write) hybrid music by combining some important features of various genres. However, this simplification works to some extent (Every problem formulation is wrong, but some are useful.) We also suspect people naturally have the idea of mutual exclusiveness when they think of music genres. If that’s true, the simplification is not only a bad thing. It was also adopted in Ballroom dataset, FMA-small, FMA-medium, ISMIR 2004 genre, etc.</p>
-<p>We can find a different problem formulation in more modern datasets. The mutual exclusiveness assumption was loosened in Million Song Dataset (with tagtraum genre annotations). This allows a track to have more than one genre labels (=<strong>multi-label classification</strong>), which is probably more correct. This is also the usual case where genre classification is treated as a part of a tagging problem (since tags usually include various types of labels including genres) such as MTG-Jamendo.</p>
-<p>Finally, a hierarchical genre taxonomy is considered in datasets such as FMA-Full and AcousticBrainz-Genre.</p>
+<p>Are they really flat? Musicologists can argue about it for a whole night. Are they mutually exclusive? Probably.. not. One can always find (or write) hybrid music by combining some important features of various genres. However, this simplification works to some extent (Every problem formulation is wrong, but some are useful.) We also suspect people naturally have the idea of mutual exclusiveness when they think of music genres. If that’s true, the simplification is not only a bad thing. It was also adopted in Ballroom dataset <span id="id2">[<a class="reference internal" href="../references.html#id28">CGomezG+06</a>]</span>, FMA-small and FMA-medium <span id="id3">[<a class="reference internal" href="../references.html#id27">DBVB16</a>]</span>, ISMIR 2004 genre <span id="id4">[<a class="reference internal" href="../references.html#id28">CGomezG+06</a>]</span>, etc.</p>
+<p>We can find a different problem formulation in more modern datasets. The mutual exclusiveness assumption was loosened in Million Song Dataset <span id="id5">[<a class="reference internal" href="../references.html#id18">BMEWL11</a>]</span> (with tagtraum genre annotations <span id="id6">[<a class="reference internal" href="../references.html#id24">Sch15</a>]</span>). This allows a track to have more than one genre labels (=<strong>multi-label classification</strong>), which is probably more correct. This is also the usual case where genre classification is treated as a part of a tagging problem (since tags usually include various types of labels including genres) such as MTG-Jamendo <span id="id7">[<a class="reference internal" href="../references.html#id29">BWT+19</a>]</span>.</p>
+<p>Finally, a hierarchical genre taxonomy is considered in datasets such as FMA-Full <span id="id8">[<a class="reference internal" href="../references.html#id27">DBVB16</a>]</span> and AcousticBrainz-Genre <span id="id9">[<a class="reference internal" href="../references.html#id62">BPS+19</a>]</span>.</p>
 </div>
 <div class="section" id="mood-classification">
 <h2>Mood classification<a class="headerlink" href="#mood-classification" title="Permalink to this headline">¶</a></h2>
 <p>The genre boundaries are already fuzzy, but perhaps not as much as those of mood. By definition, mood is 100% subjective; and then there is the difference between perceived mood (the mood of music) and induced mood (the mood one would feel when listening to the music) – let alone a time-varying nature of it. In practice, MIR researchers have been brave enough to be ignorant about those details and formulate mood classification problems in various ways.</p>
-<p>In general, the whole scene is similar to that of genre classification. Some early datasets are based on flat hierarchy (e.g., MoodsMIREX). When being a part of tagging problem, it’s allowed to have multi-labeling (MSD, MTG-Jamendo).</p>
+<p>In general, the whole scene is similar to that of genre classification. Some early datasets are based on flat hierarchy (e.g., MoodsMIREX). When being a part of tagging problem, it’s allowed to have multi-labeling (MSD, MTG-Jamendo) <span id="id10">[<a class="reference internal" href="../references.html#id18">BMEWL11</a>]</span>, <span id="id11">[<a class="reference internal" href="../references.html#id62">BPS+19</a>]</span>.</p>
 <p>But, there is something special in mood classification. Not all the researchers in mood understanding agreed to make a compromise and formulate it as a classification problem. As a result, some continuity was allowed when annotating mood of music.</p>
-<p>The most common method is to annotate it in a <strong>two-dimensional plane</strong> where the axes represents arousal and valence. DEAP and Emomusic are examples. Sometimes, researchers even went further. For example, the music can be annotated in a three-dimensional space – valence, arousal, and dominance. In another direction, there is time-varying annotation (every 1 second) in DEAM/Mediaeval.</p>
+<p>The most common method is to annotate it in a <strong>two-dimensional plane</strong> where the axes represents arousal and valence. DEAP and Emomusic are examples <span id="id12">[<a class="reference internal" href="../references.html#id22">KMS+11</a>]</span>, <span id="id13">[<a class="reference internal" href="../references.html#id21">SCS+13</a>]</span>. Sometimes, researchers even went further. For example, the music can be annotated in a three-dimensional space – valence, arousal, and dominance. In another direction, there is time-varying annotation (every 1 second) in DEAM/Mediaeval <span id="id14">[<a class="reference internal" href="../references.html#id20">SAY16</a>]</span>.</p>
 </div>
 <div class="section" id="instrument-identification">
 <h2>Instrument identification<a class="headerlink" href="#instrument-identification" title="Permalink to this headline">¶</a></h2>
 <p>Instrument identification is another interesting problem that is a bit different from all the others. When pop music is the target, researchers have no control in the range of the existing instruments - when sampling some tracks, it is not possible to limit the instruments to be in a pre-defined taxonomy. One can manually sample items so that there only exist some selected, target instruments. But what’s the point when reality ignores the constraint?</p>
 <p>That was, though, not a problem in the early days since researchers didn’t dare to annotate all the instruments. In fact, in the very early days, the target of instrument identification model was not even music tracks – instrument <strong>samples</strong> (e.g., 1-second clips that contains only a single note of one instrument) were the items to classify.</p>
-<p>The problem became more realistic with datasets such as IRMAS (https://www.upf.edu/web/mtg/irmas). It has annotations of a single <strong>‘predominant’ instrument</strong> of an item. This means mutual exclusiveness is assumed and the problem becomes a single-label classification. It is subjective and noisy, but again - we always approximate anyway.</p>
-<p>More recently, instrument identification was treated as <strong>multi-label classification</strong> in dataset such as OpenMIC-2018. Like other tasks, it is also a multi-label classification when being solved as a part of music tagging in MSD or MTG-Jamendo.</p>
+<p>The problem became more realistic with datasets such as <a class="reference external" href="https://www.upf.edu/web/mtg/irmas">IRMAS</a> <span id="id15">[<a class="reference internal" href="../references.html#id19">BJFH12</a>]</span>. It has annotations of a single <strong>‘predominant’ instrument</strong> of an item. This means mutual exclusiveness is assumed and the problem becomes a single-label classification. It is subjective and noisy, but again - we always approximate anyway.</p>
+<p>More recently, instrument identification was treated as <strong>multi-label classification</strong> in dataset such as OpenMIC-2018 <span id="id16">[<a class="reference internal" href="../references.html#id54">HDM18</a>]</span>. Like other tasks, it is also a multi-label classification when being solved as a part of music tagging in MSD or MTG-Jamendo <span id="id17">[<a class="reference internal" href="../references.html#id18">BMEWL11</a>]</span>, <span id="id18">[<a class="reference internal" href="../references.html#id62">BPS+19</a>]</span>.</p>
 <p>We can (relatively) safely assume that Instrument annotation is, compared to others such as genres or mood, objective. This may sound good, but this makes it difficult for researchers to accept the noise in the label. When it comes to mood or genre, when the label doesn’t seem quite right, researchers may still accept that as a result of inherent subjectivity. However, there are many, many unannotated existing instruments in OpenMIC-2018, MSD, and MTG-Jamendo – in other words, we really know with high confidence that they are wrong! For this reason, we think that the future of instrument identification dataset might be a synthetic(ally mixed) dataset with 100% correct instrument labels.</p>
 </div>
 <div class="section" id="music-tagging">
 <h2>Music tagging<a class="headerlink" href="#music-tagging" title="Permalink to this headline">¶</a></h2>
 <p>We already mentioned music tagging above, but what is it exactly? The progress of the computer and internet has given the privilege of labeling music to every single music listener – the <strong>democratization of annotation</strong>. We call this process music tagging. Social music services such as Last.fm gathered these tags, and predicting these tags from the audio content became a task named music (auto-)tagging.</p>
-<p>There is no constraint on which tag to use as long as the text field UI allows. Because of this freedom, tagging datasets are extremely <strong>messy, noisy, and in a long-tail</strong>. For example, million song dataset has 505,216 tracks with at least one last.fm tags and the total number of unique tags is.. 522,366. There are more tags than the number of the tracks! Out of them, the 7th popular tag is.. “favorite”. The 18th is “Awesome” (yes, it distinguishes lower/uppercases). 33th is “seen live”. 37th “Favorite” (I told you). 41th is “Favourite”.</p>
+<p>There is no constraint on which tag to use as long as the text field UI allows. Because of this freedom, tagging datasets are extremely <strong>messy, noisy, and in a long-tail</strong>. For example, million song dataset has 505,216 tracks with at least one last.fm tags and the total number of unique tags is.. 522,366 <span id="id19">[<a class="reference internal" href="../references.html#id18">BMEWL11</a>]</span>. There are more tags than the number of the tracks! Out of them, the 7th popular tag is.. “favorite”. The 18th is “Awesome” (yes, it distinguishes lower/uppercases). 33th is “seen live”. 37th “Favorite” (I told you). 41th is “Favourite”.</p>
 <p>Surprisingly, we can still solve this to some extent! How? Well, actually, many other tags – especially the top ones – are relevant to the music content. These are the top-15 tags after removing those mentioned fuzzy tags.</p>
 <blockquote>
 <div><p>‘rock’, ‘pop’, ‘alternative’, ‘indie’, ‘electronic’, ‘female vocalists’, ‘dance’, ’00s’, ‘alternative rock’, ‘jazz’, ‘beautiful’, ‘metal’, ‘chillout’, ‘male vocalists’, ‘classic rock’,</p>
@@ -421,8 +427,8 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "music-classification/tutorial",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -473,7 +479,7 @@
     <div class="container">
       <p>
         
-          By The Jupyter Book community<br/>
+          By Minz Won, Janne Spijkervet, Keunwoo Choi<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

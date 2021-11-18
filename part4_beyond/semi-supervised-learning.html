@@ -45,18 +45,89 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction" href="../part5_beyond/introduction.html" />
@@ -79,6 +150,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/android-chrome-512x512.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
@@ -352,8 +428,8 @@ Semi-supervised learning is a machine learning approach that utilizes both (smal
 </p>
 <p>Semi-supervised learning is a broad concept of a hybrid approach of supervised learning and semi-supervised learning. In detail, many variants have been proposed.</p>
 <ul class="simple">
-<li><p>In self-training, a teacher model is first trained with labeled data. Then the trained teacher model predicts the labels of unlabeled data. A student model is optimized to predict both the labels of labeled data and the pseudo-labels (the prediction by teacher) of unlabeled data <span id="id1">[<a class="reference internal" href="../references.html#id75">Yalniz <em>et al.</em>, 2019</a>]</span>.</p></li>
-<li><p>Consistency training constrains models to generate noise invariant predictions <span id="id2">[<a class="reference internal" href="../references.html#id56">Simard <em>et al.</em>, 2003</a>]</span>. Unsupervised loss of consistency training is formalized as follow:</p></li>
+<li><p>In self-training, a teacher model is first trained with labeled data. Then the trained teacher model predicts the labels of unlabeled data. A student model is optimized to predict both the labels of labeled data and the pseudo-labels (the prediction by teacher) of unlabeled data <span id="id1">[<a class="reference internal" href="../references.html#id84">YJegouC+19</a>]</span>.</p></li>
+<li><p>Consistency training constrains models to generate noise invariant predictions <span id="id2">[<a class="reference internal" href="../references.html#id66">SSP+03</a>]</span>. Unsupervised loss of consistency training is formalized as follow:</p></li>
 </ul>
 <p align = "center">
 <img src="https://render.githubusercontent.com/render/math?math=Loss_%7Bunsupervised%7D%20%3D%20D(p(y%7CA(x)%2C%5Ctheta)%2C%20p(y%7CA(x)%2C%5Ctheta))" width=400>
@@ -366,7 +442,7 @@ Semi-supervised learning is a machine learning approach that utilizes both (smal
 Consistency training
 </p>
 <ul class="simple">
-<li><p>Entropy regularization minimizes the entropy of the model’s predictions. A straightforward implementation is to directly minimize the entropy of the predictions for unlabeled data <span id="id3">[<a class="reference internal" href="../references.html#id55">Grandvalet <em>et al.</em>, 2005</a>]</span>. But this can be also achieved in an implicit manner by training with one-hot encoded pseudo-labels <span id="id4">[<a class="reference internal" href="../references.html#id76">Lee and others, 2013</a>]</span>. In this case, the model first makes a prediction using unlabeled data. The prediction is then modified to be an one-hot vector.</p></li>
+<li><p>Entropy regularization minimizes the entropy of the model’s predictions. A straightforward implementation is to directly minimize the entropy of the predictions for unlabeled data <span id="id3">[<a class="reference internal" href="../references.html#id65">GB+05</a>]</span>. But this can be also achieved in an implicit manner by training with one-hot encoded pseudo-labels <span id="id4">[<a class="reference internal" href="../references.html#id85">L+13</a>]</span>. In this case, the model first makes a prediction using unlabeled data. The prediction is then modified to be an one-hot vector.</p></li>
 </ul>
 <p align = "center">
 <img src = "https://imgur.com/jaNBIf5.png" width=520>
@@ -375,16 +451,16 @@ Consistency training
 Entropy regularization
 </p>
 <ul class="simple">
-<li><p>Some previous works incorporate multiple semi-supervised approaches together <span id="id5">[<a class="reference internal" href="../references.html#id77">Berthelot <em>et al.</em>, 2019</a>]</span>, <span id="id6">[<a class="reference internal" href="../references.html#id57">Xie <em>et al.</em>, 2020</a>]</span>.</p></li>
-<li><p>Other semi-supervised methods includes graph-based approaches <span id="id7">[<a class="reference internal" href="../references.html#id78">Zhu <em>et al.</em>, 2003</a>]</span> and generative modeling <span id="id8">[<a class="reference internal" href="../references.html#id79">Kingma <em>et al.</em>, 2014</a>]</span>.</p></li>
+<li><p>Some previous works incorporate multiple semi-supervised approaches together <span id="id5">[<a class="reference internal" href="../references.html#id86">BCG+19</a>]</span>, <span id="id6">[<a class="reference internal" href="../references.html#id67">XLHL20</a>]</span>.</p></li>
+<li><p>Other semi-supervised methods includes graph-based approaches <span id="id7">[<a class="reference internal" href="../references.html#id87">ZGL03</a>]</span> and generative modeling <span id="id8">[<a class="reference internal" href="../references.html#id88">KMRW14</a>]</span>.</p></li>
 </ul>
-<p>In this section, we explore a specific semi-supervised approach: Noisy student training <span id="id9">[<a class="reference internal" href="../references.html#id57">Xie <em>et al.</em>, 2020</a>]</span>. Noisy student training is a self-training process that constrains the student model to be noise-invariant.</p>
+<p>In this section, we explore a specific semi-supervised approach: Noisy student training <span id="id9">[<a class="reference internal" href="../references.html#id67">XLHL20</a>]</span>. Noisy student training is a self-training process that constrains the student model to be noise-invariant.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In some papers, SSL stands for semi-supervised learning, but others use the acronym to represent self-supervised learning. To avoid confusion, we do not use abbreviations of semi- and self-supervised learning in this book.</p>
 </div>
 <div class="section" id="noisy-student-training-xie2020self">
-<h2>Noisy student training, <span id="id10">[<a class="reference internal" href="../references.html#id57">Xie <em>et al.</em>, 2020</a>]</span><a class="headerlink" href="#noisy-student-training-xie2020self" title="Permalink to this headline">¶</a></h2>
+<h2>Noisy student training, <span id="id10">[<a class="reference internal" href="../references.html#id67">XLHL20</a>]</span><a class="headerlink" href="#noisy-student-training-xie2020self" title="Permalink to this headline">¶</a></h2>
 <p>Noisy student training is a kind of teacher-student learning (self-training). In the typical teacher-student learning, a teacher model is first trained with labeled data in a supervised scheme. Then, a student model is trained to resemble the teacher model by learning to predict the pseudo-labels, the prediction of the teacher model. What makes noisy student training special is to add noise to the input.</p>
 <p align = "center">
 <img src = "https://i.imgur.com/raPcC8d.png">
@@ -405,15 +481,15 @@ Here are the detailed steps. Step 1 in the figure above is identical to the supe
 </div>
 <div class="section" id="knowledge-expansion-and-distillation">
 <h2>Knowledge expansion and distillation<a class="headerlink" href="#knowledge-expansion-and-distillation" title="Permalink to this headline">¶</a></h2>
-<p>In noisy student training, the size of the student model is not necessarily smaller than the size of the teacher model. As a student model is exposed with larger-scale data with more difficult environments (noise), it can learn more information than the teacher model. One can interpret this method as knowledge expansion <span id="id11">[<a class="reference internal" href="../references.html#id57">Xie <em>et al.</em>, 2020</a>]</span>.</p>
-<p>On the other hand, we can also reduce the size of the student model for the sake of model compression. This process is called knowledge distillation and it is suitable for applications with less computing power <span id="id12">[<a class="reference internal" href="../references.html#id58">Kim and Rush, 2016</a>]</span>.</p>
+<p>In noisy student training, the size of the student model is not necessarily smaller than the size of the teacher model. As a student model is exposed with larger-scale data with more difficult environments (noise), it can learn more information than the teacher model. One can interpret this method as knowledge expansion <span id="id11">[<a class="reference internal" href="../references.html#id67">XLHL20</a>]</span>.</p>
+<p>On the other hand, we can also reduce the size of the student model for the sake of model compression. This process is called knowledge distillation and it is suitable for applications with less computing power <span id="id12">[<a class="reference internal" href="../references.html#id68">KR16</a>]</span>.</p>
 <p align = "center">
 <img src = "https://imgur.com/Y7QpJUp.png" width=520>
 </p>
 <p align = "center">
 MSD tagging performance
 </p>
-<p>As shown in the table, both Short-chunk ResNet and Music tagging transformer can be improved with data augmentation (DA). Then the models are further improved with noisy student training in both knowledge expansion (KE) and knowledge distillation (KD) manners  <span id="id13">[<a class="reference internal" href="../references.html#id8">Won <em>et al.</em>, 2021</a>]</span>.</p>
+<p>As shown in the table, both Short-chunk ResNet and Music tagging transformer can be improved with data augmentation (DA). Then the models are further improved with noisy student training in both knowledge expansion (KE) and knowledge distillation (KD) manners  <span id="id13">[<a class="reference internal" href="../references.html#id8">WCS21</a>]</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul class="simple">
@@ -428,8 +504,8 @@ MSD tagging performance
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "music-classification/tutorial",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -480,7 +556,7 @@ MSD tagging performance
     <div class="container">
       <p>
         
-          By The Jupyter Book community<br/>
+          By Minz Won, Janne Spijkervet, Keunwoo Choi<br/>
         
             &copy; Copyright 2021.<br/>
       </p>

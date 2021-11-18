@@ -1,4 +1,4 @@
-# Music Classification: Beyond Supervised Learning, Towards Real-world Applications ![Book](images/favicon_io/favicon-32x32.png)
+# Music Classification: Beyond Supervised Learning, Towards Real-world Applications  ![Book](images/favicon_io/favicon-32x32.png)
 
 
 This is a book written for a [tutorial session](https://ismir2021.ismir.net/tutorials/) of [the 22nd International Society for Music Information Retrieval Conference](https://ismir2021.ismir.net/), Nov 8-12, 2021 in an online format. The [ISMIR conference](https://ismir.net/) is the world’s leading research forum on processing, searching, organising and accessing music-related data.
@@ -11,10 +11,11 @@ The history of music classification dates back to at least 1996 {cite}`wold1996c
 
 It was further clarified in {cite}`tzanetakis2002musical`.
 
-> .*.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..*
+> .*.gaining importance as a way to structure and organize the increasingly large numbers of music files available digitally..*.
 
-In this book, we focus on the more modern history of music classification since the popularization of deep learning in mid 2010s. Please refer to {cite}`fu2010survey` for the earlier progress in 2000s, which was mainly the design of audio features and adoption of classifiers as well as the birth of many music classification problems.
 
+In this book, we focus on the more modern history of music classification since the popularization of deep learning in mid 2010s. Please refer to {cite}`fu2010survey` for the earlier progress in 2000s, which was mainly the design of audio features and adoption of classifiers as well as the birth of many music classification problems. {cite}`nam2018deep` includes detailed discussion of the transition to deep learning approaches. There also exist other existing tutorials, {cite}`schindler2020deep` and {cite}`choi2017tutorial`, that include more general MIR topics with a special focus on deep learning. 
+  
 ## Motivation
 **Lower the barrier**: As deep learning emerges, music classification research has entered a new phase, and many data-driven approaches have been proposed to solve the problem. However, researchers sometimes use jargon in various ways. Also, some implementation details and evaluation methods are ambiguously described in the papers, blocking access to the information without personal contact. These are tremendous obstacles when new researchers want to dive into this fascinating research area. Through this book, we would like to lower the barrier for newcomers and reduce miscommunication between researchers by sharing the secrets.
 
@@ -65,11 +66,12 @@ We use Jupyter Book{cite}`executable_books_community_2020_4539666`, Librosa 0.8.
 ## Citing this book
 ```
 @book{musicclassification:book,
-	Author = {Minz Won, Janne Spijkervet, and Keunwoo Choi},
-	Month = Nov.,
-	Publisher = {https://music-classification.github.io/tutorial},
-	Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
-	Year = 2021,
-	Url = {https://music-classification.github.io/tutorial}
+    Author = {Won, Minz and Spijkervet, Janne and Choi, Keunwoo},
+    Month = Nov.,
+    Publisher = {https://music-classification.github.io/tutorial},
+    Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
+    Year = 2021,
+    Url = {https://music-classification.github.io/tutorial},
+    doi = {10.5281/zenodo.5703780}
 }
 ```

@@ -45,18 +45,19 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Input Representations" href="../part2_basics/input-representations.html" />
@@ -79,6 +80,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/android-chrome-512x512.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications</h1>
@@ -385,10 +391,10 @@ An example of multi-label classification
 <h2>Music classification tasks<a class="headerlink" href="#music-classification-tasks" title="Permalink to this headline">¶</a></h2>
 <p>There can be an almost infinite number of music classification tasks based on product requirements. Among them, the most explored music classification tasks in MIR research are listed as follow:</p>
 <ul class="simple">
-<li><p>Genre classification <span id="id1">[<a class="reference internal" href="../references.html#id12">Tzanetakis and Cook, 2002</a>]</span></p></li>
-<li><p>Mood classification <span id="id2">[<a class="reference internal" href="../references.html#id49">Kim <em>et al.</em>, 2010</a>]</span></p></li>
-<li><p>Instrument identification <span id="id3">[<a class="reference internal" href="../references.html#id48">Herrera-Boyer <em>et al.</em>, 2003</a>]</span></p></li>
-<li><p>Music tagging <span id="id4">[<a class="reference internal" href="../references.html#id50">Lamere, 2008</a>]</span></p></li>
+<li><p>Genre classification <span id="id1">[<a class="reference internal" href="../references.html#id13">TC02</a>]</span></p></li>
+<li><p>Mood classification <span id="id2">[<a class="reference internal" href="../references.html#id57">KSM+10</a>]</span></p></li>
+<li><p>Instrument identification <span id="id3">[<a class="reference internal" href="../references.html#id56">HBPD03</a>]</span></p></li>
+<li><p>Music tagging <span id="id4">[<a class="reference internal" href="../references.html#id58">Lam08</a>]</span></p></li>
 </ul>
 <p>We discuss music classification tasks in more detail later in this chapter.</p>
 <div class="admonition note">
@@ -406,7 +412,7 @@ An example of multi-label classification
 Applications of music classification. Screenshots captured from Resso, Apple music, Pandora, and Spotify
 </p>
 <ul class="simple">
-<li><p>Recommendation: Once we have labeled or predicted musical attributes, a system can recommend music to users based on frequently consumed musical attributes of the users. Unlike <a class="reference external" href="https://en.wikipedia.org/wiki/Collaborative_filtering">collaborative filtering</a>, a prevalent recommender system using user-item interactions, this content-based recommendation does not suffer from <a class="reference external" href="https://en.wikipedia.org/wiki/Cold_start_(recommender_systems)">cold-start problems</a> and popularity bias <span id="id5">[<a class="reference internal" href="../references.html#id51">Celma, 2010</a>]</span>.</p></li>
+<li><p>Recommendation: Once we have labeled or predicted musical attributes, a system can recommend music to users based on frequently consumed musical attributes of the users. Unlike <a class="reference external" href="https://en.wikipedia.org/wiki/Collaborative_filtering">collaborative filtering</a>, a prevalent recommender system using user-item interactions, this content-based recommendation does not suffer from <a class="reference external" href="https://en.wikipedia.org/wiki/Cold_start_(recommender_systems)">cold-start problems</a> and popularity bias <span id="id5">[<a class="reference internal" href="../references.html#id59">Cel10</a>]</span>.</p></li>
 <li><p>Curation: As we checked from the previous record store example, well-designed music curation helps users browse enormous music libraries efficiently. Hence, music streaming services curate music by genres, subgenres, or moods. Human agents can manually do this process, but music classification models can replace human efforts.</p></li>
 <li><p>Playlist generation: The usage of music classification models in playlist generation is similar to the use in music recommendation. But playlist generation needs to consider the order of the songs and more user context.</p></li>
 <li><p>Listening behavior analysis: Most modern streaming services provide annual reports of personal listening trends. This report helps users to understand their taste better and is basically fun!</p></li>
@@ -424,8 +430,8 @@ Applications of music classification. Screenshots captured from Resso, Apple mus
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "music-classification/tutorial",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -454,7 +460,7 @@ Applications of music classification. Screenshots captured from Resso, Apple mus
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications </p>
+                <p class="prevnext-title">Music Classification: Beyond Supervised Learning, Towards Real-world Applications  </p>
             </div>
         </a>
     </div>
@@ -476,7 +482,7 @@ Applications of music classification. Screenshots captured from Resso, Apple mus
     <div class="container">
       <p>
         
-          By The Jupyter Book community<br/>
+          By Minz Won, Janne Spijkervet, Keunwoo Choi<br/>
         
             &copy; Copyright 2021.<br/>
       </p>
