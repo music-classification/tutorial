@@ -66,4 +66,4 @@ He also writes [some music](https://www.youtube.com/channel/UC6WGQvwwM3M7sX98zJ1
 
 ## Note
 
-- You can download [a pdf](https://zenodo.org/record/5703780/files/book.pdf) of this book from [zenodo](https://zenodo.org/record/5703780#.YZliDi2z2CM). If the pdf is not up-to-date, you can [build it by yourself](https://github.com/music-classification/tutorial/tree/main/scripts) using on your local machine.  
+- You can download [a pdf](https://zenodo.org/record/5703780/files/book.pdf) of this book from [zenodo](https://zenodo.org/record/5703780#.YZliDi2z2CM). If the pdf is not up-to-date, you can [build it by yourself](https://github.com/music-classification/tutorial/tree/main/scripts) on your local machine.  
