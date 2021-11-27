@@ -51,7 +51,7 @@ An advantage of Momentum Contrast is that the batch size is not related to the n
 
 ![Momentum Contrast vs. other contrastive loss mechanisms (Source: Momentum Contrast for Unsupervised Visual Representation Learning (2019))](../../book/images/janne/momentum_contrast_compared.png)
 
-## SimCLR
+### SimCLR
 SimCLR was introduced in {cite}`chen2020simple` as a simple contrastive learning approach to learn strong visual representations. It leverages strong image data augmentations, large batch sizes, a single large encoder and a simple contrastive loss to pre-train an encoder that learns effective representations. These representations are used to train very effective linear classifiers in various downstream image classification tasks.
 
 For each image example in the mini-batch, two augmented (but correlated!) views are taken. This is done by a series of data augmentations that are applied randomly to each example. This will naturally yield $2N$ datapoints per mini-batch. Each of these augmented views are then embedded using a standard ResNet encoder network. While these representations are used during linear evaluation, during the pre-training stage these representations are projected to a different latent space by a small linear layer on which the contrastive loss is computed.
@@ -65,7 +65,7 @@ During pre-training, the network only learns from the contrastive loss: the labe
 
 
 
-## Contrastive Losses
+### Contrastive Losses
 
 ```{image} https://i.imgur.com/2uZeF4U.png
 :alt: Figure 1 from "Improved Baselines with Momentum Contrastive Learning" (Chen et al., 2020)
@@ -89,7 +89,7 @@ PASE was proposed in {cite}`pascual2019learning`. It demonstrated that useful re
 ![The PASE architecture (Image source: Learning Problem-agnostic Speech Representations from Multiple Self-supervised Tasks (2019))](../../book/images/janne/pase_architecture.png)
 
 The improved version of PASE, which was called PASE+, uses a set of audio data augmentations to improve the robustness of the learned representations for the downstream task.
-## More papers on self-supervised learning
+### More papers on self-supervised learning
 The following is a short list of important papers in self-supervised learning, of which a few are discussed more in-depth in this tutorial:
 
 | Paper  | Year  | Tasks |

@@ -1,4 +1,4 @@
-# Introduction
+## Introduction
 In this chapter, we discuss a learning paradigm, supervised learning, which fully relies on ground truth to solve music classification tasks. 
 
 
