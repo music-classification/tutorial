@@ -314,46 +314,37 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Methods for Self-Supervised Learning
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contrastive-learning">
+   Contrastive Learning
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contrastive-learning">
-     Contrastive Learning
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#contrastive-predictive-coding">
-     Contrastive Predictive Coding
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#momentum-contrast-moco">
-     Momentum Contrast (MoCO)
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contrastive-predictive-coding">
+   Contrastive Predictive Coding
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#momentum-contrast-moco">
+   Momentum Contrast (MoCO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#simclr">
    SimCLR
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contrastive-losses">
    Contrastive Losses
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pase">
-     PASE
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pase">
+   PASE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-papers-on-self-supervised-learning">
    More papers on self-supervised learning
   </a>
@@ -409,16 +400,15 @@
 </div>
 <p><img alt="Momentum Contrast vs. other contrastive loss mechanisms (Source: Momentum Contrast for Unsupervised Visual Representation Learning (2019))" src="../_images/momentum_contrast_compared.png" /></p>
 </div>
-</div>
 <div class="section" id="simclr">
-<h1>SimCLR<a class="headerlink" href="#simclr" title="Permalink to this headline">¶</a></h1>
+<h2>SimCLR<a class="headerlink" href="#simclr" title="Permalink to this headline">¶</a></h2>
 <p>SimCLR was introduced in <span id="id3">[<a class="reference internal" href="../references.html#id75">CKNH20</a>]</span> as a simple contrastive learning approach to learn strong visual representations. It leverages strong image data augmentations, large batch sizes, a single large encoder and a simple contrastive loss to pre-train an encoder that learns effective representations. These representations are used to train very effective linear classifiers in various downstream image classification tasks.</p>
 <p>For each image example in the mini-batch, two augmented (but correlated!) views are taken. This is done by a series of data augmentations that are applied randomly to each example. This will naturally yield $2N$ datapoints per mini-batch. Each of these augmented views are then embedded using a standard ResNet encoder network. While these representations are used during linear evaluation, during the pre-training stage these representations are projected to a different latent space by a small linear layer on which the contrastive loss is computed.</p>
 <p>During pre-training, the network only learns from the contrastive loss: the labels are only used during the linear evaluation phase (see the previous section for more details).</p>
 <a class="reference internal image-reference" href="../_images/simclr_contrastive_learning.png"><img alt="../_images/simclr_contrastive_learning.png" class="align-center" src="../_images/simclr_contrastive_learning.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="contrastive-losses">
-<h1>Contrastive Losses<a class="headerlink" href="#contrastive-losses" title="Permalink to this headline">¶</a></h1>
+<h2>Contrastive Losses<a class="headerlink" href="#contrastive-losses" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="https://i.imgur.com/2uZeF4U.png"><img alt="Figure 1 from &quot;Improved Baselines with Momentum Contrastive Learning&quot; (Chen et al., 2020)" class="align-center" src="https://i.imgur.com/2uZeF4U.png" style="width: 600px;" /></a>
 <p>Many contrastive learning methods use a variant of a contrastive loss function. The contrastive loss function was first introduced in Noise Contrastive Estimation <span id="id4">[<a class="reference internal" href="../references.html#id70">GHyvarinen10</a>]</span> and subsequently the InfoNCE loss from Contrastive Predictive Coding <span id="id5">[<a class="reference internal" href="../references.html#id69">OLV18</a>]</span>.</p>
 <p>This loss can be minimized using a variety of methods, which mostly differ in the way they keep track of the keys of data examples. In SimCLR <span id="id6">[<a class="reference internal" href="../references.html#id75">CKNH20</a>]</span>, a single batch consists both of “positive” and “negative” pairs, which act as “keys” to the original examples. These are updated end-to-end by back-propagation. To increase the complexity of the contrastive learning task, it requires a large batch size to contain more negative examples. In Momentum Contrast, the negative examples’ keys are maintained in a queue. Note that only the queries and the positive keys in a single batch are encoded.</p>
@@ -426,15 +416,15 @@
 <img src="https://render.githubusercontent.com/render/math?math=%5Cmathcal%7BL%7D_%7Bq%2C%20k%5E%7B%2B%7D%2C%5Cleft%5C%7Bk%5E%7B-%7D%5Cright%5C%7D%7D%3D-%5Clog%20%5Cfrac%7B%5Cexp%20%5Cleft(q%20%5Ccdot%20k%5E%7B%2B%7D%20%2F%20%5Ctau%5Cright)%7D%7B%5Cexp%20%5Cleft(q%20%5Ccdot%20k%5E%7B%2B%7D%20%2F%20%5Ctau%5Cright)%2B%5Csum_%7Bk%5E%7B-%7D%7D%20%5Cexp%20%5Cleft(q%20%5Ccdot%20k%5E%7B-%7D%20%2F%20%5Ctau%5Cright)%7D" width=500></p>
 <p align = "center">
 </p>
+</div>
 <div class="section" id="pase">
 <h2>PASE<a class="headerlink" href="#pase" title="Permalink to this headline">¶</a></h2>
 <p>PASE was proposed in <span id="id7">[<a class="reference internal" href="../references.html#id78">PRS+19</a>]</span>. It demonstrated that useful representations for speech recognition can be learned by defining multiple pretext tasks that jointly optimize an encoder neural network. The encoder distributes the representations of the input data to multiple, small feed-forward neural networks (called <em>workers</em>) that jointly solve different pretext tasks. Each worker is composed of a single hidden layer, and either solves a regression or binary classification task. These smaller feed-forward layers are chosen because the emphasis on learning the more expressive representations is put on the larger encoder, i.e., the encoder should learn more high-level features that can be used by the <em>worker</em> networks to help solve their tasks. After pre-training the network in a self-supervised manner, the learned representations are evaluated in the task of speaker recognition, emotion recognition and phoneme recognition.</p>
 <p><img alt="The PASE architecture (Image source: Learning Problem-agnostic Speech Representations from Multiple Self-supervised Tasks (2019))" src="../_images/pase_architecture.png" /></p>
 <p>The improved version of PASE, which was called PASE+, uses a set of audio data augmentations to improve the robustness of the learned representations for the downstream task.</p>
 </div>
-</div>
 <div class="section" id="more-papers-on-self-supervised-learning">
-<h1>More papers on self-supervised learning<a class="headerlink" href="#more-papers-on-self-supervised-learning" title="Permalink to this headline">¶</a></h1>
+<h2>More papers on self-supervised learning<a class="headerlink" href="#more-papers-on-self-supervised-learning" title="Permalink to this headline">¶</a></h2>
 <p>The following is a short list of important papers in self-supervised learning, of which a few are discussed more in-depth in this tutorial:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -490,6 +480,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -339,87 +339,57 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Input Representations
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#biological-plausibility">
+   Biological Plausibility
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#biological-plausibility">
-     Biological Plausibility
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#waveforms">
    Waveforms
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#spectrograms-time-frequency-representations">
    Spectrograms: time-frequency representations
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stft">
-     STFT
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#even-more-modifications">
-     Even more modifications
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#reasons-for-modifying-the-frequency-scale">
-       Reasons for modifying the frequency scale
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#reasons-why-it-s-fine-to-remove-some-high-frequency-bands">
-       Reasons why it’s fine to remove some high frequency bands
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#reason-why-it-s-better-to-remove-some-high-frequency-bands">
-       Reason why, it’s
-       <em>
-        better
-       </em>
-       to remove some high frequency bands
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#melspectrograms">
-     Melspectrograms
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#constant-q-transform">
-     Constant-Q Transform
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stft">
+   STFT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#even-more-modifications">
+   Even more modifications
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#melspectrograms">
+   Melspectrograms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#constant-q-transform">
+   Constant-Q Transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#practical-issue-how-to-compute-them">
    Practical Issue: How to compute them?
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id7">
      Waveforms
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#spectrograms">
      Spectrograms
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#consistency-between-softwares">
      Consistency between softwares
     </a>
@@ -496,9 +466,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="waveforms">
-<h1>Waveforms<a class="headerlink" href="#waveforms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="waveforms">
+<h2>Waveforms<a class="headerlink" href="#waveforms" title="Permalink to this headline">¶</a></h2>
 <p>The first representation we’ll discuss is waveforms.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -585,8 +554,8 @@ Is waveform the best representation for neural networks? It depends, but usually
 <p>What are the alternatives then? There is no single answer to the question. A bunch of types of <strong>spectrograms</strong> could be the answer depending on what you’re looking for.</p>
 <p>But - first of all, what are spectrograms?</p>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="spectrograms-time-frequency-representations">
-<h1>Spectrograms: time-frequency representations<a class="headerlink" href="#spectrograms-time-frequency-representations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="spectrograms-time-frequency-representations">
+<h2>Spectrograms: time-frequency representations<a class="headerlink" href="#spectrograms-time-frequency-representations" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Spectrogram refers to a (2D) visualization of sound.</p>
@@ -636,6 +605,7 @@ Is waveform the best representation for neural networks? It depends, but usually
 <li><p><strong>Melspectrogram</strong> has been very popular for practical reasons. The performance is strong, its memory usage is small, and the computation is simple. This is probably everyone’s go-to choice if you’re not sure.</p></li>
 <li><p><strong>Constant-Q Transform (CQT)</strong> is quite similar to Melspectrogram for ML models. However, it is more computation heavy and is less available in softwares we use.</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="stft">
 <h2>STFT<a class="headerlink" href="#stft" title="Permalink to this headline">¶</a></h2>
@@ -813,27 +783,21 @@ log_stft.shape=(257, 862)
 <div class="section" id="even-more-modifications">
 <h2>Even more modifications<a class="headerlink" href="#even-more-modifications" title="Permalink to this headline">¶</a></h2>
 <p>By computing log(abs(STFT)), we get a nice image of the sound. But, it is just a beginning!</p>
-<div class="section" id="reasons-for-modifying-the-frequency-scale">
-<h3>Reasons for modifying the frequency scale<a class="headerlink" href="#reasons-for-modifying-the-frequency-scale" title="Permalink to this headline">¶</a></h3>
+<p><strong>Reasons for modifying the frequency scale</strong></p>
 <ul class="simple">
 <li><p>Our perception of frequency is also nonlinear (approximately.. (drum rolls!..) logarithmic).</p></li>
 <li><p>Similarly, we defined pitches in the octave (=logarithmic) scale</p></li>
 </ul>
-</div>
-<div class="section" id="reasons-why-it-s-fine-to-remove-some-high-frequency-bands">
-<h3>Reasons why it’s fine to remove some high frequency bands<a class="headerlink" href="#reasons-why-it-s-fine-to-remove-some-high-frequency-bands" title="Permalink to this headline">¶</a></h3>
+<p><strong>Reasons why it’s fine to remove some high frequency bands</strong></p>
 <ul class="simple">
 <li><p>The highest frequency of original audio signals is usually 22kHz which is pretty far beyond our range.</p></li>
 <li><p>Similarly, the information in high-frequency ranges (e.g., f &gt; 10kHz) is i) sparse, ii) not that necessary for most of MIR tasks, and iii) barely audible for us.</p></li>
 </ul>
-</div>
-<div class="section" id="reason-why-it-s-better-to-remove-some-high-frequency-bands">
-<h3>Reason why, it’s <em>better</em> to remove some high frequency bands<a class="headerlink" href="#reason-why-it-s-better-to-remove-some-high-frequency-bands" title="Permalink to this headline">¶</a></h3>
+<p><strong>Reason why, it’s <em>better</em> to remove some high frequency bands</strong></p>
 <ul class="simple">
 <li><p>Because we want to remove any redundant memory and computation especially in deep leanring.</p></li>
 </ul>
 <p>Because of these, researchers have been using time-frequency representations that are even more modified than log(abs(STFT)).</p>
-</div>
 </div>
 <div class="section" id="melspectrograms">
 <h2>Melspectrograms<a class="headerlink" href="#melspectrograms" title="Permalink to this headline">¶</a></h2>
@@ -955,12 +919,11 @@ log_stft.shape=(257, 862)
 </div>
 <p>The difference is pretty obvious here - we get a much better pitch resolution!</p>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="practical-issue-how-to-compute-them">
-<h1>Practical Issue: How to compute them?<a class="headerlink" href="#practical-issue-how-to-compute-them" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="practical-issue-how-to-compute-them">
+<h2>Practical Issue: How to compute them?<a class="headerlink" href="#practical-issue-how-to-compute-them" title="Permalink to this headline">¶</a></h2>
 <p>There are several softwares that computes these representations. Take this information with a grain of salt because it will be outdated after releasing this book (2021 Nov).</p>
 <div class="section" id="id7">
-<h2>Waveforms<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<h3>Waveforms<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>First of all, you get waveforms by simply loading the audio.</p>
 <ul class="simple">
 <li><p>You’d need an audio codec (e.g., FFMPEG) if your audio comes in formats such as mp3, m4a, aac, or ogg.</p>
@@ -972,7 +935,7 @@ log_stft.shape=(257, 862)
 </ul>
 </div>
 <div class="section" id="spectrograms">
-<h2>Spectrograms<a class="headerlink" href="#spectrograms" title="Permalink to this headline">¶</a></h2>
+<h3>Spectrograms<a class="headerlink" href="#spectrograms" title="Permalink to this headline">¶</a></h3>
 <p>There are various softwares and approaches to compute STFT, melspectrogram, and CQT.</p>
 <ul class="simple">
 <li><p>On CPU</p>
@@ -993,7 +956,7 @@ log_stft.shape=(257, 862)
 </ul>
 </div>
 <div class="section" id="consistency-between-softwares">
-<h2>Consistency between softwares<a class="headerlink" href="#consistency-between-softwares" title="Permalink to this headline">¶</a></h2>
+<h3>Consistency between softwares<a class="headerlink" href="#consistency-between-softwares" title="Permalink to this headline">¶</a></h3>
 <p>Not all the implementations are equal! Especially.. nothing.</p>
 <ul class="simple">
 <li><p>Default behavior such as padding may be different</p></li>
@@ -1006,6 +969,7 @@ log_stft.shape=(257, 862)
 <li><p><a class="reference external" href="https://colab.research.google.com/drive/1ptS1UkpHa-dW8w7WEf8xTE63mEQg8NQZ">Librosa and Tensorflow</a></p></li>
 <li><p><a class="reference external" href="https://github.com/pytorch/audio/issues/1058#issuecomment-778476093">Librosa and Torchaudio</a></p></li>
 </ul>
+</div>
 </div>
 </div>
 

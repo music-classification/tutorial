@@ -52,8 +52,8 @@ In this section, we explore a specific semi-supervised approach: Noisy student t
 In some papers, SSL stands for semi-supervised learning, but others use the acronym to represent self-supervised learning. To avoid confusion, we do not use abbreviations of semi- and self-supervised learning in this book.
 ```
 
-### Noisy student training, {cite}`xie2020self`
-Noisy student training is a kind of teacher-student learning (self-training). In the typical teacher-student learning, a teacher model is first trained with labeled data in a supervised scheme. Then, a student model is trained to resemble the teacher model by learning to predict the pseudo-labels, the prediction of the teacher model. What makes noisy student training special is to add noise to the input.
+### Noisy student training
+Noisy student training is a kind of teacher-student learning (self-training) {cite}`xie2020self`. In the typical teacher-student learning, a teacher model is first trained with labeled data in a supervised scheme. Then, a student model is trained to resemble the teacher model by learning to predict the pseudo-labels, the prediction of the teacher model. What makes noisy student training special is to add noise to the input.
 <p align = "center">
 <img src = "https://i.imgur.com/raPcC8d.png">
 </p>
