@@ -76,10 +76,11 @@ Many contrastive learning methods use a variant of a contrastive loss function. 
 
 This loss can be minimized using a variety of methods, which mostly differ in the way they keep track of the keys of data examples. In SimCLR {cite}`chen2020simple`, a single batch consists both of "positive" and "negative" pairs, which act as "keys" to the original examples. These are updated end-to-end by back-propagation. To increase the complexity of the contrastive learning task, it requires a large batch size to contain more negative examples. In Momentum Contrast, the negative examples' keys are maintained in a queue. Note that only the queries and the positive keys in a single batch are encoded.
 
-<p align = "center">
-<img src="https://render.githubusercontent.com/render/math?math=%5Cmathcal%7BL%7D_%7Bq%2C%20k%5E%7B%2B%7D%2C%5Cleft%5C%7Bk%5E%7B-%7D%5Cright%5C%7D%7D%3D-%5Clog%20%5Cfrac%7B%5Cexp%20%5Cleft(q%20%5Ccdot%20k%5E%7B%2B%7D%20%2F%20%5Ctau%5Cright)%7D%7B%5Cexp%20%5Cleft(q%20%5Ccdot%20k%5E%7B%2B%7D%20%2F%20%5Ctau%5Cright)%2B%5Csum_%7Bk%5E%7B-%7D%7D%20%5Cexp%20%5Cleft(q%20%5Ccdot%20k%5E%7B-%7D%20%2F%20%5Ctau%5Cright)%7D" width=500></p>
-<p align = "center">
-</p>
+
+```{image} ../../book/images/janne/equation_1.svg
+:width: 400px 
+:align: center
+```
 
 
 ### PASE
