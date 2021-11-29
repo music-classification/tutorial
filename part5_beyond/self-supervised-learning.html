@@ -409,9 +409,7 @@
 <div class="section" id="clmr">
 <h2>CLMR<a class="headerlink" href="#clmr" title="Permalink to this headline">¶</a></h2>
 <p>In the following examples, we will be taking a look at how Contrastive Learning of Musical Representations (Spijkervet &amp; Burgoyne, 2021) uses self-supervised learning to learn powerful representations for the downstream task of music classification.</p>
-<div style="margin: auto; width: 700px;">
-    <img src="https://i.imgur.com/rZ4rnRq.png"/>
-</div>
+<p><img alt="" src="../_images/clmr_overview.png" /></p>
 <p>In the above figure, we transform a single audio example into two, distinct augmented views by processing it through a set of stochastic audio augmentations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -615,14 +613,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>training data shape: torch.Size([48, 59049])
-validation/test data shape: torch.Size([48, 1, 59049])
-tensor([5, 1, 4, 9, 8, 5, 6, 1, 4, 9, 1, 7, 9, 4, 7, 5, 4, 7, 6, 0, 6, 1, 0, 9,
-        6, 2, 0, 1, 2, 3, 5, 4, 1, 1, 2, 7, 3, 8, 8, 8, 4, 8, 7, 1, 5, 1, 6, 5])
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="audio-data-augmentations">
 <h3>Audio Data Augmentations<a class="headerlink" href="#audio-data-augmentations" title="Permalink to this headline">¶</a></h3>
@@ -744,9 +734,7 @@ Positive pair: (x_i, x_j):
 </audio>
 </div></div>
 </div>
-<div style="margin: auto; width: 700px;">
-    <img src="https://i.imgur.com/VKzSwSn.png"/>
-</div>
+<p><img alt="" src="../_images/clmr_gradient.png" /></p>
 </div>
 </div>
 <div class="section" id="samplecnn-encoder">
@@ -964,12 +952,10 @@ In CLMR, we chose the SampleCNN encoder to learn high-level features from raw pi
 <div class="section" id="loss">
 <h2>Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
 <p>Here, we apply an InfoNCE loss, as proposed by van den Oord et al. (2018) for contrastive learning. InfoNCE loss compares the similarity of our representations $z_i$ and $z_j$, to the similarity of $z_i$ to any other representation in our batch, and applies a softmax over the obtained similarity values. We can write this loss more formally as follows:</p>
-<img src="https://render.githubusercontent.com/render/math?math=%5Cell_%7Bi%2C%20j%7D%3D-%5Clog%20%5Cfrac%7B%5Cexp%20%5Cleft(%5Coperatorname%7Bsim%7D%5Cleft(z_%7Bi%7D%2C%20z_%7Bj%7D%5Cright)%20%2F%20%5Ctau%5Cright)%7D%7B%5Csum_%7Bk%3D1%7D%5E%7B2%20N%7D%20%5Cmathbb%7B1%7D_%7B%5Bk%20%5Cneq%20i%5D%7D%20%5Cexp%20%5Cleft(%5Coperatorname%7Bsim%7D%5Cleft(z_%7Bi%7D%2C%20z_%7Bk%7D%5Cright)%20%2F%20%5Ctau%5Cright)%7D">
+<p><img alt="" src="../_images/equation_2.svg" /></p>
 <p>The similarity metric is the cosine similarity between our representations:</p>
-<img src="https://render.githubusercontent.com/render/math?math=%5Coperatorname%7Bsim%7D%5Cleft(z_%7Bi%7D%2C%20z_%7Bj%7D%5Cright)%3D%5Cfrac%7Bz_%7Bi%7D%5E%7B%5Ctop%7D%20%5Ccdot%20z_%7Bj%7D%7D%7B%5Cleft%5C%7Cz_%7Bi%7D%5Cright%5C%7C%20%5Ccdot%5Cleft%5C%7Cz_%7Bj%7D%5Cright%5C%7C%7D">
-<div style="margin: auto; width: 800px">
-    <img src="https://i.imgur.com/d9HuvNo.png"/>
-</div>
+<p><img alt="" src="../_images/equation_3.svg" /></p>
+<p><img alt="" src="../_images/nt_xent_loss_nominator.png" /></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>z = torch.cat((z_i, z_j), dim=0)`
 </pre></div>
 </div>
@@ -986,9 +972,7 @@ In CLMR, we chose the SampleCNN encoder to learn high-level features from raw pi
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">negative_samples</span> <span class="o">=</span> <span class="n">sim</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<div style="margin: auto; width: 400px;">
-    <img src="https://i.imgur.com/mWLgyuq.png"/>
-</div>
+<p><img alt="" src="../_images/nt_xent_loss_denominator.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
@@ -1045,9 +1029,7 @@ In CLMR, we chose the SampleCNN encoder to learn high-level features from raw pi
 </div>
 <div class="section" id="pre-training-clmr">
 <h2>Pre-training CLMR<a class="headerlink" href="#pre-training-clmr" title="Permalink to this headline">¶</a></h2>
-<div style="margin: auto; width: 800px">
-    <img src="https://i.imgur.com/518LdV4.gif"/>
-</div>
+<p><img alt="" src="../_images/clmr_loss_animation.gif" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following code will pre-train our SampleCNN encoder using our contrastive loss.
@@ -1120,9 +1102,7 @@ Mean loss: 2.5802388191223145
 <h2>Linear Evaluation<a class="headerlink" href="#linear-evaluation" title="Permalink to this headline">¶</a></h2>
 <p>Now, we would like to evaluate the versatility of our learned representations.
 We will train a linear classifier on the representations extracted from our pre-trained SampleCNN encoder.</p>
-<div style="margin: auto; width: 800px;">
-    <img src="https://i.imgur.com/Bg6UsiS.png"/>
-</div>
+<p><img alt="" src="../_images/clmr_global_overview.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Note that we will not be using data augmentations during linear evaluation.</p>
