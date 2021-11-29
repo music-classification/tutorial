@@ -72,10 +72,10 @@ We use Jupyter Book{cite}`executable_books_community_2020_4539666`, Librosa 0.8.
     Title = {Music Classification: Beyond Supervised Learning, Towards Real-world Applications},
     Year = 2021,
     Url = {https://music-classification.github.io/tutorial},
-    doi = {10.5281/zenodo.5703780}
+    doi = {10.5281/zenodo.5703779}
 }
 ```
 
 ## Note
 
-- You can download [a pdf](https://zenodo.org/record/5703780/files/book.pdf) of this book from [zenodo](https://zenodo.org/record/5703780#.YZliDi2z2CM). If the pdf is not up-to-date, you can [build it by yourself](https://github.com/music-classification/tutorial/tree/main/scripts) on your local machine.  
+- You can download a pdf of this book from [zenodo](https://zenodo.org/record/5703779#.YZliDi2z2CM). If the pdf is not up-to-date, you can [build it by yourself](https://github.com/music-classification/tutorial/tree/main/scripts) on your local machine.  
