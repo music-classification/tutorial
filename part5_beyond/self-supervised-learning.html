@@ -964,10 +964,9 @@ In CLMR, we chose the SampleCNN encoder to learn high-level features from raw pi
 <div class="section" id="loss">
 <h2>Loss<a class="headerlink" href="#loss" title="Permalink to this headline">¶</a></h2>
 <p>Here, we apply an InfoNCE loss, as proposed by van den Oord et al. (2018) for contrastive learning. InfoNCE loss compares the similarity of our representations $z_i$ and $z_j$, to the similarity of $z_i$ to any other representation in our batch, and applies a softmax over the obtained similarity values. We can write this loss more formally as follows:</p>
-<p>$$\ell_{i, j}=-\log \frac{\exp \left(\operatorname{sim}\left(z_{i}, z_{j}\right) / \tau\right)}{\sum_{k=1}^{2 N} \mathbb{1}<em>{[k \neq i]} \exp \left(\operatorname{sim}\left(z</em>{i}, z_{k}\right) / \tau\right)}
-$$</p>
+<img src="https://render.githubusercontent.com/render/math?math=%5Cell_%7Bi%2C%20j%7D%3D-%5Clog%20%5Cfrac%7B%5Cexp%20%5Cleft(%5Coperatorname%7Bsim%7D%5Cleft(z_%7Bi%7D%2C%20z_%7Bj%7D%5Cright)%20%2F%20%5Ctau%5Cright)%7D%7B%5Csum_%7Bk%3D1%7D%5E%7B2%20N%7D%20%5Cmathbb%7B1%7D_%7B%5Bk%20%5Cneq%20i%5D%7D%20%5Cexp%20%5Cleft(%5Coperatorname%7Bsim%7D%5Cleft(z_%7Bi%7D%2C%20z_%7Bk%7D%5Cright)%20%2F%20%5Ctau%5Cright)%7D">
 <p>The similarity metric is the cosine similarity between our representations:</p>
-<p>$$\operatorname{sim}\left(z_{i}, z_{j}\right)=\frac{z_{i}^{\top} \cdot z_{j}}{\left|z_{i}\right| \cdot\left|z_{j}\right|}$$</p>
+<img src="https://render.githubusercontent.com/render/math?math=%5Coperatorname%7Bsim%7D%5Cleft(z_%7Bi%7D%2C%20z_%7Bj%7D%5Cright)%3D%5Cfrac%7Bz_%7Bi%7D%5E%7B%5Ctop%7D%20%5Ccdot%20z_%7Bj%7D%7D%7B%5Cleft%5C%7Cz_%7Bi%7D%5Cright%5C%7C%20%5Ccdot%5Cleft%5C%7Cz_%7Bj%7D%5Cright%5C%7C%7D">
 <div style="margin: auto; width: 800px">
     <img src="https://i.imgur.com/d9HuvNo.png"/>
 </div>
@@ -1842,16 +1841,16 @@ Therefore, we also trained a supervised SampleCNN model from scratch, which reac
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "tutorial"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "tutorial",
+            kernelName: "python3",
             path: "./part5_beyond"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'tutorial'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
