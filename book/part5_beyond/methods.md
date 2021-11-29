@@ -1,8 +1,7 @@
 ## Methods for Self-Supervised Learning
 
 ### Contrastive Learning
-Contrastive learning is a method that describes learning representations by modeling similarity from natural variations of data. We also prepare dissimilar pairs and let the model learn the contrast betwen and similar and dissimilar pairs.
-
+Contrastive learning is a method that describes learning representations by modeling similarity from natural variations of data.
 It is often presented in the following stages:
 1. Encode different "views" from natural variations of a single example.
 2. Train a model with metric learning using the representations from the encoder(s).
