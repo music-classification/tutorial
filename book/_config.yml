@@ -9,6 +9,7 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - html_admonition
+    - html_image
 
 launch_buttons:
   notebook_interface: "classic"
