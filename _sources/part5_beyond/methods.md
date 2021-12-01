@@ -77,7 +77,7 @@ Many contrastive learning methods use a variant of a contrastive loss function. 
 This loss can be minimized using a variety of methods, which mostly differ in the way they keep track of the keys of data examples. In SimCLR {cite}`chen2020simple`, a single batch consists both of "positive" and "negative" pairs, which act as "keys" to the original examples. These are updated end-to-end by back-propagation. To increase the complexity of the contrastive learning task, it requires a large batch size to contain more negative examples. In Momentum Contrast, the negative examples' keys are maintained in a queue. Note that only the queries and the positive keys in a single batch are encoded.
 
 
-```{image} ../../book/images/janne/equation_1.svg
+```{image} ../../book/images/janne/equation_1.png
 :width: 400px 
 :align: center
 ```
